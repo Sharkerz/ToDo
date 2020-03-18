@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Todolist;
 use Illuminate\Http\Request;
+use Auth;
 
 class TodolistController extends Controller
 {
@@ -14,7 +15,8 @@ class TodolistController extends Controller
      */
     public function index()
     {
-        $Todos = Todolist::all();
+        $user_id = Auth::user()->id;
+        $Todos = Todolist::all() -> where('user_id', $user_id);
         return view('Todolist.index', compact('Todos'));
     }
 
