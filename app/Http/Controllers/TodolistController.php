@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\TodoList;
+use App\Todolist;
 use Illuminate\Http\Request;
 
-class TodoListController extends Controller
+class TodolistController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class TodoListController extends Controller
      */
     public function index()
     {
-        //
+        $Todos = Todolist::all();
+        return view('Todolist.index', compact('Todos'));
     }
 
     /**
@@ -41,10 +42,10 @@ class TodoListController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\TodoList  $todoList
+     * @param  \App\Todolist  $todolist
      * @return \Illuminate\Http\Response
      */
-    public function show(TodoList $todoList)
+    public function show(Todolist $todolist)
     {
         //
     }
@@ -52,10 +53,10 @@ class TodoListController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\TodoList  $todoList
+     * @param  \App\Todolist  $todolist
      * @return \Illuminate\Http\Response
      */
-    public function edit(TodoList $todoList)
+    public function edit(Todolist $todolist)
     {
         //
     }
@@ -64,10 +65,10 @@ class TodoListController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\TodoList  $todoList
+     * @param  \App\Todolist  $todolist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TodoList $todoList)
+    public function update(Request $request, Todolist $todolist)
     {
         //
     }
@@ -75,10 +76,10 @@ class TodoListController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\TodoList  $todoList
+     * @param  \App\Todolist  $todolist
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TodoList $todoList)
+    public function destroy(Todolist $todolist)
     {
         //
     }
