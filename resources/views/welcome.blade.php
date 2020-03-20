@@ -6,15 +6,21 @@
 
         <title>Laravel</title>
 
+        <!-- Title animations -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Work+Sans:400,700" rel="stylesheet">
 
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
+                background-image:url("/Images/background.png");
+                background-size: cover;
+                background-repeat: no-repeat;
+                color: #ffffff;
+                font-family: 'Work Sans', sans-serif;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
@@ -45,22 +51,24 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 54px;
             }
 
             .links > a {
-                color: #636b6f;
+                color: #ffffff;
                 padding: 0 25px;
-                font-size: 13px;
+                font-size: 15px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
             }
 
-            .m-b-md {
-                margin-bottom: 30px;
+            h1 {
+                font-family: 'Crimson Text', serif;
             }
+
+
         </style>
     </head>
     <body>
@@ -80,21 +88,34 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div class="title ml3">
+                    <h1> Todo List </h1>
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
             </div>
         </div>
+
+        <script>
+            // Wrap every letter in a span
+            var textWrapper = document.querySelector('.ml3');
+            textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+            anime.timeline({loop: true})
+                .add({
+                    targets: '.ml3 .letter',
+                    opacity: [0,1],
+                    easing: "easeInOutQuad",
+                    duration: 2250,
+                    delay: (el, i) => 150 * (i+1)
+                }).add({
+                targets: '.ml3',
+                opacity: 0,
+                duration: 600,
+                easing: "easeOutExpo",
+                delay: 1000000
+            });
+        </script>
+
     </body>
+
 </html>
