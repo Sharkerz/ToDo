@@ -19,20 +19,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <style>
-        body {
-            background-image: url("/Images/background.png");
-        }
-
-        #header a {
-            color: white;
-        }
-    </style>
-
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light" id="header">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" id="header">
             <div class="container">
                 <a class="navbar-brand" id="logo" href="{{ url('/home') }}">
                     Todo List
@@ -92,13 +82,13 @@
         <div class="container-fluid" id="footer">
             <div class="row">
                 <div class="col">
-                    <p>One of three columns </p>
+                    <p>Liens Footer </p>
                 </div>
                 <div class="col">
-                    <p>One of three columns </p>
+                    <p>Liens Footer </p>
                 </div>
                 <div class="col">
-                    <p>One of three columns </p>
+                    <p>Liens Footer </p>
                 </div>
             </div>
         </div>

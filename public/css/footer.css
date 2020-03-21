@@ -1,9 +1,12 @@
 #footer {
-    background-color: black;
+    background-color: #385d7a;
     width: 100%;
     height: 10%;
-    opacity: 0.45;
     text-align: center;
     bottom: 0;
     position: absolute;
+}
+
+#footer p {
+    color: white;
 }
