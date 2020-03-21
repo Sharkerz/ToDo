@@ -51,11 +51,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('auth.Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('auth.Register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -85,6 +85,24 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <!-- Footer -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('/css/footer.css') }}" >
+
+        <div class="container-fluid" id="footer">
+            <div class="row">
+                <div class="col">
+                    <p>One of three columns </p>
+                </div>
+                <div class="col">
+                    <p>One of three columns </p>
+                </div>
+                <div class="col">
+                    <p>One of three columns </p>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>
