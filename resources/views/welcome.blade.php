@@ -14,7 +14,7 @@
         <style>
             html, body {
                 background-image:url("/Images/background.png");
-                background-size: 100%;
+                background-size: cover;
                 background-repeat: no-repeat;
                 color: #ffffff;
                 font-family: 'Work Sans', sans-serif;
@@ -48,7 +48,7 @@
             }
 
             .title {
-                font-size: 54px;
+                font-size: 60px;
             }
 
             .links > a {
@@ -61,8 +61,16 @@
                 text-transform: uppercase;
             }
 
-            h1 {
+            h2 {
                 font-family: 'Crimson Text', serif;
+            }
+
+            .between {
+                margin-bottom: 90px;
+            }
+
+            .desc {
+
             }
 
 
@@ -85,8 +93,12 @@
             @endif
 
             <div class="content">
-                <div class="title">
-                    <h1> Todo List </h1>
+                <div class="title between">
+                    <h2> Todo List </h2>
+                </div>
+
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a justo ultrices, dignissim leo vitae, placerat augue.</p>
                 </div>
 
             </div>
