@@ -18,14 +18,21 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/header.css') }}" rel="stylesheet">
 
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" id="header">
+            <a class="navbar-brand" href="{{ url('/home') }}">
+                Todo List
+            </a>
             <div class="container">
-                <a class="navbar-brand" id="logo" href="{{ url('/home') }}">
-                    Todo List
+                <a class="navbar-brand" href="{{ url('/home') }}">
+                    Accueil
+                </a>
+                <a class="navbar-brand" href="{{ url('/index') }}">
+                    My ToDo
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
