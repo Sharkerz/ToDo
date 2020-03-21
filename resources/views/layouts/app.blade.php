@@ -31,7 +31,7 @@
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     Accueil
                 </a>
-                <a class="navbar-brand" href="{{ url('/index') }}">
+                <a class="navbar-brand" href="{{ url('/Todolist') }}">
                     My ToDo
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

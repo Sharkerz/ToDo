@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTodolistsTable extends Migration
+class CreateTasksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateTodolistsTable extends Migration
      */
     public function up()
     {
-        Schema::create('todolists', function (Blueprint $table) {
+        Schema::create('tasks', function (Blueprint $table) {
             $table->engine = "InnoDB";
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('todolist_id');
+            $table->foreign('todolist_id')->references('id')->on('todolists');
+            $table->string('content',250);
+            $table->boolean('finish');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateTodolistsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('todolists');
+        Schema::dropIfExists('tasks');
     }
 }

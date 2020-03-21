@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Todolist;
+use App\Task;
 use Illuminate\Http\Request;
-use Auth;
-use Illuminate\Support\Facades\Redirect;
 
-class TodolistController extends Controller
+class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,7 @@ class TodolistController extends Controller
      */
     public function index()
     {
-        $user_id = Auth::user()->id;
-        $Todos = Todolist::all() -> where('user_id', $user_id);
-        return view('Todolist.index', compact('Todos'));
+        //
     }
 
     /**
@@ -28,7 +24,7 @@ class TodolistController extends Controller
      */
     public function create()
     {
-        return view('Todolist.create')  ;
+        //
     }
 
     /**
@@ -39,20 +35,16 @@ class TodolistController extends Controller
      */
     public function store(Request $request)
     {
-        Todolist::create([
-            "name" => $request->input('name'),
-            "user_id" => Auth::user()->id,
-        ]);
-        return Redirect::route('Todolist.index');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Todolist  $todolist
+     * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function show(Todolist $todolist)
+    public function show(Task $task)
     {
         //
     }
@@ -60,10 +52,10 @@ class TodolistController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Todolist  $todolist
+     * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function edit(Todolist $todolist)
+    public function edit(Task $task)
     {
         //
     }
@@ -72,10 +64,10 @@ class TodolistController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Todolist  $todolist
+     * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Todolist $todolist)
+    public function update(Request $request, Task $task)
     {
         //
     }
@@ -83,10 +75,10 @@ class TodolistController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Todolist  $todolist
+     * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Todolist $todolist)
+    public function destroy(Task $task)
     {
         //
     }
