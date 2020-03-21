@@ -14,7 +14,7 @@
         <style>
             html, body {
                 background-image:url("/Images/background.png");
-                background-size: cover;
+                background-size: auto;
                 background-repeat: no-repeat;
                 color: #ffffff;
                 font-family: 'Work Sans', sans-serif;
@@ -48,7 +48,7 @@
             }
 
             .title {
-                font-size: 60px;
+                font-size: 75px;
             }
 
             .links > a {
@@ -69,8 +69,18 @@
                 margin-bottom: 90px;
             }
 
-            .desc {
+            .desc p {
+                font-size: 30px;
+                line-height: 200%;
+                margin: 0 0 0 0;
+                padding: 0;
+            }
 
+            .footer {
+                background-color: black;
+                width: 100%;
+                height: 10%;
+                opacity: 0.45;
             }
 
 
@@ -97,11 +107,14 @@
                     <h2> Todo List </h2>
                 </div>
 
-                <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a justo ultrices, dignissim leo vitae, placerat augue.</p>
+                <div class="desc">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br/> In a justo ultrices, dignissim leo vitae, placerat augue.</p>
                 </div>
 
             </div>
+        </div>
+        <div class="footer">
+
         </div>
 
     </body>
