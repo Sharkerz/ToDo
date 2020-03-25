@@ -95,19 +95,25 @@
         <div class="container-fluid" id="footer">
             <div class="row">
                 <div class="col">
-                    <p>A propos</p>
+                    <p class="titrefooter">A propos</p>
                 </div>
                 <div class="col">
-                    <p>Mon compte</p>
+                    <p class="titrefooter">Mon compte</p>
                 </div>
                 <div class="col">
-                    <p>Nous suivre</p>
+                    <p class="titrefooter">Nous suivre</p>
                 </div>
                 <div class="col">
-                    <p>Nous Contacter</p>
-                    <div>
-                        <i class="material-icons">place</i>
-                        <p>5 Avenue des Champs-Elysées, 75008 Paris</p>
+                    <p class="titrefooter">Nous Contacter</p>
+                    <div class="flex">
+                        <div class="colonne">
+                            <i class="material-icons icone">place</i>
+                            <i class="material-icons icone">place</i>
+                        </div>
+                        <div class="colonne">
+                            <p class="parafooter">5 Avenue des Champs-Elysées, 75008 Paris</p>
+                            <a href="{{ url('/Contact') }}" class="parafooter">Formulaire de contact</a>
+                        </div>
                     </div>
                 </div>
             </div>

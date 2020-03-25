@@ -10,3 +10,21 @@
 #footer p {
     color: white;
 }
+
+.flex {
+    display: flex;
+    justify-content: space-between
+}
+
+.colonne {
+    width: calc(50% - 20px)
+}
+
+.parafooter{
+    margin: 0px;
+    font-size: x-small;
+}
+
+.titrefooter{
+    margin: 2px;
+}
