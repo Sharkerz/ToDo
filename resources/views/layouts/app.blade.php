@@ -5,8 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- CSRF Token -->
@@ -107,7 +105,10 @@
                 </div>
                 <div class="col">
                     <p>Nous Contacter</p>
-                    <p>5 Avenue des Champs-Elysées, 75008 Paris</p>
+                    <div>
+                        <i class="material-icons">place</i>
+                        <p>5 Avenue des Champs-Elysées, 75008 Paris</p>
+                    </div>
                 </div>
             </div>
         </div>
