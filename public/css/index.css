@@ -11,3 +11,28 @@ thead{
     color: #fff;
 }
 
+#left_menu{
+    width: 300px;
+    height: calc(100vh - 50px);
+    padding-left: 32px;
+    margin-left: -15px;
+    position: fixed;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-right: 1px solid #f1f1f1;
+    background-color: #fafafa;
+}
+
+#item{
+    border-bottom: 1px solid #f1f1f1;
+}
+
+#item p{
+    height: 15px;
+    font-size: 20px;
+    margin:auto;
+}
+
+#btn-create{
+    float: right;
+}

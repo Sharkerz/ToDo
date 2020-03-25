@@ -14,7 +14,7 @@
                     @csrf
                     <label for="NomTodolist">Nom de la Todolist:</label>
                     <input label="Nom de la Todolist:" type="text" name="name" required></br>
-                    <input type="submit">
+                    <input type="submit" class="btn btn-success bouton-creation">
                 </form>
 
             </div>

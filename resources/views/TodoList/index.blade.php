@@ -2,28 +2,18 @@
 
 
 @section('content')
-
+<div id="left_menu" class="left_menu">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/index.css') }}" >
-    <div class="row justify-content-center">
-            <button onclick="window.location.href='/Todolist/create'" id="btn-create" type="button" class="btn btn-success bouton-creation">Créer une Todolist</button>
+    <h2> Liste de tes Todolist: </h2>
+    <tbody>
+        @foreach($Todos as $Todo)
+            <div id=item >
+               <p>{{$Todo->name}}<p></br>
+            </div>
+        @endforeach
+    </tbody>
+    <div id="bouton_create">
+            <button onclick="window.location.href='/Todolist/create'" id="btn-create" type="button" class="btn btn-success bouton-creation"><i class="material-icons">add</i></button>
         </div>
-    <h1> Liste de tes Todolist: </h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Owner</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            @foreach($Todos as $Todo)
-                <tr>
-                    <td>{{$Todo->name}}</td>
-                    <td>{{$Todo->user->name}}</td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-
+<div>
 @endsection
