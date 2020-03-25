@@ -14,8 +14,10 @@ class CreateAmisTable extends Migration
     public function up()
     {
         Schema::create('amis', function (Blueprint $table) {
-            $table->foreign('user1_id')->references('id')->on('users');
-            $table->foreign('user2_id')->references('id')->on('users');
+            $table->bigInteger('user1');
+            $table->foreign('user1')->references('id')->on('users');
+            $table->bigInteger('user2');
+            $table->foreign('user2')->references('id')->on('users');
             $table->boolean('pending');
             $table->timestamps();
         });
