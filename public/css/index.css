@@ -36,3 +36,11 @@ thead{
 #btn-create{
     float: right;
 }
+
+#Affichage_todolists{
+    width: 500px;
+}
+
+#test{
+    background-color: gray;
+}
