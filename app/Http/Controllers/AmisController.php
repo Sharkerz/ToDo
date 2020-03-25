@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Amis;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use View;
 
 class AmisController extends Controller
 {
@@ -14,7 +18,14 @@ class AmisController extends Controller
      */
     public function index()
     {
-        return view('Amis.index');
+        $user_id = Auth::id();
+        $list = Amis::where('user1', '=', $user_id)
+            ->orWhere('user2', '=', $user_id)
+            ->where('pending', '=', 1)
+            ->get();
+
+
+        return View::make('Amis.index')->with('list', $list);
     }
 
     /**
@@ -31,11 +42,24 @@ class AmisController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        if (User::where('name', '=', $request->input('name'))->exists()) {
+            $id_user2 = $request->input('name');
+            $id = User::where('name', $id_user2)->first()->id;
+            Amis::create([
+                "user1" => Auth::id(),
+                "user2" => $id,
+                "pending" => 0,
+            ]);
+            return Redirect::route('Amis.index');
+        }
+        else {
+            return Redirect::route('Amis.index');
+        }
+
     }
 
     /**
