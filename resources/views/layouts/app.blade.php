@@ -51,6 +51,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <i class="material-icons" onclick="window.location.href='{{ route('home') }}'" id="icon_notif">notifications</i>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
