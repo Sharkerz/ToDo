@@ -44,3 +44,8 @@ thead{
 #test{
     background-color: gray;
 }
+
+#item:hover {
+    background-color: #636b6f;
+    cursor: pointer;
+}
