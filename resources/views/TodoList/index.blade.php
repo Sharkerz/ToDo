@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@push('head')
+
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+@endpush
 
 @section('content')
 <div id="left_menu" class="left_menu">
@@ -7,28 +12,28 @@
     <h2> Liste de tes Todolist: </h2>
     <tbody>
         @foreach($Todos as $Todo)
-            <div id="item" >
-                <p>{{$Todo->name}}</p></br>
-                <p id="id_todolist" hidden>{{$Todo->id}}</p>
+            <div id="item">
+                <form id="formto">
+                    <p>{{$Todo->name}}</p><br>
+                    <input id="id_todolist" name="id_todolist" value="{{$Todo->id}}" type="hidden">
+                    <button id="tosubmit"></button>
+                </form>
             </div>
         @endforeach
     </tbody>
     <div id="bouton_create">
-            <button onclick="window.location.href='/Todolist/create'" id="btn-create" type="button" class="btn btn-success bouton-creation"><i class="material-icons">add</i></button>
-        </div>
-<div>
+        <button onclick="window.location.href='/Todolist/create'" id="btn-create" type="button" class="btn btn-success bouton-creation"><i class="material-icons">add</i></button>
+    </div>
+</div>
 
-<script>
-    console.log(document.getElementById("item"));
-    document.getElementById("item").addEventListener("mouseover", mouseOver);
-    document.getElementById("item").addEventListener("mouseout", mouseOver);
-    
-function mouseOver() {
-  document.getElementById("item").style.color = "red";
-}
+<div id="todolist" >
+    <span > It works </span>
+</div>
 
-function mouseOut() {
-  document.getElementById("item").style.color = "black";
-}
-</script>
 @endsection
+
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!-- Scripts ajax -->
+<script type="text/javascript" src="{{ URL::asset('js/Selectedtodolist.js') }}"></script>

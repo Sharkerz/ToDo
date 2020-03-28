@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/* Tests */
+Route::post('selectedtodolist', 'SelectedlistController')->name('selectedtodolist.post');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

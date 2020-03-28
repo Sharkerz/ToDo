@@ -16,7 +16,7 @@ thead{
     height: calc(100vh - 50px);
     padding-left: 32px;
     margin-left: -15px;
-    position: fixed;
+    position: absolute;
     overflow-x: hidden;
     overflow-y: hidden;
     border-right: 1px solid #f1f1f1;
@@ -48,4 +48,9 @@ thead{
 #item:hover {
     background-color: #636b6f;
     cursor: pointer;
+}
+
+#todolist {
+    margin-left: 30%;
+    margin-bottom: 50%;
 }
