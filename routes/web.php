@@ -17,9 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/* Tests */
+/* Ajax Todolist */
 Route::post('/electedtodolist', 'SelectedlistController')->name('selectedtodolist');
 
+
+/* Auth */
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    // Ajax Selection todolist à afficher
     $('.item').click(function (e) {
 
         id_form = $(this).children().attr('id');
@@ -19,6 +20,13 @@ $(document).ready(function () {
             e.preventDefault();
 
     });
+
+    $('div .item').click(function () {
+        $('div .item').removeClass('selected');
+        $(this).addClass('selected');
+    });
+
+
 });
 
 

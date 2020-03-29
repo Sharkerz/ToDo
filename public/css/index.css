@@ -14,17 +14,18 @@ thead{
 #left_menu{
     width: 300px;
     height: calc(100vh - 50px);
-    padding-left: 32px;
-    margin-left: -15px;
+    padding-left: 0;
+    margin-left: 0px;
     position: absolute;
     overflow-x: hidden;
     overflow-y: hidden;
     border-right: 1px solid #f1f1f1;
-    background-color: #fafafa;
+    background-color: #F2F2F2;
 }
 
 .item{
-    border-bottom: 1px solid #f1f1f1;
+    border-bottom: 1px solid #EAE5E5;
+    padding-left: 13px;
 }
 
 .item p{
@@ -35,22 +36,27 @@ thead{
 
 #btn-create{
     float: right;
+    font-size: 2.5rem;
+}
+
+#btn-create:hover {
+    cursor: pointer;
 }
 
 #Affichage_todolists{
     width: 500px;
 }
 
-#test{
-    background-color: gray;
-}
-
 .item:hover {
-    background-color: #636b6f;
+    background-color: white;
     cursor: pointer;
 }
 
 #todolist {
     margin-left: 30%;
     margin-bottom: 50%;
+}
+
+.selected {
+    background-color: #D8F6F1;
 }
