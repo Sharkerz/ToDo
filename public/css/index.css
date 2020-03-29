@@ -55,8 +55,22 @@ thead{
 #todolist {
     margin-left: 30%;
     margin-bottom: 50%;
+    visibility: hidden;
 }
 
 .selected {
     background-color: #D8F6F1;
+}
+
+/*========================
+     Ajout d'une tache
+========================*/
+
+/* Bouton + add task */
+#btn-task {
+    font-size: 2rem;
+}
+
+#btn-task:hover {
+    cursor: pointer;
 }

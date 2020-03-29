@@ -4,10 +4,6 @@
     //Import de class User
     use App\User;
 
-    if(isset($error_user)) {
-    echo "<script>alert(\"Hello\")</script>";
-}
-
 @endphp
 
 @section('content')

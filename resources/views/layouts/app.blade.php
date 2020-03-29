@@ -23,7 +23,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/header.css') }}" rel="stylesheet">
 
+    <!-- JQuery et Ajax-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 </head>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" id="header">
@@ -51,7 +56,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <i class="material-icons" onclick="window.location.href='{{ route('home') }}'" id="icon_notif">notifications</i>
+                        <i class="material-icons" onclick="window.location.href='{{ url('/Notifications') }}'" id="icon_notif">notifications_none</i>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -121,5 +126,10 @@
         </div>
 
     </div>
+
+
+    <!-- Script notifications -->
+    <script type="text/javascript" src="{{ URL::asset('js/Notifications.js') }}"></script>
+
 </body>
 </html>

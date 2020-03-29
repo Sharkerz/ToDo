@@ -29,12 +29,21 @@
 
 <div id="todolist" >
     <span ></span>
+
+    <!-- Ajout d'une tache -->
+    <form id="form-task">
+        <i class="material-icons" id="btn-task" id="icon_notif">add</i>
+        <input type="text" placeholder="Ajouter une tache">
+    </form>
+
 </div>
 
 @endsection
 
-<!-- JQuery -->
+<!-- JQuery et Ajax-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
 <!-- Scripts ajax -->
 <script type="text/javascript" src="{{ URL::asset('js/Selectedtodolist.js') }}"></script>

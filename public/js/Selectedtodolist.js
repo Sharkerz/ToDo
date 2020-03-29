@@ -13,7 +13,8 @@ $(document).ready(function () {
                 data: $('#' + id_form).serialize(),
                 success: function (Response) {
                     id_list = Response.id_todolist;
-                    $('#todolist').text('Affichage de la todolist avec id:' + id_list);
+                    $('#todolist span').text('Affichage de la todolist avec id:' + id_list);
+                    $("#todolist").css('visibility', 'visible')
                 },
 
             });

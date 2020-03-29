@@ -1,0 +1,20 @@
+table {
+    border: solid black 2px;
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+th {
+    font-family: monospace;
+    background-color: orange;
+    text-align: center;
+}
+td {
+    font-family: sans-serif;
+    border: thin solid #6495ed;
+    width: 50%;
+    padding: 5px;
+    text-align: center;
+    background-color: #ffffff;
+}
