@@ -16,13 +16,12 @@ class SelectedlistController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //if ($request->ajax()) {
+        if ($request->ajax()) {
 
-//            $Validator = $Validator::make(
-//                $request->all(),
-//            )
-        return response()->json(['message'=>'working'],200);
-        //}
-        //abort(404);
+            $id = $request->input('id_todolist');
+
+            return response()->json(['id_todolist'=>$id],200);
+        }
+        abort(404);
     }
 }

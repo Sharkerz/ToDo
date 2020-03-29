@@ -12,12 +12,11 @@
     <h2> Liste de tes Todolist: </h2>
     <tbody>
         @foreach($Todos as $Todo)
-            <div id="item">
-                <form id="form-data" method="post" action='{{ route('selectedtodolist') }}'>
+            <div class="item">
+                <form class="form-data" id="form-{{$Todo->id}}" method="post" data-route='{{ route('selectedtodolist') }}'>
                     {{ csrf_field() }}
-
-                    <input name="id_todolist" value="{{$Todo->id}}" type="text">
-                    <button type="submit"></button>
+                    <p>{{$Todo->name}}</p>
+                    <input name="id_todolist" value="{{$Todo->id}}" type="text" hidden>
                 </form>
             </div>
         @endforeach
@@ -28,7 +27,7 @@
 </div>
 
 <div id="todolist" >
-    <span > It works </span>
+    <span ></span>
 </div>
 
 @endsection

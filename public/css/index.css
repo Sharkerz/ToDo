@@ -23,11 +23,11 @@ thead{
     background-color: #fafafa;
 }
 
-#item{
+.item{
     border-bottom: 1px solid #f1f1f1;
 }
 
-#item p{
+.item p{
     height: 15px;
     font-size: 20px;
     margin:auto;
@@ -45,7 +45,7 @@ thead{
     background-color: gray;
 }
 
-#item:hover {
+.item:hover {
     background-color: #636b6f;
     cursor: pointer;
 }

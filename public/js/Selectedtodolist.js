@@ -1,26 +1,24 @@
-// $.ajaxSetup({
-//     headers: {
-//         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//     }
-// });
-//
+$(document).ready(function () {
 
-$("#form-data").submit(function(e){
-    alert('has been submitted');
-        var route = $('#form-data').data('data');
-        var form_data = $(this);
+    $('.item').click(function (e) {
 
-        $.ajax({
-            type: 'POST',
-            url: route,
-            data: form_data.serialize(),
-            dataType: 'json',
-            success: function(Response) {
-                alert(Response);
-            },
+        id_form = $(this).children().attr('id');
 
-        });
+           var route = $('#' + id_form).data('route');
 
-    e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: route,
+                data: $('#' + id_form).serialize(),
+                success: function (Response) {
+                    id_list = Response.id_todolist;
+                    $('#todolist').text('Affichage de la todolist avec id:' + id_list);
+                },
+
+            });
+            e.preventDefault();
 
     });
+});
+
+
