@@ -13,10 +13,11 @@
     <tbody>
         @foreach($Todos as $Todo)
             <div id="item">
-                <form id="formto">
-                    <p>{{$Todo->name}}</p><br>
-                    <input id="id_todolist" name="id_todolist" value="{{$Todo->id}}" type="hidden">
-                    <button id="tosubmit"></button>
+                <form id="form-data" method="post" action='{{ route('selectedtodolist') }}'>
+                    {{ csrf_field() }}
+
+                    <input name="id_todolist" value="{{$Todo->id}}" type="text">
+                    <button type="submit"></button>
                 </form>
             </div>
         @endforeach

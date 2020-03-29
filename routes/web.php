@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 /* Tests */
-Route::post('selectedtodolist', 'SelectedlistController')->name('selectedtodolist.post');
+Route::post('/selectedtodolist', 'SelectedlistController')->name('selectedtodolist');
 
 Auth::routes();
 

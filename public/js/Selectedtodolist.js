@@ -1,32 +1,26 @@
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
+// $.ajaxSetup({
+//     headers: {
+//         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//     }
+// });
+//
 
-
-$("#tosubmit").click(function(e){
-
-        e.preventDefault();
-        console.log("hello");
-
-    var pass= {'_token':$('meta[name="csrf-token"]').attr('content'),
-        'id_todolist': 'id_todolist',
-    };
+$("#form-data").submit(function(e){
+    alert('has been submitted');
+        var route = $('#form-data').data('data');
+        var form_data = $(this);
 
         $.ajax({
-            type: "POST",
-            url: '{{url("/selectedtodolist")}}',
-            data: pass,
+            type: 'POST',
+            url: route,
+            data: form_data.serialize(),
             dataType: 'json',
-            success: function(data) {
-                alert('hi');
+            success: function(Response) {
+                alert(Response);
             },
-            error:function (XMLHttpRequest, textStatus, errorThrown){
-                alert("error: "+ textStatus);
-            }
-        })
-            .done((data) => {
-                console.log('hello du done');
-            })
+
+        });
+
+    e.preventDefault();
+
     });

@@ -16,14 +16,13 @@ class SelectedlistController extends Controller
      */
     public function __invoke(Request $request)
     {
-        if ($request->ajax()) {
+        //if ($request->ajax()) {
 
-            $this->validate($request, [
-                'id_todolist' => 'bail|required|email'
-            ]);
-
-            return response ()->json ();
-        }
-        abort(404);
+//            $Validator = $Validator::make(
+//                $request->all(),
+//            )
+        return response()->json(['message'=>'working'],200);
+        //}
+        //abort(404);
     }
 }
