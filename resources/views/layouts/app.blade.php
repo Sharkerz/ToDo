@@ -65,8 +65,7 @@
                         <div class="btn-group">
                             <i class="material-icons" id="icon_notif" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">notifications_none</i>
                             <div class="dropdown-menu" id="list_notif">
-                                <a class="dropdown-item">Demande d'amis:</a>
-                                <div class="dropdown-divider"></div>
+                                <h6 class="dropdown-header">Demandes d'amis</h6>
                             </div>
                         </div>
 
