@@ -17,7 +17,7 @@
 }
 
 .colonne {
-    width: calc(50% - 20px)
+    display: inline-block;
 }
 
 .parafooter{
