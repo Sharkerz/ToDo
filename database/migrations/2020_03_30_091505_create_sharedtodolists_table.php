@@ -24,7 +24,6 @@ class CreateSharedtodolistsTable extends Migration
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

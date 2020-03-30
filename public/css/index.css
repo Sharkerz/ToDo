@@ -13,7 +13,7 @@ thead{
 
 #left_menu{
     width: 300px;
-    height: calc(100vh - 50px);
+    height: calc(100vh - 100px);
     padding-left: 0;
     margin-left: 0px;
     position: absolute;
@@ -73,4 +73,8 @@ thead{
 
 #btn-task:hover {
     cursor: pointer;
+}
+
+#partage{
+    visibility: hidden;
 }

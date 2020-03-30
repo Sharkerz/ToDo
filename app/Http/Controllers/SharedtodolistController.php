@@ -3,13 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Sharedtodolist;
-use App\Todolist;
 use Illuminate\Http\Request;
-use Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
 
-class TodolistController extends Controller
+class SharedtodolistController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +14,7 @@ class TodolistController extends Controller
      */
     public function index()
     {
-        $user_id = Auth::user()->id;
-        $Todos = Todolist::all() -> where('user_id', $user_id);
-        $sharedTodos = Sharedtodolist::all()->where('user_id',$user_id);
-        return view('Todolist.index', compact('Todos','sharedTodos'));
+        //
     }
 
     /**
@@ -31,7 +24,7 @@ class TodolistController extends Controller
      */
     public function create()
     {
-        return view('Todolist.create');
+        return view('Sharedtodolist.create');
     }
 
     /**
@@ -42,20 +35,16 @@ class TodolistController extends Controller
      */
     public function store(Request $request)
     {
-        Todolist::create([
-            "name" => $request->input('name'),
-            "user_id" => Auth::user()->id,
-        ]);
-        return Redirect::route('Todolist.index');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Todolist  $todolist
+     * @param  \App\Sharedtodolist  $sharedtodolist
      * @return \Illuminate\Http\Response
      */
-    public function show(Todolist $todolist)
+    public function show(Sharedtodolist $sharedtodolist)
     {
         //
     }
@@ -63,10 +52,10 @@ class TodolistController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Todolist  $todolist
+     * @param  \App\Sharedtodolist  $sharedtodolist
      * @return \Illuminate\Http\Response
      */
-    public function edit(Todolist $todolist)
+    public function edit(Sharedtodolist $sharedtodolist)
     {
         //
     }
@@ -75,10 +64,10 @@ class TodolistController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Todolist  $todolist
+     * @param  \App\Sharedtodolist  $sharedtodolist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Todolist $todolist)
+    public function update(Request $request, Sharedtodolist $sharedtodolist)
     {
         //
     }
@@ -86,11 +75,33 @@ class TodolistController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Todolist  $todolist
+     * @param  \App\Sharedtodolist  $sharedtodolist
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Todolist $todolist)
+    public function destroy(Sharedtodolist $sharedtodolist)
     {
         //
+    }
+
+    public function amis(Request $request)
+    {
+        if ($request->ajax()) {
+            $user_id = Auth::id();
+
+            /* Liste des demandes d'amis */
+            $list = Amis::where('user2', '=', $user_id)
+                ->where('pending', '=', 0)
+                ->get();
+            $size = sizeof($list);
+
+            /* Renvoie notif:yes si il y a au moins une demande en attente. */
+            if($size == 0) {
+                return response()->json(['notif'=>'no'],200);
+            }
+            else {
+                return response()->json(['notif'=>'yes'],200);
+            }
+        }
+        abort(404);
     }
 }

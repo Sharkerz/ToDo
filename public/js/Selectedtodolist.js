@@ -4,7 +4,6 @@ $(document).ready(function () {
     $('.item').click(function (e) {
 
         id_form = $(this).children().attr('id');
-
            var route = $('#' + id_form).data('route');
 
             $.ajax({
@@ -27,7 +26,9 @@ $(document).ready(function () {
         $(this).addClass('selected');
     });
 
-
+    $('#bouton_partage').click(function(){
+        $("#partage").css('visibility', 'visible')
+    });
 });
 
 

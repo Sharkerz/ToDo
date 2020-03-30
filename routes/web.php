@@ -23,6 +23,8 @@ Route::post('/electedtodolist', 'SelectedlistController')->name('selectedtodolis
 /* Ajax indicateur Notifications */
 Route::get('/notifications-push', 'NotificationspushController')->name('notifications-push');
 
+Route::post('/list_amis', 'SharedtodolistController@amis')->name('list_amis');
+
 /* Auth */
 Auth::routes();
 
@@ -31,6 +33,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/Todolist', 'TodoListController');
     Route::resource('/Amis', 'AmisController');
     Route::resource('/Notifications', 'NotificationsController');
+    Route::resource('/Sharedtodolist', 'SharedtodoListController');
 
 
 });
