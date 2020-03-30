@@ -1,12 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-@php
-    //Import de class Auth
-    use Illuminate\Support\Facades\Auth;
-@endphp
-
     <!-- Styles -->
     <link href="{{ asset('css/Profil.css') }}" rel="stylesheet">
 
@@ -20,7 +14,7 @@
             <div class="col">
 
                 <div id="div-btn">
-                    <button type="button" class="btn btn-secondary" id="btn-modifier">Modifier</button>
+                    <button type="button" class="btn btn-secondary" id="btn-modifier" onclick="window.location.href='/Profil/{{$user->id}}/edit'">Modifier</button>
                     <button type="button" class="btn btn-secondary" id="btn-modifier" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Se déconnecter</button>
 
@@ -32,10 +26,10 @@
 
                 <div id="pseudo-lign">
                     <p class="lign">Bonjour</p>
-                    <h3 class="lign" id="pseudo">{{ Auth::user()->name }}</h3>
+                    <h3 class="lign" id="pseudo">{{$user->name}}</h3>
                 </div>
                 <br>
-                <p class="p-blue">Membre depuis le {{ Auth::user()->created_at }}</p>
+                <p class="p-blue">Membre depuis le {{$user->created_at }}</p>
 
             </div>
         </div>
@@ -47,18 +41,18 @@
             <div class="col" id="infos">
                 <hr>
                 <div>
-                    <di class="row" id="div-info">
+                    <div class="row" id="div-info">
                         <div class="col categorie">
                             <p>Pseudo</p>
                             <p>E-mail</p>
                             <p>Dernières modifications</p>
                         </div>
                         <div class="col">
-                            <p>{{ Auth::user()->name }}</p>
-                            <p>{{ Auth::user()->email }}</p>
-                            <p>{{ Auth::user()->updated_at }}</p>
+                            <p>{{ $user->name }}</p>
+                            <p>{{ $user->email }}</p>
+                            <p>{{ $user->updated_at }}</p>
                         </div>
-                    </di>
+                    </div>
                 </div>
             </div>
         </div>

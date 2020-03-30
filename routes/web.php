@@ -38,6 +38,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/Amis', 'AmisController');
     Route::resource('/Sharedtodolist', 'SharedtodoListController');
     Route::resource('/Profil', 'ProfilController');
+    Route::post('/update', 'ProfilController@update')->name('profil.update');
 
 
 });

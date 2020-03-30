@@ -29,7 +29,7 @@
     <h2> Liste des Todolists Partagées avec vous : </h2>
     @foreach($sharedTodos as $sharedTodo)
             <div class="item">
-                <form class="form-data" id="form-{{$Todo->id}}" method="post" data-route='{{ route('selectedtodolist') }}'>
+                <form class="form-data" id="form-{{$sharedTodo->todolist_id}}" method="post" data-route='{{ route('selectedtodolist') }}'>
                     <p>{{$sharedTodo->todolist->name}}</p>
                     <input name="id_todolist" value="{{$sharedTodo->todolist_id}}" type="text" hidden>
                 </form>
