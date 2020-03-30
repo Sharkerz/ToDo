@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Sharedtodolist;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Amis;
 
-class SharedtodolistController extends Controller
+class ProfilController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +13,7 @@ class SharedtodolistController extends Controller
      */
     public function index()
     {
-        //
+        return view('Profil.index');
     }
 
     /**
@@ -26,7 +23,7 @@ class SharedtodolistController extends Controller
      */
     public function create()
     {
-        return view('Sharedtodolist.create');
+        //
     }
 
     /**
@@ -43,10 +40,10 @@ class SharedtodolistController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Sharedtodolist  $sharedtodolist
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Sharedtodolist $sharedtodolist)
+    public function show($id)
     {
         //
     }
@@ -54,10 +51,10 @@ class SharedtodolistController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Sharedtodolist  $sharedtodolist
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sharedtodolist $sharedtodolist)
+    public function edit($id)
     {
         //
     }
@@ -66,10 +63,10 @@ class SharedtodolistController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Sharedtodolist  $sharedtodolist
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sharedtodolist $sharedtodolist)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -77,26 +74,11 @@ class SharedtodolistController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Sharedtodolist  $sharedtodolist
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sharedtodolist $sharedtodolist)
+    public function destroy($id)
     {
         //
-    }
-
-    public function amis(Request $request)
-    {
-        if ($request->ajax()) {
-            $user_id = Auth::id();
-            $list = Amis::where('user1', '=', $user_id)
-                ->where('pending', '=', 1)
-                ->orWhere('user2', '=', $user_id)
-                ->where('pending', '=', 1)
-                ->get();
-
-            return $list;
-        }
-        abort(404);
     }
 }

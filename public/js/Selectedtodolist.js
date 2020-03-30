@@ -26,8 +26,13 @@ $(document).ready(function () {
         $(this).addClass('selected');
     });
 
+    $.get('/list_amis', function (response) {
+        console.log(response);
+        });
+
     $('#bouton_partage').click(function(){
         $("#partage").css('visibility', 'visible')
+        
     });
 });
 
