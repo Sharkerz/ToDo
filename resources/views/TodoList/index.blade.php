@@ -6,10 +6,6 @@
 
 @endpush
 
-@php
-    //Import de class User
-    use App\User;
-@endphp
 
 @section('content')
 

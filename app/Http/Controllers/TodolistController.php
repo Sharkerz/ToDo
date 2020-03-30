@@ -108,12 +108,12 @@ class TodolistController extends Controller
 
             $amis = [];
 
-            for($i = 0; $i <= $list.sizeof($list); $i++) {
-                if($user_id == $list[0]['user1']) {
-                    array_push($amis, $list[0]['user2']);
+            for($i = 0; $i <= count($list)-1; $i++) {
+                if($user_id == $list[$i]['user1']) {
+                    array_push($amis, $list[$i]['user2']);
                 }
-                else if ($user_id == $list[0]['user2']) {
-                    array_push($amis, $list[0]['user1']);
+                else if ($user_id == $list[$i]['user2']) {
+                    array_push($amis, $list[$i]['user1']);
                 }
             }
 

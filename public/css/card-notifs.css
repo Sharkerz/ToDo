@@ -1,0 +1,20 @@
+#demande-amis {
+    float: right;
+    cursor: pointer;
+}
+
+#demande-amis i{
+    font-size: 1.8rem;
+}
+
+#accepter-amis {
+    color: green;
+}
+
+#refuser-amis {
+    color: red;
+}
+
+#list_notif a{
+    font-size: 1.2em;
+}

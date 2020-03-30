@@ -29,13 +29,13 @@ $(document).ready(function () {
 
    $('#bouton_partage').click(function(){
         $.get('/list_amis', function (response) {
-            $amis = response.amis;
+            $id = response.amis;
             $name = response.name;
 
             var doc = document.getElementById('menu_amis_list');
 
-            $amis.forEach(element =>
-                doc.innerHTML += '<a class="dropdown-item" href="#">' + $name[$amis] + '</a>'
+            $id.forEach(element =>
+                doc.innerHTML += '<a class="dropdown-item" href="#">' + $name[element] + '</a>'
             )
             });
         $("#partage").css('visibility', 'visible')

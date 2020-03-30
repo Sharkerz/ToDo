@@ -21,8 +21,12 @@ Route::get('/', function () {
 Route::post('/electedtodolist', 'SelectedlistController')->name('selectedtodolist');
 
 /* Ajax indicateur Notifications */
-Route::get('/notifications-push', 'NotificationspushController')->name('notifications-push');
+Route::get('/notifications-push', 'NotificationspushController@notifpush')->name('notifications-push');
 
+/* Ajax liste notifications */
+Route::get('/notifications', 'NotificationspushController@notifications')->name('notifications');
+
+/* Ajax amis */
 Route::get('/list_amis', 'TodolistController@amis')->name('list_amis');
 
 /* Auth */
@@ -32,7 +36,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('/Todolist', 'TodoListController');
     Route::resource('/Amis', 'AmisController');
-    Route::resource('/Notifications', 'NotificationsController');
     Route::resource('/Sharedtodolist', 'SharedtodoListController');
     Route::resource('/Profil', 'ProfilController');
 

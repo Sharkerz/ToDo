@@ -3,6 +3,11 @@
 
 @section('content')
 
+@php
+    //Import de class User
+    use App\User;
+@endphp
+
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/index.css') }}" >
 
     <form action="{{ route('Amis.store') }}" method="post">
