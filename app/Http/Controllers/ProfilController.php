@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class ProfilController extends Controller
 {
@@ -15,7 +17,8 @@ class ProfilController extends Controller
      */
     public function index()
     {
-        return view('Profil.index');
+        $user = Auth::user();
+        return view('Profil.index',compact('user'));
     }
 
     /**
@@ -59,8 +62,8 @@ class ProfilController extends Controller
     public function edit($id)
     {
         if($id == Auth::id()) {
-            $data = User::where('id', '=', $id);
-            return view('Profil.edit')->with('data', $data);
+            $user = User::where('id', '=', $id)->first();
+            return view('Profil.edit',compact('user', $user));
         }
         abort(404);
     }
@@ -72,9 +75,13 @@ class ProfilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, user $user)
     {
-        //
+        $user->name = $request->name;
+        $user->email = $request->email;
+        DB::table('users')->update(['name' => $user->name]);
+
+        return Redirect::route('Profil.index');
     }
 
     /**
