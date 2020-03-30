@@ -29,13 +29,17 @@ $(document).ready(function () {
 
    $('#bouton_partage').click(function(){
         $.get('/list_amis', function (response) {
-            $amis = response.amis[user1];
+            $amis = response.amis;
+            $name = response.name;
+
+            var doc = document.getElementById('menu_amis_list');
+
+            $amis.forEach(element =>
+                doc.innerHTML += '<a class="dropdown-item" href="#">' + $name[$amis] + '</a>'
+            )
             });
-            //$amis.forEach(element =>amie,{
-              //  $amis,$('dropdownmenu').innerHTML += " hello two",
-            //});
         $("#partage").css('visibility', 'visible')
-        
+
     });
 });
 

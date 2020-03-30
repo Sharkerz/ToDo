@@ -6,6 +6,11 @@
 
 @endpush
 
+@php
+    //Import de class User
+    use App\User;
+@endphp
+
 @section('content')
 
 <div id="left_menu" class="left_menu">
@@ -21,7 +26,7 @@
                 </form>
             </div>
         @endforeach
-    
+
     <div id="bouton_create">
         <i class="material-icons" id="btn-create" onclick="window.location.href='/Todolist/create'" id="icon_notif">add</i>
     </div></br></br>
@@ -46,7 +51,7 @@
     <!-- Ajout d'une tache -->
     <form id="form-task">
         <i class="material-icons" id="btn-task" id="icon_notif">add</i>
-        
+
         <input type="text" placeholder="Ajouter une tache">
         <div id="partage">
         <div class="container">
@@ -56,13 +61,14 @@
                         <div class="card-header">
                         <h1>Partager votre Todolist</h1>
                             </div>
-                                <form action="{{ route('Sharedtodolist.store') }}" method="post">  
+                                <form action="{{ route('Sharedtodolist.store') }}" method="post">
                                     @csrf
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Dropdown button
+                                            Vos amis
                                         </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="menu_amis_list">
+
                                         </div>
                                     </div>
                                 </form>

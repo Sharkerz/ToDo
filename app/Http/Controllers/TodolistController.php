@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Sharedtodolist;
 use App\Todolist;
+use App\User;
 use Illuminate\Http\Request;
 use Auth;
 use App\Amis;
@@ -105,7 +106,24 @@ class TodolistController extends Controller
                 ->where('pending', '=', 1)
                 ->get();
 
-                return response()->json(['amis'=>$list],200);
+            $amis = [];
+
+            for($i = 0; $i <= $list.sizeof($list); $i++) {
+                if($user_id == $list[0]['user1']) {
+                    array_push($amis, $list[0]['user2']);
+                }
+                else if ($user_id == $list[0]['user2']) {
+                    array_push($amis, $list[0]['user1']);
+                }
+            }
+
+            $name = [];
+
+            foreach ($amis as $id_amis) {
+                $name[$id_amis] = User::where('id', '=', $id_amis)->first()->name;
+            }
+
+                return response()->json(['amis'=>$amis, 'name' => $name],200);
         }
         abort(404);
     }

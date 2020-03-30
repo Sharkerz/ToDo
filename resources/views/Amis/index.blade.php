@@ -1,10 +1,5 @@
 @extends('layouts.app')
 
-@php
-    //Import de class User
-    use App\User;
-
-@endphp
 
 @section('content')
 
