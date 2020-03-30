@@ -15,3 +15,16 @@
     color: #1b1e21;
     font-weight: 500;
   }
+
+#img-profile {
+    overflow: hidden;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+}
+
+#img-profile:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,55 @@
+/* Div Principale */
+#div-profil {
+    background-color: white;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    width: 65%;
+    height: 85vh;
+    border-radius: 12px;
+}
+
+/* Image du profil */
+#image-profile {
+    height: 15em;
+    margin-top: 5em;
+}
+
+#div-img {
+    text-align: center;
+}
+
+/* Pseudo */
+#pseudo-lign {
+    margin-top: 5em;
+}
+
+.lign {
+    display: inline;
+}
+
+#pseudo {
+    font-size: 3.2rem;
+    margin-left: 4px;
+}
+
+#pseudo-lign p {
+    color: #5a6268;
+    font-size: 1rem;
+}
+
+.p-blue {
+    color: #1d68a7;
+    font-size: 1.3em;
+}
+
+#info hr {
+    border-top: 1.2px solid darkgrey;
+    width: 25rem;
+    margin-left: -12px;
+    margin-top: -1px;
+}
+
+
