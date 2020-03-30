@@ -8,11 +8,11 @@
     display: inline;
 }
 
-#accepter-amis {
+.accepter-amis-btn {
     color: green;
 }
 
-#refuser-amis {
+.refuser-amis-btn {
     color: red;
 }
 
@@ -27,3 +27,8 @@
 #a_item_notif:active {
     background-color: transparent;
 }
+
+#demande-amis form{
+    display: inline;
+}
+

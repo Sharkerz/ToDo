@@ -29,6 +29,10 @@ Route::get('/notifications', 'NotificationspushController@notifications')->name(
 /* Ajax amis */
 Route::get('/list_amis', 'TodolistController@amis')->name('list_amis');
 
+/* Accepter et refuser demandes d'amis */
+Route::post('/accepterAmi', 'AmisController@accepter')->name('accepterAmi');
+Route::post('/refuserAmi', 'AmisController@refuser')->name('refuserAmi');
+
 /* Auth */
 Auth::routes();
 

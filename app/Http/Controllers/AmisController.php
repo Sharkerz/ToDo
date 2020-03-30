@@ -107,4 +107,17 @@ class AmisController extends Controller
     {
         //
     }
+
+    public function accepter(Request $request)
+    {
+        if ($request->ajax()) {
+            return response()->json(['tes'=>'salut'], 200);
+        }
+        abort(404);
+    }
+
+    public function refuser(Amis $amis)
+    {
+        //
+    }
 }

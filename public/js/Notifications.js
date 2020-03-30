@@ -16,15 +16,50 @@ $(document).ready(function () {
 
         $id.forEach(element =>
             doc.innerHTML += '<a class="dropdown-item" id="a_item_notif"> ' + $name[element] +
+
                                 ' <div id="demande-amis">' +
-                                    // '<form>' +
-                                    // '<input value="' + element + '" type="hidden">' +
-                                    '<i id="accepter-amis" class="material-icons">done</i> ' +
-                                    '<i id="refuser-amis" class="material-icons">clear</i> ' +
-                                    // '</form' +
+                                    '<form method="post" >' +
+                                        '<i id="aha" class="material-icons accepter-amis-btn" name="' + element + '">done</i> ' +
+                                    '</form>' +
+
+                                    '<form method="post" data-route="{{ route(\'refuserAmi\') }}">' +
+                                        '<i class="material-icons refuser-amis-btn" name="' + element + '">clear</i> ' +
+                                    '</form>' +
                                 '</div>' +
                             '</a>'
         )
+    });
+
+    var $ = function (selector) {
+        return document.querySelector(selector);
+    };
+    var link = $('#demande-amis')
+
+    /* Bouton accepter */
+    $('#aha').click(function (e) {
+        alert('yo');
+        $.ajax({
+            type: 'POST',
+            url: '/accepterAmi',
+            data: $('this').serialize(),
+            success: function (Response) {
+                console.log(Response);
+            },
+        });
+        e.preventDefault();
+    });
+
+    /* Bouton refuser */
+    $('.refuser-ami').click(function (e) {
+        $.ajax({
+            type: 'POST',
+            url: $(this).data('route'),
+            data: $('this').serialize(),
+            success: function (Response) {
+                console.log(Response);
+            },
+        });
+        e.preventDefault();
     });
 
 
