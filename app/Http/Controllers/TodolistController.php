@@ -6,6 +6,7 @@ use App\Sharedtodolist;
 use App\Todolist;
 use Illuminate\Http\Request;
 use Auth;
+use App\Amis;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
@@ -92,5 +93,20 @@ class TodolistController extends Controller
     public function destroy(Todolist $todolist)
     {
         //
+    }
+
+    public function amis(Request $request)
+    {
+        if ($request->ajax()) {
+            $user_id = Auth::id();
+            $list = Amis::where('user1', '=', $user_id)
+                ->where('pending', '=', 1)
+                ->orWhere('user2', '=', $user_id)
+                ->where('pending', '=', 1)
+                ->get();
+
+                return response()->json(['amis'=>$list],200);
+        }
+        abort(404);
     }
 }

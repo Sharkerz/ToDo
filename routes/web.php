@@ -23,7 +23,7 @@ Route::post('/electedtodolist', 'SelectedlistController')->name('selectedtodolis
 /* Ajax indicateur Notifications */
 Route::get('/notifications-push', 'NotificationspushController')->name('notifications-push');
 
-Route::get('/list_amis', 'SharedtodolistController@amis')->name('list_amis');
+Route::get('/list_amis', 'TodolistController@amis')->name('list_amis');
 
 /* Auth */
 Auth::routes();

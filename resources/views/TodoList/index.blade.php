@@ -25,7 +25,7 @@
     <div id="bouton_create">
         <i class="material-icons" id="btn-create" onclick="window.location.href='/Todolist/create'" id="icon_notif">add</i>
     </div></br></br>
-    <h2> Liste des Todolist Partager avec vous : </h2>
+    <h2> Liste des Todolists Partagées avec vous : </h2>
     @foreach($sharedTodos as $sharedTodo)
             <div class="item">
                 <form class="form-data" id="form-{{$Todo->id}}" method="post" data-route='{{ route('selectedtodolist') }}'>
@@ -58,11 +58,14 @@
                             </div>
                                 <form action="{{ route('Sharedtodolist.store') }}" method="post">  
                                     @csrf
-                                    <label for="NomTodolist">Nom de la Todolist:</label>
-                                    <input label="Nom de la Todolist:" type="text" name="name" required></br>
-                                    <input type="submit" class="btn btn-success bouton-creation">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Dropdown button
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        </div>
+                                    </div>
                                 </form>
-
                             </div>
                     </div>
                 </div>

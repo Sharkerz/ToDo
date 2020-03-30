@@ -26,11 +26,14 @@ $(document).ready(function () {
         $(this).addClass('selected');
     });
 
-    $.get('/list_amis', function (response) {
-        console.log(response);
-        });
 
-    $('#bouton_partage').click(function(){
+   $('#bouton_partage').click(function(){
+        $.get('/list_amis', function (response) {
+            $amis = response.amis[user1];
+            });
+            //$amis.forEach(element =>amie,{
+              //  $amis,$('dropdownmenu').innerHTML += " hello two",
+            //});
         $("#partage").css('visibility', 'visible')
         
     });

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Sharedtodolist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Amis;
 
 class SharedtodolistController extends Controller
 {
@@ -83,20 +82,5 @@ class SharedtodolistController extends Controller
     public function destroy(Sharedtodolist $sharedtodolist)
     {
         //
-    }
-
-    public function amis(Request $request)
-    {
-        if ($request->ajax()) {
-            $user_id = Auth::id();
-            $list = Amis::where('user1', '=', $user_id)
-                ->where('pending', '=', 1)
-                ->orWhere('user2', '=', $user_id)
-                ->where('pending', '=', 1)
-                ->get();
-
-            return $list;
-        }
-        abort(404);
     }
 }
