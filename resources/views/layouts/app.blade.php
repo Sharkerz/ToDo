@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Icone -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- CSRF Token -->
@@ -26,6 +27,9 @@
     <!-- JQuery et Ajax-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <!-- Dark mode -->
+    <script src = "https://unpkg.com/darkreader@4.9.2/darkreader.js"></script>
 
 </head>
 
@@ -77,7 +81,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('auth.Logout') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -130,6 +134,14 @@
 
     <!-- Script notifications -->
     <script type="text/javascript" src="{{ URL::asset('js/Notifications.js') }}"></script>
+
+    <script type="text/javascript">
+        DarkReader.enable({
+            brightness: 100,
+            contrast: 90,
+            sepia: 10
+        });
+    </script>
 
 </body>
 </html>
