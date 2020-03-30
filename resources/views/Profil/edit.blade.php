@@ -2,10 +2,10 @@
 
 @section('content')
 
-@php
-    //Import de class Auth
-    use Illuminate\Support\Facades\Auth;
-@endphp
+    @php
+        //Import de class Auth
+        use Illuminate\Support\Facades\Auth;
+    @endphp
 
     <!-- Styles -->
     <link href="{{ asset('css/Profil.css') }}" rel="stylesheet">
@@ -18,17 +18,6 @@
             </div>
 
             <div class="col">
-
-                <div id="div-btn">
-                    <button type="button" class="btn btn-secondary" id="btn-modifier">Modifier</button>
-                    <button type="button" class="btn btn-secondary" id="btn-modifier" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">Se déconnecter</button>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-
-                </div>
 
                 <div id="pseudo-lign">
                     <p class="lign">Bonjour</p>

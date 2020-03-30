@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfilController extends Controller
 {
@@ -56,7 +58,11 @@ class ProfilController extends Controller
      */
     public function edit($id)
     {
-        //
+        if($id == Auth::id()) {
+            $data = User::where('id', '=', $id);
+            return view('Profil.edit')->with('data', $data);
+        }
+        abort(404);
     }
 
     /**

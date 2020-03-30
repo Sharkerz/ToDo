@@ -124,7 +124,7 @@
     <script type="text/javascript" src="{{ URL::asset('js/Notifications.js') }}"></script>
 
     <script type="text/javascript">
-        DarkReader.enable({
+        DarkReader.disable({
             brightness: 100,
             contrast: 90,
             sepia: 10
