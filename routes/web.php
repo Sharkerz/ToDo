@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/Amis', 'AmisController');
     Route::resource('/Notifications', 'NotificationsController');
     Route::resource('/Profil', 'ProfilController');
+    Route::resource('/Contact', 'FormulaireController');
 
 
 });

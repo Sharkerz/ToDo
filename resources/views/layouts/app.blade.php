@@ -103,15 +103,13 @@
                 </div>
                 <div class="col">
                     <p class="titrefooter">Nous Contacter</p>
-                    <div class="flex">
-                        <div class="colonne">
-                            <i class="material-icons icone">place</i>
-                            <i class="material-icons icone">email</i>
-                        </div>
-                        <div class="colonne">
-                            <p class="parafooter">5 Avenue des Champs-Elysées, 75008 Paris</p>
-                            <a href="{{ url('/Contact') }}" class="parafooter">Formulaire de contact</a>
-                        </div>
+                    <div class="colonne">
+                        <i class="material-icons icone">place</i>
+                        <i class="material-icons icone">email</i>
+                    </div>
+                    <div class="colonne">
+                        <p class="parafooter">5 Avenue des Champs-Elysées, 75008 Paris</p>
+                        <a href="{{ url('/Contact') }}" class="parafooter">Formulaire de contact</a>
                     </div>
                 </div>
             </div>
