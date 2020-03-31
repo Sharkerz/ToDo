@@ -3,9 +3,10 @@
 }
 
 #icon_notif {
-    font-size: 3.4rem;
+    font-size: 3.5rem;
     color: black;
-    margin-top: -0.1em;
+    margin-top: -8px;
+    padding-bottom: 0;
 }
 
 #icon_notif:hover {
@@ -19,7 +20,6 @@
   }
 
 #img-profile {
-    margin-top: 0.28em;
     overflow: hidden;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
