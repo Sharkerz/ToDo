@@ -4,7 +4,6 @@ $(document).ready(function () {
     $('.item').click(function (e) {
 
         id_form = $(this).children().attr('id');
-
            var route = $('#' + id_form).data('route');
 
             $.ajax({
@@ -28,6 +27,20 @@ $(document).ready(function () {
     });
 
 
+   $('#bouton_partage').click(function(){
+        $.get('/list_amis', function (response) {
+            $id = response.amis;
+            $name = response.name;
+
+            var doc = document.getElementById('menu_amis_list');
+
+            $id.forEach(element =>
+                doc.innerHTML += '<a class="dropdown-item" href="#">' + $name[element] + '</a>'
+            )
+            });
+        $("#partage").css('visibility', 'visible')
+
+    });
 });
 
 

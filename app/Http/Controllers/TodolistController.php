@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Sharedtodolist;
 use App\Todolist;
+use App\User;
 use Illuminate\Http\Request;
 use Auth;
+use App\Amis;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class TodolistController extends Controller
@@ -18,7 +22,8 @@ class TodolistController extends Controller
     {
         $user_id = Auth::user()->id;
         $Todos = Todolist::all() -> where('user_id', $user_id);
-        return view('Todolist.index', compact('Todos'));
+        $sharedTodos = Sharedtodolist::all()->where('user_id',$user_id);
+        return view('Todolist.index', compact('Todos','sharedTodos'));
     }
 
     /**
@@ -28,7 +33,7 @@ class TodolistController extends Controller
      */
     public function create()
     {
-        return view('Todolist.create')  ;
+        return view('Todolist.create');
     }
 
     /**
@@ -89,5 +94,37 @@ class TodolistController extends Controller
     public function destroy(Todolist $todolist)
     {
         //
+    }
+
+    public function amis(Request $request)
+    {
+        if ($request->ajax()) {
+            $user_id = Auth::id();
+            $list = Amis::where('user1', '=', $user_id)
+                ->where('pending', '=', 1)
+                ->orWhere('user2', '=', $user_id)
+                ->where('pending', '=', 1)
+                ->get();
+
+            $amis = [];
+
+            for($i = 0; $i <= count($list)-1; $i++) {
+                if($user_id == $list[$i]['user1']) {
+                    array_push($amis, $list[$i]['user2']);
+                }
+                else if ($user_id == $list[$i]['user2']) {
+                    array_push($amis, $list[$i]['user1']);
+                }
+            }
+
+            $name = [];
+
+            foreach ($amis as $id_amis) {
+                $name[$id_amis] = User::where('id', '=', $id_amis)->first()->name;
+            }
+
+                return response()->json(['amis'=>$amis, 'name' => $name],200);
+        }
+        abort(404);
     }
 }

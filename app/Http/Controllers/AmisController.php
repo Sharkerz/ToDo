@@ -25,8 +25,24 @@ class AmisController extends Controller
             ->where('pending', '=', 1)
             ->get();
 
+        $amis = [];
 
-        return View::make('Amis.index')->with('list', $list);
+        for($i = 0; $i <= count($list)-1; $i++) {
+            if($user_id == $list[$i]['user1']) {
+                array_push($amis, $list[$i]['user2']);
+            }
+            else if ($user_id == $list[$i]['user2']) {
+                array_push($amis, $list[$i]['user1']);
+            }
+        }
+
+        $name = [];
+
+        foreach ($amis as $id_amis) {
+            $name[$id_amis] = User::where('id', '=', $id_amis)->first()->name;
+        }
+
+        return View::make('Amis.index')->with(['amis' => $amis, 'name' => $name ]);
     }
 
     /**
@@ -106,5 +122,38 @@ class AmisController extends Controller
     public function destroy(Amis $amis)
     {
         //
+    }
+
+    public function accepter(Request $request)
+    {
+        if ($request->ajax()) {
+            $id = $request->input('id_ami');
+
+            $this->validate($request, [
+                'id_ami' => 'required',
+            ]);
+            Amis::where('user1', $id)
+                ->update(['pending' => 1]);
+
+            return response()->json(['accepter'=>$id], 200);
+        }
+        abort(404);
+    }
+
+    public function refuser(Request $request)
+    {
+        if ($request->ajax()) {
+            $id = $request->input('id_ami');
+
+            $this->validate($request, [
+                'id_ami' => 'required',
+            ]);
+            Amis::where('user1', $id)
+                ->where('user2', Auth::id())
+                ->delete();
+
+            return response()->json(['refuser'=>$id], 200);
+        }
+        abort(404);
     }
 }

@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Amis;
-use App\User;
+use App\Sharedtodolist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\View\View;
 
-class NotificationsController extends Controller
+class SharedtodolistController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,13 +15,7 @@ class NotificationsController extends Controller
      */
     public function index()
     {
-        $user_id = Auth::id();
-        $list = Amis::where('user1', '=', $user_id)
-            ->orWhere('user2', '=', $user_id)
-            ->where('pending', '=', 1)
-            ->get();
-
-        return View('Notifications.index')->with('list', $list);
+        //
     }
 
     /**
@@ -33,7 +25,7 @@ class NotificationsController extends Controller
      */
     public function create()
     {
-        //
+        return view('Sharedtodolist.create');
     }
 
     /**
@@ -50,10 +42,10 @@ class NotificationsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Sharedtodolist  $sharedtodolist
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Sharedtodolist $sharedtodolist)
     {
         //
     }
@@ -61,10 +53,10 @@ class NotificationsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Sharedtodolist  $sharedtodolist
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Sharedtodolist $sharedtodolist)
     {
         //
     }
@@ -73,10 +65,10 @@ class NotificationsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Sharedtodolist  $sharedtodolist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Sharedtodolist $sharedtodolist)
     {
         //
     }
@@ -84,10 +76,10 @@ class NotificationsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Sharedtodolist  $sharedtodolist
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Sharedtodolist $sharedtodolist)
     {
         //
     }

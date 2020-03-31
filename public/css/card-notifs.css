@@ -1,0 +1,34 @@
+#demande-amis {
+    float: right;
+    cursor: pointer;
+}
+
+#demande-amis i{
+    font-size: 1.8rem;
+    display: inline;
+}
+
+.accepter-amis-btn {
+    color: green;
+}
+
+.refuser-amis-btn {
+    color: red;
+}
+
+#list_notif a{
+    font-size: 1.2em;
+}
+
+#list_notif h6 {
+    font-size: 1.3em;
+}
+/* item <a> au clic */
+#a_item_notif:active {
+    background-color: transparent;
+}
+
+#demande-amis form{
+    display: inline;
+}
+

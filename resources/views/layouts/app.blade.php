@@ -23,6 +23,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/header.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/card-notifs.css') }}" rel="stylesheet">
 
     <!-- JQuery et Ajax-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -60,7 +61,13 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <i class="material-icons" onclick="window.location.href='{{ url('/Notifications') }}'" id="icon_notif">notifications_none</i>
+
+                        <div class="btn-group">
+                            <i class="material-icons" id="icon_notif" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">notifications_none</i>
+                            <div class="dropdown-menu" id="list_notif">
+                            </div>
+                        </div>
+
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

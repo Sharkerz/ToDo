@@ -6,11 +6,12 @@
 
 @endpush
 
+
 @section('content')
 
 <div id="left_menu" class="left_menu">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/index.css') }}" >
-    <h2> Liste de tes Todolist: </h2>
+    <h2> Liste de vos Todolist: </h2>
     <tbody>
         @foreach($Todos as $Todo)
             <div class="item">
@@ -21,19 +22,57 @@
                 </form>
             </div>
         @endforeach
-    </tbody>
+
     <div id="bouton_create">
         <i class="material-icons" id="btn-create" onclick="window.location.href='/Todolist/create'" id="icon_notif">add</i>
-    </div>
+    </div></br></br>
+    <h2> Liste des Todolists Partagées avec vous : </h2>
+    @foreach($sharedTodos as $sharedTodo)
+            <div class="item">
+                <form class="form-data" id="form-{{$sharedTodo->todolist_id}}" method="post" data-route='{{ route('selectedtodolist') }}'>
+                    <p>{{$sharedTodo->todolist->name}}</p>
+                    <input name="id_todolist" value="{{$sharedTodo->todolist_id}}" type="text" hidden>
+                </form>
+            </div>
+        @endforeach
+    </tbody>
 </div>
 
 <div id="todolist" >
+    <div id="bouton_partage">
+        <i class="material-icons" id="btn-task" id="icon_notif">create</i>
+    </div>
     <span ></span>
 
     <!-- Ajout d'une tache -->
     <form id="form-task">
         <i class="material-icons" id="btn-task" id="icon_notif">add</i>
+
         <input type="text" placeholder="Ajouter une tache">
+        <div id="partage">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                        <h1>Partager votre Todolist</h1>
+                            </div>
+                                <form action="{{ route('Sharedtodolist.store') }}" method="post">
+                                    @csrf
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Vos amis
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="menu_amis_list">
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
 
 </div>
