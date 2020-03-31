@@ -16,15 +16,26 @@
     justify-content: space-between
 }
 
-.colonne {
+.Adresse {
     display: inline-block;
+    
 }
 
 .parafooter{
     margin: 0px;
     font-size: x-small;
+    font-size: 1rem;
+    color: white;
+    vertical-align: 22%;
+}
+.Formulaire_contact{
+    font-size: 1rem;
+   
+    text-align: center;
+    vertical-align: 28%;
 }
 
 .titrefooter{
     margin: 2px;
+    font-size: 1rem;
 }
