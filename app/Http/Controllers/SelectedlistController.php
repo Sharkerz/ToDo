@@ -19,8 +19,9 @@ class SelectedlistController extends Controller
         if ($request->ajax()) {
 
             $id = $request->input('id_todolist');
+            $name = $request->input('name_todolist');
 
-            return response()->json(['id_todolist'=>$id],200);
+            return response()->json(['id_todolist'=>$id,'name_todolist' =>$name],200);
         }
         abort(404);
     }

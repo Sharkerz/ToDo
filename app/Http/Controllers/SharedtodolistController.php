@@ -25,7 +25,7 @@ class SharedtodolistController extends Controller
      */
     public function create()
     {
-        return view('Sharedtodolist.create');
+        //
     }
 
     /**

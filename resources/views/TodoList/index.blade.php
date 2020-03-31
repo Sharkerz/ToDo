@@ -18,6 +18,7 @@
                 <form class="form-data" id="form-{{$Todo->id}}" method="post" data-route='{{ route('selectedtodolist') }}'>
                     {{ csrf_field() }}
                     <p>{{$Todo->name}}</p>
+                    <input name="name_todolist" value="{{$Todo->name}}" type="text" hidden>
                     <input name="id_todolist" value="{{$Todo->id}}" type="text" hidden>
                 </form>
             </div>
@@ -31,6 +32,7 @@
             <div class="item">
                 <form class="form-data" id="form-{{$sharedTodo->todolist_id}}" method="post" data-route='{{ route('selectedtodolist') }}'>
                     <p>{{$sharedTodo->todolist->name}}</p>
+                    <input name="name_todolist" value="{{$sharedTodo->todolist->name}}" type="text" hidden>
                     <input name="id_todolist" value="{{$sharedTodo->todolist_id}}" type="text" hidden>
                 </form>
             </div>
@@ -39,17 +41,13 @@
 </div>
 
 <div id="todolist" >
-    <div id="bouton_partage">
-        <i class="material-icons" id="btn-task" id="icon_notif">create</i>
+    <div id="Administration_Todolist">
+    <span id ="Titre_todolist"></span>
+        <i id="Delete_Todo"><i class="material-icons"  id="btn-task" id="icon_notif">delete</i></i>
+        <i id="Partager_todo"><i class="material-icons"  id="btn-task" id="icon-notif">share</i></i>
     </div>
-    <span ></span>
 
-    <!-- Ajout d'une tache -->
-    <form id="form-task">
-        <i class="material-icons" id="btn-task" id="icon_notif">add</i>
-
-        <input type="text" placeholder="Ajouter une tache">
-        <div id="partage">
+    <div id="partage">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -73,6 +71,13 @@
                 </div>
             </div>
         </div>
+
+    <!-- Ajout d'une tache -->
+    <form id="form-task">
+        <i class="material-icons" id="btn-task" id="icon_notif">add</i>
+
+        <input type="text" placeholder="Ajouter une tache">
+        
     </form>
 
 </div>
