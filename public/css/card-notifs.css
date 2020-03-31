@@ -32,7 +32,8 @@
     display: inline;
 }
 
-#list_notif {
-    left: -4em;
+#header a:hover{
+    opacity: 0.6;
 }
+
 

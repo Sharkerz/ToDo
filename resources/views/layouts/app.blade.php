@@ -37,9 +37,9 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" id="header">
-            <a class="navbar-brand" href="{{ url('/home') }}">
-                Todo List
-            </a>
+                <a class="navbar-brand" href="{{ url('/home') }}">
+                    Todo List
+                </a>
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     Accueil

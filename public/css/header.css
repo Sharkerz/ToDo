@@ -1,5 +1,7 @@
+
 #header a {
     margin-right: 35px;
+    font-size: 1.7em;
 }
 
 #icon_notif {
@@ -30,4 +32,8 @@
 
 #img-profile:hover {
     cursor: pointer;
+}
+
+.div_header_link:hover {
+    opacity: 0.2;
 }
