@@ -53,7 +53,8 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header">
-                        <h1>Partager votre Todolist</h1>
+                        <span id="Nom_sharetodolist">Partager votre Todolist</span>
+                            <i id="Close_Partage"><i class="material-icons" id="btn-task" id="icon_notif">close</i></i>
                             </div>
                                 <form id="Share_Todolist" action="{{ route('Sharedtodolist.store') }}" method="post">
                                     @csrf

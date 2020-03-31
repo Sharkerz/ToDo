@@ -109,3 +109,16 @@ thead{
 #Share_Todolist{
     margin: 0;
 }
+
+#Titre_sharetodolist{
+    width: 370px;
+}
+
+.card-header{
+    font-size: 2rem;
+}
+
+#Close_Partage{
+    float:right;
+    float: top;
+}
