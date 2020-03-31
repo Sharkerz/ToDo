@@ -73,6 +73,11 @@ $current_user = Auth::user()
                     @endif
                 @else
 
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                    <label class="custom-control-label" for="customSwitch1">Dark mode</label>
+                </div>
+
                 <div class="btn-group" >
                     <i class="material-icons nav-link" id="icon_notif" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">notifications_none</i>
                     <div class="dropdown-menu dropdown-menu-left" id="list_notif">
@@ -140,11 +145,16 @@ $current_user = Auth::user()
     <script type="text/javascript" src="{{ URL::asset('js/Notifications.js') }}"></script>
 
     <script type="text/javascript">
-        DarkReader.disable({
-            brightness: 100,
-            contrast: 90,
-            sepia: 10
-        });
+
+        $('#customSwitch1').change(
+            function(){
+                if ($(this).is(':checked')) {
+                    alert('checked');
+                } else {
+                    alert('not checked');
+                }
+            });
+
     </script>
 
 </body>

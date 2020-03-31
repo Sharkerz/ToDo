@@ -1,3 +1,6 @@
+.custom-control-label {
+    user-select:none;
+}
 
 #header a {
     margin-right: 35px;
