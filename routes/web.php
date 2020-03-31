@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 /* Ajax Todolist */
-Route::post('/electedtodolist', 'SelectedlistController')->name('selectedtodolist');
+Route::post('/selectedtodolist', 'SelectedlistController')->name('selectedtodolist');
 
 /* Ajax indicateur Notifications */
 Route::get('/notifications-push', 'NotificationspushController@notifpush')->name('notifications-push');

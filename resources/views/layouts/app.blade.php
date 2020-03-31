@@ -59,35 +59,35 @@
                     <ul class="navbar-nav mr-auto">
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-
-                        <div class="btn-group">
-                            <i class="material-icons" id="icon_notif" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">notifications_none</i>
-                            <div class="dropdown-menu" id="list_notif">
-                            </div>
-                        </div>
-
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('auth.Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('auth.Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a href="{{ url('/Profil') }}">
-                                    <img alt="profil-picture" src="{{asset('Images/Users/default.jpg')}}" id="img-profile">
-                                </a>
-                            </li>
-                        @endguest
-                    </ul>
                 </div>
             </div>
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ml-auto">
+                <div class="btn-group">
+                    <i class="material-icons" id="icon_notif" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">notifications_none</i>
+                    <div class="dropdown-menu" id="list_notif">
+                        <h6 class="dropdown-header">Demandes d'amis</h6>
+                    </div>
+                </div>
+
+                <!-- Authentication Links -->
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('auth.Login') }}</a>
+                    </li>
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('auth.Register') }}</a>
+                        </li>
+                    @endif
+                @else
+                    <li class="nav-item dropdown">
+                        <a href="{{ url('/Profil') }}">
+                            <img alt="profil-picture" src="{{asset('Images/Users/default.jpg')}}" id="img-profile">
+                        </a>
+                    </li>
+                @endguest
+            </ul>
         </nav>
 
         <main class="py-4">
