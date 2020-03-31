@@ -34,6 +34,11 @@
 
 </head>
 
+@php
+use Illuminate\Support\Facades\Auth;
+$current_user = Auth::user()
+@endphp
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" id="header">
@@ -63,12 +68,18 @@
             </div>
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
+                @guest
+                    @if(Route::has('register'))
+                    @endif
+                @else
+
                 <div class="btn-group" >
                     <i class="material-icons nav-link" id="icon_notif" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">notifications_none</i>
                     <div class="dropdown-menu dropdown-menu-left" id="list_notif">
                         <h6 class="dropdown-header">Demandes d'amis</h6>
                     </div>
                 </div>
+                @endguest
 
                 <!-- Authentication Links -->
                 @guest
@@ -83,7 +94,7 @@
                 @else
                     <li class="nav-item dropdown">
                         <a href="{{ url('/Profil') }}">
-                            <img alt="profil-picture" src="{{asset('Images/Users/default.jpg')}}" id="img-profile">
+                            <img alt="profil-picture" src="/Images/Users/{{ $current_user->avatar }}" id="img-profile">
                         </a>
                     </li>
                 @endguest

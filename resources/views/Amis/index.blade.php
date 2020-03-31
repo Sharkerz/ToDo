@@ -8,7 +8,7 @@
     use App\User;
 @endphp
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/index.css') }}" >
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/Amis_list.css') }}" >
 
     <form action="{{ route('Amis.store') }}" method="post">
         @csrf
@@ -20,8 +20,10 @@
     <div>
         <h3> Liste d'amis: </h3>
             @foreach ($name ?? '' as $data)
-            <h1> {{$data}} </h1>
-
+                <div class="item_ami">
+                    <img alt="Amis-avatar" src="/Images/Users/{{ User::where('name', $data)->first()->avatar }}" class="amis-avatar">
+                    <h1> {{$data}} </h1>
+                </div>
             @endforeach
     </div>
 

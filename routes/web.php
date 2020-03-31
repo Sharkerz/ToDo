@@ -33,6 +33,7 @@ Route::get('/list_amis', 'TodolistController@amis')->name('list_amis');
 Route::post('/accepterAmi', 'AmisController@accepter')->name('accepterAmi');
 Route::post('/refuserAmi', 'AmisController@refuser')->name('refuserAmi');
 
+
 /* Auth */
 Auth::routes();
 
@@ -44,6 +45,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/Profil', 'ProfilController');
     Route::resource('/Contact', 'FormulaireController');
     Route::post('/update', 'ProfilController@update')->name('profil.update');
+    /* Changer photo de profil */
+    Route::post('/Profil', 'ProfilController@update_avatar')->name('Profil.update_avatar');
 
 
 });
