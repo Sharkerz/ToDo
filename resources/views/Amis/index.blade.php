@@ -19,8 +19,8 @@
 
     <div>
         <h3> Liste d'amis: </h3>
-            @foreach ($list ?? '' as $data)
-            <h1> {{ User::where('id', $data['user2'])->first()->name }} </h1>
+            @foreach ($name ?? '' as $data)
+            <h1> {{$data}} </h1>
 
             @endforeach
     </div>

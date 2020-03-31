@@ -25,8 +25,24 @@ class AmisController extends Controller
             ->where('pending', '=', 1)
             ->get();
 
+        $amis = [];
 
-        return View::make('Amis.index')->with('list', $list);
+        for($i = 0; $i <= count($list)-1; $i++) {
+            if($user_id == $list[$i]['user1']) {
+                array_push($amis, $list[$i]['user2']);
+            }
+            else if ($user_id == $list[$i]['user2']) {
+                array_push($amis, $list[$i]['user1']);
+            }
+        }
+
+        $name = [];
+
+        foreach ($amis as $id_amis) {
+            $name[$id_amis] = User::where('id', '=', $id_amis)->first()->name;
+        }
+
+        return View::make('Amis.index')->with(['amis' => $amis, 'name' => $name ]);
     }
 
     /**
