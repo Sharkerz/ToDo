@@ -8,6 +8,7 @@
 }
 
 #icon_notif {
+    user-select:none;
     font-size: 3.5rem;
     color: black;
     margin-top: -8px;

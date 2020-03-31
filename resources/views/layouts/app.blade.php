@@ -145,16 +145,34 @@ $current_user = Auth::user()
     <script type="text/javascript" src="{{ URL::asset('js/Notifications.js') }}"></script>
 
     <script type="text/javascript">
-
-        $('#customSwitch1').change(
-            function(){
-                if ($(this).is(':checked')) {
-                    alert('checked');
-                } else {
-                    alert('not checked');
-                }
+        var theme = 0;
+         $(document).ready(function() {
+            $(function(){
+                var test = localStorage.input === 'true'? true: false;
+                $('#customSwitch1').prop('checked', test || false);
+                check();
             });
 
+            $('#customSwitch1').on('change', function() {
+                localStorage.input = $(this).is(':checked');
+                check();
+            });
+            
+
+            function check(){
+                if ($('#customSwitch1').prop('checked') == true && theme != 1) {
+                    DarkReader.enable()
+                    theme = 1;
+                } else if ($('#customSwitch1').prop('checked') == false && theme != 0) {
+                    DarkReader.disable();
+                    theme = 0;
+                }
+            }
+            
+            $('#customSwitch1').change(function(){
+                check();
+            });
+         });
     </script>
 
 </body>
