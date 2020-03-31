@@ -12,7 +12,8 @@ $(document).ready(function () {
                 data: $('#' + id_form).serialize(),
                 success: function (Response) {
                     id_list = Response.id_todolist;
-                    $('#todolist span').text('Affichage de la todolist avec id:' + id_list);
+                    name_todolist = Response.name_todolist
+                    $('#todolist span').text(name_todolist);
                     $("#todolist").css('visibility', 'visible')
                 },
 
@@ -26,8 +27,8 @@ $(document).ready(function () {
         $(this).addClass('selected');
     });
 
-
-   $('#bouton_partage').click(function(){
+    function load_amis() {
+        document.getElementById('menu_amis_list').innerHTML = '';
         $.get('/list_amis', function (response) {
             $id = response.amis;
             $name = response.name;
@@ -38,8 +39,10 @@ $(document).ready(function () {
                 doc.innerHTML += '<a class="dropdown-item" href="#">' + $name[element] + '</a>'
             )
             });
-        $("#partage").css('visibility', 'visible')
-
+        $("#partage").css('visibility', 'visible')};
+    // Récupération de la liste d'amis pour pouvoir partager avec eux
+   $('#Partager_todo').click(function(){
+        load_amis();
     });
 });
 

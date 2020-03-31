@@ -77,4 +77,35 @@ thead{
 
 #partage{
     visibility: hidden;
+    position: absolute;
+    width: 800px;
+}
+
+#Titre_todolist{
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+#Administration_Todolist i{
+    float:right;
+    font-size: 2.5rem;
+}
+
+#Partager_todo{
+    float:right;
+    margin-top: 12px;
+    margin-right: 5px;
+}
+
+#Delete_Todo{
+    float:right;
+    margin-top: 12px;
+}   
+
+#Valider_partage{
+    float:right;
+    margin-bottom:0;
+}
+
+#Share_Todolist{
+    margin: 0;
 }
