@@ -63,9 +63,9 @@
             </div>
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
-                <div class="btn-group">
-                    <i class="material-icons" id="icon_notif" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">notifications_none</i>
-                    <div class="dropdown-menu" id="list_notif">
+                <div class="btn-group" >
+                    <i class="material-icons nav-link" id="icon_notif" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">notifications_none</i>
+                    <div class="dropdown-menu dropdown-menu-left" id="list_notif">
                         <h6 class="dropdown-header">Demandes d'amis</h6>
                     </div>
                 </div>
