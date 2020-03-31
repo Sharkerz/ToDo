@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Image;
 
 class ProfilController extends Controller
 {
@@ -93,5 +94,17 @@ class ProfilController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function update_avatar(Request $request) {
+        if ($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $filename = time(). '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300, 300)->save(public_path('/Images/Users/' . $filename));
+            $user = Auth::user();
+            $user->avatar = $filename;
+            $user->save();
+        }
+        return Redirect::route('Profil.index');
     }
 }

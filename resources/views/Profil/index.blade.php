@@ -8,7 +8,7 @@
 
         <div class="row">
             <div class="col" id="div-img">
-                <img alt="profil-picture" src="{{asset('Images/Users/default.jpg')}}" id="image-profile">
+                <img alt="profil-picture" src="/Images/Users/{{ $user->avatar }}" id="image-profile">
             </div>
 
             <div class="col">
@@ -36,6 +36,16 @@
 
         <div class="row" id="info">
             <div class="col">
+
+                <div id="select_avatar">
+                    <form enctype="multipart/form-data" action="{{ route('Profil.update_avatar') }}" method="POST">
+                        <label>Changer votre avatar: </label>
+                        <input type="file" name="avatar">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <br>
+                        <input type="submit" class="pull-right btn btn-primary">
+                    </form>
+                </div>
 
             </div>
             <div class="col" id="infos">

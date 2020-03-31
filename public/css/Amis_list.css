@@ -1,0 +1,10 @@
+.amis-avatar {
+    overflow: hidden;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    width: 55px;
+    height: 55px;
+    float: left;
+}
+

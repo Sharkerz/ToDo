@@ -52,10 +52,6 @@
     float: right;
     margin-top: 30px;
 }
-#div-btn button {
-
-}
-
 
 /* Bloc informations */
 
@@ -82,5 +78,17 @@
 
 .Update_Profil{
     margin: 3px;
+}
+
+/* Div changer d'avatar */
+
+#select_avatar {
+    text-align: center;
+    margin-top: 3em;
+    font-size: 1.45em;
+}
+
+#select_avatar input {
+    margin-top: 30px;
 }
 
