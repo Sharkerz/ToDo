@@ -13,7 +13,7 @@ $(document).ready(function () {
                 success: function (Response) {
                     id_list = Response.id_todolist;
                     name_todolist = Response.name_todolist
-                    $('#todolist span').text(name_todolist);
+                    $('#Titre_todolist').text(name_todolist);
                     $("#todolist").css('visibility', 'visible')
                 },
 
@@ -43,6 +43,10 @@ $(document).ready(function () {
     // Récupération de la liste d'amis pour pouvoir partager avec eux
    $('#Partager_todo').click(function(){
         load_amis();
+    });
+
+    $('.card-header').click(function(){
+        $("#partage").css('visibility', 'hidden')
     });
 });
 
