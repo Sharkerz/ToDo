@@ -36,7 +36,11 @@ class SharedtodolistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Sharedtodolist::create([
+            "permissions" => $request->input('permissions'),
+            "user_id" => $request->input('id'),
+            "todolist"=> $request->input('id_todolist')
+        ]);
     }
 
     /**
