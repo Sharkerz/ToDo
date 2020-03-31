@@ -63,18 +63,48 @@ class AmisController extends Controller
      */
     public function store(Request $request)
     {
-        if (User::where('name', '=', $request->input('name'))->exists()) {
-            $id_user2 = $request->input('name');
-            $id = User::where('name', $id_user2)->first()->id;
-            Amis::create([
-                "user1" => Auth::id(),
-                "user2" => $id,
-                "pending" => 0,
-            ]);
-            return Redirect::route('Amis.index');
-        }
+
+        /* Si l'input est un email */
+        if(strpos($request->input('name'), '@') !== false) {
+            if(Auth::user()->email != $request->input('name')) {
+                if (User::where('email', '=', $request->input('name'))->exists()) {
+                    $id_user2 = $request->input('name');
+                    $id = User::where('email', $id_user2)->first()->id;
+                    Amis::create([
+                        "user1" => Auth::id(),
+                        "user2" => $id,
+                        "pending" => 0,
+                    ]);
+                    return Redirect::route('Amis.index');
+                }
+                else {
+                    return Redirect::route('Amis.index');
+                }
+            }
+            else {
+                return Redirect::route('Amis.index');
+            }
+    }
+        /* Si l'input est un pseudo */
         else {
-            return Redirect::route('Amis.index');
+            if(Auth::user()->name != $request->input('name')) {
+                if (User::where('name', '=', $request->input('name'))->exists()) {
+                    $id_user2 = $request->input('name');
+                    $id = User::where('name', $id_user2)->first()->id;
+                    Amis::create([
+                        "user1" => Auth::id(),
+                        "user2" => $id,
+                        "pending" => 0,
+                    ]);
+                    return Redirect::route('Amis.index');
+                }
+                else {
+                    return Redirect::route('Amis.index');
+                }
+            }
+            else {
+                return Redirect::route('Amis.index');
+            }
         }
 
     }
