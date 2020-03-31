@@ -21,6 +21,7 @@ class CreateSharedtodolistsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('todolist_id');
             $table->foreign('todolist_id')->references('id')->on('todolists');
+            $table->boolean('pending')->default('0');
             $table->timestamps();
         });
     }

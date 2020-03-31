@@ -126,13 +126,13 @@ $current_user = Auth::user()
                 </div>
                 <div class="col">
                     <p class="titrefooter">Nous Contacter</p>
-                    <div class="colonne">
+                    <div class="Adresse">
                         <i class="material-icons icone">place</i>
-                        <i class="material-icons icone">email</i>
+                        <span class="parafooter">5 Avenue des Champs-Elysées, 75008 Paris</span>
                     </div>
-                    <div class="colonne">
-                        <p class="parafooter">5 Avenue des Champs-Elysées, 75008 Paris</p>
-                        <a href="{{ url('/Contact') }}" class="parafooter">Formulaire de contact</a>
+                    <div class="Contact_Formulaire">
+                        <i class="material-icons icone">email</i>
+                        <a href="{{ url('/Contact') }}" class="Formulaire_contact">Formulaire de contact</a>
                     </div>
                 </div>
             </div>

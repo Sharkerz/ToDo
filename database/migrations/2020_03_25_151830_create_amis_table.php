@@ -20,7 +20,7 @@ class CreateAmisTable extends Migration
             $table->foreign('user1')->references('id')->on('users');
             $table->unsignedBigInteger('user2');
             $table->foreign('user2')->references('id')->on('users');
-            $table->boolean('pending');
+            $table->boolean('pending')->default('0');
             $table->timestamps();
         });
     }
