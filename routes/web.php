@@ -48,7 +48,5 @@ Route::group(['middleware' => ['auth']], function () {
     /* Changer photo de profil */
     Route::post('/Profil', 'ProfilController@update_avatar')->name('Profil.update_avatar');
 
-
 });
-
 
