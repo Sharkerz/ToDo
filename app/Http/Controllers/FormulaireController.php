@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Formulaire;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class FormulaireController extends Controller
 {
@@ -35,7 +36,11 @@ class FormulaireController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Formulaire::create([
+            "email" => $request->input('email'),
+            "texte" => $request->input('texte'),
+        ]);
+        return Redirect::route('Contact.index');
     }
 
     /**

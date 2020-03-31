@@ -43,12 +43,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/Amis', 'AmisController');
     Route::resource('/Sharedtodolist', 'SharedtodoListController');
     Route::resource('/Profil', 'ProfilController');
-    Route::resource('/Contact', 'FormulaireController');
     Route::post('/update', 'ProfilController@update')->name('profil.update');
     /* Changer photo de profil */
     Route::post('/Profil', 'ProfilController@update_avatar')->name('Profil.update_avatar');
-
-
 });
+Route::resource('/Contact', 'FormulaireController');
 
 
