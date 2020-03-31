@@ -59,11 +59,31 @@
                                 <form id="Share_Todolist" action="{{ route('Sharedtodolist.store') }}" method="post">
                                     @csrf
                                     <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Vos amis
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="menu_amis_list">
-                                        </div></br>
+
+                                            <input id="input_share_id" name="id" type="hidden">
+                                            <input id="input_share_todolist_id" name="todolist_id" type="hidden">
+                                        <div id="div_form_share">
+
+                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Vos amis
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="menu_amis_list">
+                                            </div>
+
+                                                <p id="input_share_name" type="hidden"></p>
+
+                                            <div>
+                                                <input type="radio" id="read" name="permissions"
+                                                       checked>
+                                                <label for="read">Lecture</label>
+                                            </div>
+
+                                            <div>
+                                                <input type="radio" id="write" name="permissions">
+                                                <label for="write">Ecriture</label>
+                                            </div>
+                                        </div>
+
                                         <div id="Valider_partage" >
                                         <input type="submit" value="Partager" class="btn btn-success bouton-creation">
                                         </div>
@@ -80,7 +100,7 @@
         <i class="material-icons" id="btn-task" id="icon_notif">add</i>
 
         <input type="text" placeholder="Ajouter une tache">
-        
+
     </form>
 
 </div>

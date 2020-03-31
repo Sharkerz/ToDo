@@ -99,7 +99,7 @@ thead{
 #Delete_Todo{
     float:right;
     margin-top: 12px;
-}   
+}
 
 #Valider_partage{
     float:right;
@@ -118,7 +118,27 @@ thead{
     font-size: 2rem;
 }
 
+/* Div partage todolist */
 #Close_Partage{
     float:right;
     float: top;
 }
+
+#div_form_share>p,>input,>button,>div{
+    display: inline;
+}
+
+#div_form_share {
+    margin: 0 auto;
+}
+
+#div_form_share p {
+    margin-right: 1em;
+    font-size: 1.7rem;
+}
+
+#div_form_share input {
+    margin-left: 1em;
+}
+
+

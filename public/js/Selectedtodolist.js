@@ -15,6 +15,7 @@ $(document).ready(function () {
                     name_todolist = Response.name_todolist
                     $('#Titre_todolist').text(name_todolist);
                     $("#todolist").css('visibility', 'visible')
+                    return id_list;
                 },
 
             });
@@ -27,27 +28,50 @@ $(document).ready(function () {
         $(this).addClass('selected');
     });
 
+
     function load_amis() {
-        document.getElementById('menu_amis_list').innerHTML = '';
         $.get('/list_amis', function (response) {
-            $id = response.amis;
-            $name = response.name;
+            var id = response.amis;
+            var name = response.name;
 
             var doc = document.getElementById('menu_amis_list');
 
-            $id.forEach(element =>
-                doc.innerHTML += '<a class="dropdown-item" href="#">' + $name[element] + '</a>'
-            )
+            doc.innerHTML = '';
+
+            id.forEach(element =>
+                doc.innerHTML += '<a class="dropdown-item item_amis_share" id="' + element + '" href="#" name="' + element + '">' + name[element] + '</a>'
+            );
             });
-        $("#partage").css('visibility', 'visible')};
+    }
+
     // Récupération de la liste d'amis pour pouvoir partager avec eux
    $('#Partager_todo').click(function(){
         load_amis();
+       $("#partage").css('visibility', 'visible')
     });
 
+    /* Bouton fermer la fenetre partager la todolist */
     $('.card-header').click(function(){
         $("#partage").css('visibility', 'hidden')
     });
+
+
+    /* Add l'amis a partager dans le form */
+    $('#menu_amis_list').on('click', '.item_amis_share', function (e) {
+        var ami_share = $(this).attr('id');
+        var ami_name = $('#' +ami_share).text();
+        /* id user */
+        $('#input_share_id').attr('value', ami_share);
+        /* name user */
+        $('#input_share_name').attr('type', 'visible');
+        $('#input_share_name').text(ami_name);
+
+        $('#input_share_todolist_id').attr('value', id_list);
+
+
+        e.preventDefault();
+    });
+
 });
 
 
