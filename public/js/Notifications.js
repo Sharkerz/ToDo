@@ -1,5 +1,11 @@
 $(document).ready(function () {
 
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     /* Icone notification */
     $.get('/notifications-push', function (response) {
         if (response.notif === "yes") {
@@ -8,55 +14,60 @@ $(document).ready(function () {
     });
 
     /* Liste des demandes d'amis reçus */
-    $.get('/notifications', function (response) {
-        $id = response.id;
-        $name = response.name;
+    function reload_notif() {
 
-        var doc = document.getElementById('list_notif');
+        document.getElementById('list_notif').innerHTML = '<h6 class="dropdown-header">Demandes d\'amis</h6>';
 
-        $id.forEach(element =>
-            doc.innerHTML += '<a class="dropdown-item" id="a_item_notif"> ' + $name[element] +
+        $.get('/notifications', function (response) {
+            $id = response.id;
+            $name = response.name;
 
-                                ' <div id="demande-amis">' +
-                                    '<form method="post" >' +
-                                        '<i id="aha" class="material-icons accepter-amis-btn" name="' + element + '">done</i> ' +
-                                    '</form>' +
+            var doc = document.getElementById('list_notif');
 
-                                    '<form method="post" data-route="{{ route(\'refuserAmi\') }}">' +
-                                        '<i class="material-icons refuser-amis-btn" name="' + element + '">clear</i> ' +
-                                    '</form>' +
-                                '</div>' +
-                            '</a>'
-        )
-    });
+            $id.forEach(element =>
+                doc.innerHTML += '<a class="dropdown-item" id="a_item_notif"> ' + $name[element] +
+                                    '<div id="demande-amis">' +
+                                        '<form method="post">' +
+                                            '<input value="' + element + '" name="id_ami" type="hidden">' +
+                                            '<i class="material-icons accepter-amis-btn">done</i> ' +
+                                        '</form>' +
 
-    var $ = function (selector) {
-        return document.querySelector(selector);
-    };
-    var link = $('#demande-amis')
+                                        '<form method="post">' +
+                                            '<input value="' + element + '" name="id_ami" type="hidden">' +
+                                            '<i class="material-icons refuser-amis-btn" >clear</i> ' +
+                                        '</form>' +
+                                    '</div>' +
+                                '</a>'
+            )
+        });
+    }
+    reload_notif();
+
+
 
     /* Bouton accepter */
-    $('#aha').click(function (e) {
-        alert('yo');
+    $('#list_notif').on('click', '.accepter-amis-btn', function (e) {
+        var form = $(this).parent();
         $.ajax({
             type: 'POST',
             url: '/accepterAmi',
-            data: $('this').serialize(),
+            data: form.serialize(),
             success: function (Response) {
-                console.log(Response);
+                reload_notif();
             },
         });
         e.preventDefault();
     });
 
     /* Bouton refuser */
-    $('.refuser-ami').click(function (e) {
+    $('#list_notif').on('click', '.refuser-amis-btn', function (e) {
+        var form = $(this).parent();
         $.ajax({
             type: 'POST',
-            url: $(this).data('route'),
-            data: $('this').serialize(),
+            url: '/refuserAmi',
+            data: form.serialize(),
             success: function (Response) {
-                console.log(Response);
+                reload_notif();
             },
         });
         e.preventDefault();

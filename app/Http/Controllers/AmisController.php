@@ -111,13 +111,33 @@ class AmisController extends Controller
     public function accepter(Request $request)
     {
         if ($request->ajax()) {
-            return response()->json(['tes'=>'salut'], 200);
+            $id = $request->input('id_ami');
+
+            $this->validate($request, [
+                'id_ami' => 'required',
+            ]);
+            Amis::where('user1', $id)
+                ->update(['pending' => 1]);
+
+            return response()->json(['accepter'=>$id], 200);
         }
         abort(404);
     }
 
-    public function refuser(Amis $amis)
+    public function refuser(Request $request)
     {
-        //
+        if ($request->ajax()) {
+            $id = $request->input('id_ami');
+
+            $this->validate($request, [
+                'id_ami' => 'required',
+            ]);
+            Amis::where('user1', $id)
+                ->where('user2', Auth::id())
+                ->delete();
+
+            return response()->json(['refuser'=>$id], 200);
+        }
+        abort(404);
     }
 }
