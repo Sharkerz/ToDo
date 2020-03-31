@@ -78,6 +78,7 @@ thead{
 #partage{
     visibility: hidden;
     position: absolute;
+    width: 800px;
 }
 
 #Titre_todolist{
@@ -99,3 +100,12 @@ thead{
     float:right;
     margin-top: 12px;
 }   
+
+#Valider_partage{
+    float:right;
+    margin-bottom:0;
+}
+
+#Share_Todolist{
+    margin: 0;
+}

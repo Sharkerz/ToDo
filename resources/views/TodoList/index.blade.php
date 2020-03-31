@@ -55,14 +55,16 @@
                         <div class="card-header">
                         <h1>Partager votre Todolist</h1>
                             </div>
-                                <form action="{{ route('Sharedtodolist.store') }}" method="post">
+                                <form id="Share_Todolist" action="{{ route('Sharedtodolist.store') }}" method="post">
                                     @csrf
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Vos amis
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="menu_amis_list">
-
+                                        </div></br>
+                                        <div id="Valider_partage" >
+                                        <input type="submit" value="Partager" class="btn btn-success bouton-creation">
                                         </div>
                                     </div>
                                 </form>
