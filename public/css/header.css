@@ -41,3 +41,12 @@
 .div_header_link:hover {
     opacity: 0.2;
 }
+
+#theme {
+    user-select: none;
+    margin: auto;
+}
+
+#theme:hover {
+    cursor: pointer;
+}

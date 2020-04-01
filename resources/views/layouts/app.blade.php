@@ -32,6 +32,35 @@
     <!-- Dark mode -->
     <script src = "https://unpkg.com/darkreader@4.9.2/darkreader.js"></script>
 
+    <script type="text/javascript">
+
+        if(localStorage.getItem("text") == "brightness_3") {
+            DarkReader.disable()
+        } else if(localStorage.getItem("text") == "brightness_5") {
+            DarkReader.enable()
+        }
+
+        $(document).ready(function() {
+            $('#sun').click(function(){
+                if($('#sun').text() == 'brightness_3') {
+                    DarkReader.enable()
+                    $('#sun').text('brightness_5');
+                    localStorage.setItem("text","brightness_5");
+                } else if($('#sun').text() == 'brightness_5') {
+                    DarkReader.disable()
+                    $('#sun').text('brightness_3');
+                    localStorage.setItem("text","brightness_3");
+                }
+            });
+
+            $('#sun').on('click', function() {
+                localStorage.input = $(this).text();
+            });
+
+        });
+        
+    </script>
+
 </head>
 
 @php
@@ -73,12 +102,11 @@ $current_user = Auth::user()
                     @endif
                 @else
 
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                    <label class="custom-control-label" for="customSwitch1">Dark mode</label>
+                <div id="theme" class="btn-group">
+                    <i id="sun" class="material-icons"></i>
                 </div>
-
-                <div class="btn-group" >
+                
+                <div class="btn-group">
                     <i class="material-icons nav-link" id="icon_notif" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">notifications_none</i>
                     <div class="dropdown-menu dropdown-menu-left" id="list_notif">
                         <h6 class="dropdown-header">Demandes d'amis</h6>
@@ -145,34 +173,10 @@ $current_user = Auth::user()
     <script type="text/javascript" src="{{ URL::asset('js/Notifications.js') }}"></script>
 
     <script type="text/javascript">
-        var theme = 0;
-         $(document).ready(function() {
-            $(function(){
-                var test = localStorage.input === 'true'? true: false;
-                $('#customSwitch1').prop('checked', test || false);
-                check();
-            });
-
-            $('#customSwitch1').on('change', function() {
-                localStorage.input = $(this).is(':checked');
-                check();
-            });
-
-
-            function check(){
-                if ($('#customSwitch1').prop('checked') == true && theme != 1) {
-                    DarkReader.enable()
-                    theme = 1;
-                } else if ($('#customSwitch1').prop('checked') == false && theme != 0) {
-                    DarkReader.disable();
-                    theme = 0;
-                }
-            }
-
-            $('#customSwitch1').change(function(){
-                check();
-            });
-         });
+        $('#sun').text(localStorage.getItem("text"));
+        if(localStorage.getItem("text") == null){
+            $('#sun').text("brightness_3");
+        }
     </script>
 
 </body>
