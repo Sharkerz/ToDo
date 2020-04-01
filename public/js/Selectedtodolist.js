@@ -4,6 +4,55 @@ $(document).ready(function () {
     div.style.visibility = 'hidden';
     div.style.display = 'none';
 
+    
+    function update_tasks(id){
+        $.ajax({    
+            type: 'post',
+            url: '/update_tasks',
+            data: $('#tasks-'+id).serialize(),
+            success: function (answer) {
+                task = answer.task;
+                $('#form-'+task.todolist_id).trigger('click');
+            }
+        })
+    }
+
+    function delete_task(id){
+        $.ajax({    
+            type: 'post',
+            url: '/delete_task',
+            data: $('#tasks-'+id).serialize(),
+            success: function (answer) {
+                task = answer.task;
+                $('#form-'+task.todolist_id).trigger('click');
+            }
+        })
+    }
+    function create_task(params){
+        $.ajax({    
+            type: 'post',
+            url: '/create_task',
+            data: params,
+            success: function (answer) {
+                task = answer.task;
+                $('#form-'+params.list_id).trigger('click');
+            }
+        })
+    }
+
+    function delete_todo(params){
+        $.ajax({    
+            type: 'post',
+            url: '/delete_todo',
+            data: params,
+            success: function (answer) {
+               window.location.reload();
+            }
+        })
+    }
+
+    
+
     list_todolist();
     changer_nom_todolist();
     function list_todolist(){
@@ -24,35 +73,9 @@ $(document).ready(function () {
             '</form>'+
             '</div>',
         )
-        $('.item').on("click",(function (){
-            id_form = $(this).children().attr('id');
-               var route = $('#' + id_form).data('route');
-               div =  document.getElementById('Changer_nom_user');
-               if(div.style.visibility == 'visible'){
-                div.style.visibility = 'hidden';
-                div.style.display ='none';
-                document.getElementById('Titre_todolist').style.visibility = 'visible';
-                document.getElementById('Titre_todolist').style.display = 'inline';
-                }
-                $.ajax({
-                    type: 'POST',
-                    url: route,
-                    data: $('#' + id_form).serialize(),
-                    success: function (Response) {
-                        document.getElementById('Delete_Todo').style.display = 'inline';
-                        document.getElementById('Rename_Todo').style.display = 'inline';
-                        document.getElementById('Partager_todo').style.display = 'inline';
-                        id_list = Response.id_todolist;
-                        name_todolist = Response.name_todolist
-                        $('#Titre_todolist').text(name_todolist);
-                        $("#todolist").css('visibility', 'visible');
-                        $('#Administration_Todolist').attr('value', id_list);
-                        return id_list;
-                    },
+                })
+            };
     
-                });
-        }));
-    })
     $.get('/sharedtodolist', function (response) {
         $id = response.id;
         $name = response.name;
@@ -65,7 +88,7 @@ $(document).ready(function () {
 
         $id.forEach(element =>
             doc.innerHTML +='<div class="item">'+
-            '<form class="form-data" id="form-'+ element +'" method="post" data-route="'+$route_formulaire+'">'+
+            '<form class="form-data" id="form-'+ element +'" method="post" >'+
             '<p>'+ $name[element]+'</p>' + 
             '<input  class="name" name="name_todolist" value="'+ $name[element]+' " type="text" hidden>'+
             '<input class="id" name="id_todolist" value="'+element+'" type="text" hidden>'+
@@ -76,7 +99,24 @@ $(document).ready(function () {
         $('.item').on('click','.form-data',(function (){
             id_form = $(this).attr('id');
             recu_permissions =  $(this).children('.permissions').attr('value');
-            console.log(recu_permissions);
+            document.getElementById('create_task').innerHTM = '';
+            if(recu_permissions != 'read'){
+                id_todolist = $('#'+ id_form +' input[name=id_todolist]').val()
+                document.getElementById('create_task').innerHTML ='<form id="form_create">'+
+                    '<input  class="name" id="content_task" type="text">'+
+                    '<input class="id" id="id_todolist" value="'+id_todolist+'" type="text" hidden>'+
+                    '<button class="create_task")>Créer une tache</button>'
+                    '</form>';
+                $('.create_task').on('click',function(e){
+                    list_id = $('#id_todolist').val();
+                    content = $('#content_task').val();
+                    console.log(list_id,content);
+                    params ={'list_id' : list_id,'content' : content};
+                    create_task(params);
+                    e.preventDefault();
+                
+                });
+            }
                var route = $('#' + id_form).data('route');
                div =  document.getElementById('Changer_nom_user');
                if(div.style.visibility == 'visible'){
@@ -86,10 +126,67 @@ $(document).ready(function () {
                 document.getElementById('Titre_todolist').style.display = 'inline';
                 }
                 $.ajax({
-                    type: 'POST',
-                    url: route,
+                    type: 'post',
+                    url: '/selectedtodolist',
                     data: $('#' + id_form).serialize(),
-                    success: function (Response) {
+                    success: function (answer) {
+                        console.log(recu_permissions);
+                        id = answer.id_todolist;
+                        name = answer.name_todolist;
+                        tasks = answer.tasks;
+                        contenu = answer.content;
+                        finished = answer.finished;
+                        console.log(id,name,tasks,contenu,finished);
+                        document.getElementById('tasks_inprogress').innerHTML='';
+                        document.getElementById('tasks_finished').innerHTML='';
+                        
+                        tasks.forEach(function (element)
+                        {
+                            additional_content = '';
+                        
+                            if(recu_permissions != 'read'){
+                                if(finished[element] =='0'  ){
+                                    container = document.getElementById('tasks_inprogress')
+                                    additional_content = '<button class="update_task" data-id="'+element+'")>Valider la tache</button>'
+                                    
+                                }
+                                else{
+                                    container =  document.getElementById('tasks_finished');
+                                    additional_content = '<button class="delete_task" data-id="'+element+'")>Supprimer la tache</button>'
+                                }
+                            }
+                            else
+                            {
+                                if(finished[element] =='0'  ){
+                                    container = document.getElementById('tasks_inprogress')
+                                    
+                                }
+                                else{
+                                    container =  document.getElementById('tasks_finished');
+                                }
+                            }
+                            container.innerHTML +='<div class="tasks">'+
+                                '<form class="form-data" id="tasks-'+ element +'" method="post" >'+
+                                '<p>'+ contenu[element]+'</p>' + 
+                                '<input class="id" name="id_task" value="'+element+'" type="text" hidden>'+
+                                '<input class="etat_task" value="' +finished[element] +'" type="text" hidden>'+
+                                additional_content+
+                                '</form>'+
+                                '</div>'
+
+                        });
+                        $('.update_task').on('click',function(e){
+                            task_id = $(this).attr('data-id');
+                            update_tasks(task_id);
+                            e.preventDefault();
+                           
+                        });
+                        $('.delete_task').on('click',function(e){
+                            task_id = $(this).attr('data-id');
+                            delete_task(task_id);
+                            e.preventDefault();
+                           
+                        });
                         if(recu_permissions == 'read'){
                             document.getElementById('Delete_Todo').style.display = 'none';
                             document.getElementById('Rename_Todo').style.display = 'none';
@@ -97,23 +194,20 @@ $(document).ready(function () {
                         }
                         else{
                             document.getElementById('Delete_Todo').style.display = 'inline';
+                            document.getElementById('Delete_Todo').setAttribute('data-todolist',id);
                             document.getElementById('Rename_Todo').style.display = 'inline';
                             document.getElementById('Partager_todo').style.display = 'inline';
                         }
-                        id_list = Response.id_todolist;
-                        name_todolist = Response.name_todolist
-                        $('#Titre_todolist').text(name_todolist);
+                        $('#Titre_todolist').text(name);
                         $("#todolist").css('visibility', 'visible');
-                        $('#Administration_Todolist').attr('value', id_list);
-                        list_todolist();
-                        return id_list;
+                        $('#Administration_Todolist').attr('value', id);
+                        return id;
                     },
     
-                });
+                })
+               ;;
         }));
     })
-};
-
 
     $('div .item').click(function () {
         $('div .item').removeClass('selected');
@@ -147,6 +241,11 @@ $(document).ready(function () {
         $("#partage").css('visibility', 'hidden')
     });
 
+    $('#Delete_Todo').on('click',function(e){
+        id_todo = $(this).attr('data-todolist');
+        id ={'todolist_id' : id_todo};
+        delete_todo(id);
+    });
 
     /* Add l'amis a partager dans le form */
     $('#menu_amis_list').on('click', '.item_amis_share', function (e) {
@@ -158,7 +257,7 @@ $(document).ready(function () {
         $('#input_share_name').attr('type', 'visible');
         $('#input_share_name').text(ami_name);
 
-        $('#input_share_todolist_id').attr('value', id_list);
+        $('#input_share_todolist_id').attr('value', id);
 
 
         e.preventDefault();
@@ -190,8 +289,8 @@ $(document).ready(function () {
                             div.style.visibility = 'hidden';
                             div.style.display ='none';
                             document.getElementById('Titre_todolist').style.visibility = 'visible';
-                            list_todolist();
                             document.getElementById('Titre_todolist').style.display = 'inline';
+                            list_todolist();
                         },
                     });
                 });
@@ -204,6 +303,28 @@ $(document).ready(function () {
             }
     });
     };
-});
-
+    function taksk_todolist(){
+        $.get('/selectedtodolist', function (response) {
+            id = response.id;
+            name = response.name;
+            console.log(id,name);
+            $route_formulaire = response.route_formulaire;
+            $permissions = response.permissions;
+    
+    
+            document.getElementById('list_sharedtodolist').innerHTML = '';
+            var doc = document.getElementById('list_sharedtodolist');
+    
+            $id.forEach(element =>
+                doc.innerHTML +='<div class="item">'+
+                '<form class="form-data" id="form-'+ element +'" method="post" data-route="'+$route_formulaire+'">'+
+                '<p>'+ $name[element]+'</p>' + 
+                '<input  class="name" name="name_todolist" value="'+ $name[element]+' " type="text" hidden>'+
+                '<input class="id" name="id_todolist" value="'+element+'" type="text" hidden>'+
+                '<input class="permissions" value="' +$permissions[element] +'" type="text" hidden>'+
+                '</form>'+
+                '</div>',
+            )})
+        }
+    })
 

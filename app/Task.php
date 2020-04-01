@@ -10,4 +10,9 @@ class Task extends Model
     {
         return $this->belongsTo('App\Tasks');
     }
+
+    protected $fillable = [
+        'name', 'todolist_id','content','finish' 
+    ];
+
 }

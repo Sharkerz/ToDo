@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Task;
+use Dotenv\Result\Success;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -22,9 +23,21 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        if ($request->ajax()) {
+            $id = $request->input('list_id');
+            $content = $request->input('content');
+
+            Task::create([
+                "todolist_id" => $id,
+                "content" => $content,
+                'finish' =>false,
+            ]);
+
+                return response()->json([],200);
+            }
+            abort(404); 
     }
 
     /**
@@ -69,17 +82,29 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        //
-    }
+        if ($request->ajax()) {
+            $id = $request->input('id_task');
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Task  $task
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Task $task)
+            Task::where('id', $id)
+                ->update(['finish' => true]);
+
+                return response()->json(['task' =>Task::where('id', $id)->first()],200);
+            }
+            abort(404); 
+    }
+ 
+    public function delete(Request $request)
     {
-        //
+        if ($request->ajax()) {
+          
+            $id = $request->input('id_task');
+            $delete = Task::where('id', $id)->first();
+
+            Task::where('id', $id)
+                ->delete();
+
+                return response()->json(['task' =>$delete],200);
+        }
+        abort(404); 
     }
 }
