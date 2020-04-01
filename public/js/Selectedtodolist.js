@@ -12,7 +12,7 @@ $(document).ready(function () {
         $name = response.name;
         route_formulaire = response.route_formulaire;
 
-
+        document.getElementById('list_todolist').innerHTML = '';
         var doc = document.getElementById('list_todolist');
 
         $id.forEach(element =>
@@ -99,6 +99,7 @@ $(document).ready(function () {
     $('#Rename_Todo').click(function(){
         id_todolist = $(this).parent().attr('value');
         div =  document.getElementById('Changer_nom_user');
+        $('#Id_todolist_changer').attr('value', id_todolist);
         name_todolist = document.getElementById('Titre_todolist').textContent;
         if(div.style.visibility == 'hidden'){
             document.getElementById('Titre_todolist').style.visibility = 'hidden';
@@ -118,6 +119,7 @@ $(document).ready(function () {
                             var formulaire = document.getElementById('test');
                             div.style.visibility = 'hidden';
                             div.style.display ='none';
+                            document.getElementById('Titre_todolist').style.visibility = 'visible';
                             list_todolist();
                         },
                     });
