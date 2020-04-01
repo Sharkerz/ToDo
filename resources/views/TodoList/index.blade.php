@@ -42,9 +42,18 @@
 
 <div id="todolist" >
     <div id="Administration_Todolist">
-    <span id ="Titre_todolist"></span>
+        <span id ="Titre_todolist"></span>
         <i id="Delete_Todo"><i class="material-icons"  id="btn-task" id="icon_notif">delete</i></i>
         <i id="Partager_todo"><i class="material-icons"  id="btn-task" id="icon-notif">share</i></i>
+        <i id="Rename_Todo"><i class="material-icons"  id="btn-task" id="icon_notif">edit</i></i>
+        <div id="Changer_nom_user" >
+            <form id="Changernametodolist"  class="Name_Todolist"  method = "post">
+                <input value="'+ id_todolist + '" name="id_todolist" type="hidden">
+                <label> Nom de la Todolist :</label>
+                <input  id="Changer_nom_todolist" name="name_todolist" >
+            </form>
+            <button id="Changer_nom" class="btn btn-success bouton-creation">Valider</button>
+        </div>'
     </div>
 
     <div id="partage">
@@ -96,14 +105,15 @@
             </div>
         </div>
 
-    <!-- Ajout d'une tache -->
+    <div id="Taks_Todlist">
+            <!-- Ajout d'une tache -->
     <form id="form-task">
         <i class="material-icons" id="btn-task" id="icon_notif">add</i>
 
         <input type="text" placeholder="Ajouter une tache">
 
     </form>
-
+    </div>
 </div>
 
 @endsection

@@ -1,8 +1,9 @@
 $(document).ready(function () {
-
     // Ajax Selection todolist à afficher
+    div =  document.getElementById('Changer_nom_user');
+    div.style.visibility = 'hidden';
+    div.style.display = 'none';
     $('.item').click(function (e) {
-
         id_form = $(this).children().attr('id');
            var route = $('#' + id_form).data('route');
 
@@ -14,7 +15,8 @@ $(document).ready(function () {
                     id_list = Response.id_todolist;
                     name_todolist = Response.name_todolist
                     $('#Titre_todolist').text(name_todolist);
-                    $("#todolist").css('visibility', 'visible')
+                    $("#todolist").css('visibility', 'visible');
+                    $('#Administration_Todolist').attr('value', id_list);
                     return id_list;
                 },
 
@@ -72,6 +74,34 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
+    $('#Rename_Todo').click(function(){
+        id_todolist = $(this).parent().attr('value');
+        div =  document.getElementById('Changer_nom_user');
+        if(div.style.visibility == 'hidden'){
+            div.style.visibility = 'visible';
+            div.style.display = 'inline';
+                document.getElementById('Changer_nom').addEventListener('click',function(){
+                    var id_formulaire = document.getElementById('Changernametodolist').getAttribute('id');
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Changernametodolist',
+                        data: $('#' + id_formulaire).serialize(),
+                        success: function (Response) {
+                            name_todolist = Response.name;
+                            $('#Titre_todolist').text(name_todolist);
+                            $("#todolist").css('visibility', 'visible');
+                            var formulaire = document.getElementById('test');
+                            div.style.visibility = 'hidden';
+                            div.style.display ="none";
+                        },
+                    });
+                });
+            }
+            else{
+                div.style.visibility = 'hidden';
+                div.style.display ="none";
+            }
+    });
 });
 
 
