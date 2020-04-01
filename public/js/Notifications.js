@@ -17,7 +17,7 @@ $(document).ready(function () {
     function reload_notif() {
 
         document.getElementById('list_notif').innerHTML = '<h6 class="dropdown-header">Demandes d\'amis</h6>';
-
+        /* Liste demandes d'amis */
         $.get('/notifications', function (response) {
             $id = response.id;
             $name = response.name;
@@ -26,7 +26,7 @@ $(document).ready(function () {
 
             $id.forEach(element =>
                 doc.innerHTML += '<a class="dropdown-item" id="a_item_notif"> ' + $name[element] +
-                                    '<div id="demande-amis">' +
+                                    '<div class="item_notif">' +
                                         '<form method="post">' +
                                             '<input value="' + element + '" name="id_ami" type="hidden">' +
                                             '<i class="material-icons accepter-amis-btn">done</i> ' +
@@ -40,6 +40,36 @@ $(document).ready(function () {
                                 '</a>'
             )
         });
+
+        /* Liste partage de TodoList */
+        $.get('/notifications-todolist', function (response) {
+            $id_shared = response.id;
+            $name_shared = response.name;
+
+            document.getElementById('list_notif').innerHTML += '<h6 class="dropdown-header">Partage de Todo </h6>';
+
+            var doc = document.getElementById('list_notif');
+
+            $id_shared.forEach(element =>
+                doc.innerHTML += '<a class="dropdown-item" id="a_item_notif"> ' + $name_shared[element] +
+                                    '<div class="item_notif">' +
+                                        '<form method="post">' +
+                                            '<input value="' + element + '" name="id_ami" type="hidden">' +
+                                            '<i class="material-icons accepter-amis-btn">done</i> ' +
+                                        '</form>' +
+
+                                        '<form method="post">' +
+                                            '<input value="' + element + '" name="id_ami" type="hidden">' +
+                                            '<i class="material-icons refuser-amis-btn" >clear</i> ' +
+                                        '</form>' +
+                                    '</div>' +
+                                    '</a>'
+            )
+
+
+        });
+
+
     }
     reload_notif();
 
