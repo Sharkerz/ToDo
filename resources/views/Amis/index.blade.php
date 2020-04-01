@@ -16,21 +16,26 @@
         <div id="div_add_friend">
             <form action="{{ route('Amis.store') }}" method="post">
                 @csrf
-                <label for="NomAmis">Ajouter un amis:</label>
-                <input type="text" name="name" placeholder="Pseudo" required> </br>
+                <label id="label_add_friend" for="input_friend_invite">Ajouter un amis:</label>
+                <input id="input_friend_invite" class="form-control" type="text" name="name" placeholder="Pseudo ou Email" required>
                 <input type="submit" placeholder="Envoyer demande" class="btn btn-success bouton-creation">
             </form>
         </div>
-
-        <h3> Liste d'amis: </h3>
+        <br>
+        <table class="table table-striped">
+            <tbody>
             @foreach ($name ?? '' as $data)
-                <div class="item_ami">
-                    <img alt="Amis-avatar" src="/Images/Users/{{ User::where('name', $data)->first()->avatar }}" class="amis-avatar">
-                    <h1> {{$data}} </h1>
-                </div>
+                <tr>
+                    <td>
+                        <img alt="Amis-avatar" src="/Images/Users/{{ User::where('name', $data)->first()->avatar }}" class="amis-avatar">
+                    </td>
+                    <td>
+                        <h1 id="name_friend"> {{$data}} </h1>
+                    </td>
+                </tr>
             @endforeach
-
+            </tbody>
+        </table>
     </div>
-
 
 @endsection

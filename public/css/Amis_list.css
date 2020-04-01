@@ -1,9 +1,43 @@
 #div_amis {
-    height: 74.6vh;
+    min-height: 90.6vh;
+    max-height: 90.6vh;
+    margin-top: 1em;
+    background-color: white;
+    border-radius: 12px;
+    overflow-y: scroll;
+}
+
+/*Ajouter un ami */
+#div_add_friend form{
+    display: flex;
+    float: right;
+    margin-top: 1em;
+    vertical-align: center;
 }
 
 #div_add_friend {
+    height: 7vh;
+}
+
+#div_add_friend input {
+    margin-top: 7px;
+    margin-right: 10px;
+    height: 2.7em;
+}
+
+#label_add_friend {
     display: inline;
+    white-space: nowrap;
+    margin-top: 0.2em;
+    margin-right: 4.5em;
+    width: 100px;
+    font-size: 1.8em;
+}
+
+/* Liste des amis */
+
+#name_friend {
+    margin-top: 0.1em;
 }
 
 .amis-avatar {
