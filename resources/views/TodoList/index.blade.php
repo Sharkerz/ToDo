@@ -19,15 +19,8 @@
         <i class="material-icons" id="btn-create" onclick="window.location.href='/Todolist/create'" id="icon_notif">add</i>
     </div></br></br>
     <h2> Liste des Todolists Partagées avec vous : </h2>
-    @foreach($sharedTodos as $sharedTodo)
-            <div class="item">
-                <form class="form-data" id="form-{{$sharedTodo->todolist_id}}" method="post" data-route='{{ route('selectedtodolist') }}'>
-                    <p>{{$sharedTodo->todolist->name}}</p>
-                    <input name="name_todolist" value="{{$sharedTodo->todolist->name}}" type="text" hidden>
-                    <input name="id_todolist" value="{{$sharedTodo->todolist_id}}" type="text" hidden>
-                </form>
+    <div id="list_sharedtodolist">
             </div>
-        @endforeach
     </tbody>
 </div>
 

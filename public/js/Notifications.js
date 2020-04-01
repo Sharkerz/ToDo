@@ -85,6 +85,7 @@ $(document).ready(function () {
             success: function (Response) {
                 reload_notif();
                 reload_icon();
+                list_todolist();
             },
         });
         e.preventDefault();

@@ -10,14 +10,14 @@ $(document).ready(function () {
     $.get('/todolist', function (response) {
         $id = response.id;
         $name = response.name;
-        route_formulaire = response.route_formulaire;
+        $route_formulaire = response.route_formulaire;
 
         document.getElementById('list_todolist').innerHTML = '';
         var doc = document.getElementById('list_todolist');
 
         $id.forEach(element =>
-            doc.innerHTML +='<div class="item" id"oui">'+
-            '<form class="form-data" id="form-'+ element +'" method="post" data-route="'+route_formulaire+'">'+
+            doc.innerHTML +='<div class="item">'+
+            '<form class="form-data" id="form-'+ element +'" method="post" data-route="'+ $route_formulaire+'">'+
             '<p>'+ $name[element]+'</p>' + 
             '<input name="name_todolist" value="'+ $name[element]+' " type="text" hidden>'+
             '<input name="id_todolist" value="'+element+'" type="text" hidden>'+
@@ -39,11 +39,73 @@ $(document).ready(function () {
                     url: route,
                     data: $('#' + id_form).serialize(),
                     success: function (Response) {
+                        document.getElementById('Delete_Todo').style.display = 'inline';
+                        document.getElementById('Rename_Todo').style.display = 'inline';
+                        document.getElementById('Partager_todo').style.display = 'inline';
                         id_list = Response.id_todolist;
                         name_todolist = Response.name_todolist
                         $('#Titre_todolist').text(name_todolist);
                         $("#todolist").css('visibility', 'visible');
                         $('#Administration_Todolist').attr('value', id_list);
+                        return id_list;
+                    },
+    
+                });
+        }));
+    })
+    $.get('/sharedtodolist', function (response) {
+        $id = response.id;
+        $name = response.name;
+        $route_formulaire = response.route_formulaire;
+        $permissions = response.permissions;
+
+
+        document.getElementById('list_sharedtodolist').innerHTML = '';
+        var doc = document.getElementById('list_sharedtodolist');
+
+        $id.forEach(element =>
+            doc.innerHTML +='<div class="item">'+
+            '<form class="form-data" id="form-'+ element +'" method="post" data-route="'+$route_formulaire+'">'+
+            '<p>'+ $name[element]+'</p>' + 
+            '<input  class="name" name="name_todolist" value="'+ $name[element]+' " type="text" hidden>'+
+            '<input class="id" name="id_todolist" value="'+element+'" type="text" hidden>'+
+            '<input class="permissions" value="' +$permissions[element] +'" type="text" hidden>'+
+            '</form>'+
+            '</div>',
+        )
+        $('.item').on('click','.form-data',(function (){
+            id_form = $(this).attr('id');
+            recu_permissions =  $(this).children('.permissions').attr('value');
+            console.log(recu_permissions);
+               var route = $('#' + id_form).data('route');
+               div =  document.getElementById('Changer_nom_user');
+               if(div.style.visibility == 'visible'){
+                div.style.visibility = 'hidden';
+                div.style.display ='none';
+                document.getElementById('Titre_todolist').style.visibility = 'visible';
+                document.getElementById('Titre_todolist').style.display = 'inline';
+                }
+                $.ajax({
+                    type: 'POST',
+                    url: route,
+                    data: $('#' + id_form).serialize(),
+                    success: function (Response) {
+                        if(recu_permissions == 'read'){
+                            document.getElementById('Delete_Todo').style.display = 'none';
+                            document.getElementById('Rename_Todo').style.display = 'none';
+                            document.getElementById('Partager_todo').style.display = 'none';
+                        }
+                        else{
+                            document.getElementById('Delete_Todo').style.display = 'inline';
+                            document.getElementById('Rename_Todo').style.display = 'inline';
+                            document.getElementById('Partager_todo').style.display = 'inline';
+                        }
+                        id_list = Response.id_todolist;
+                        name_todolist = Response.name_todolist
+                        $('#Titre_todolist').text(name_todolist);
+                        $("#todolist").css('visibility', 'visible');
+                        $('#Administration_Todolist').attr('value', id_list);
+                        list_todolist();
                         return id_list;
                     },
     
