@@ -49,6 +49,9 @@
 
 #div-btn {
     display: inline;
+    float: right;
+    margin-top: 2em;
+    margin-right: 1em;
 }
 
 /* Bloc informations */
@@ -68,7 +71,6 @@
 .categorie {
     color: #1d68a7;
 }
-
 
 #Update_Profil{
     margin: 5px;
