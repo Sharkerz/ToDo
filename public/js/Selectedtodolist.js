@@ -47,7 +47,7 @@ $(document).ready(function () {
     }
 
     // Récupération de la liste d'amis pour pouvoir partager avec eux
-   $('#Partager_todo').click(function(){
+   $('#Partager_todo').click(function(){    
         load_amis();
        $("#partage").css('visibility', 'visible')
     });
