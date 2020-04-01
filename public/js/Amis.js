@@ -6,10 +6,13 @@ $(document).ready(function () {
     }
 
     async function alert() {
+        await sleep(2000);
+        document.getElementById('alert_success_friend').setAttribute('visibility', 'visible');
         $('.alert').alert();
         await sleep(5000);
         $('.alert').alert('close');
     }
+    alert();
 
     $('#confirm_delete_friend').click(function () {
         $.ajax({
@@ -25,6 +28,3 @@ $(document).ready(function () {
 
 });
 
-
-/* Ajax supprimer amis */
-// Route::post('/Delete_friend', 'AmisController@delete_friend')->name('Delete_friend');

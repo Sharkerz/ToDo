@@ -58,6 +58,8 @@ Route::post('/refuserAmi', 'AmisController@refuser')->name('refuserAmi');
 Route::post('/accepterShared', 'SharedtodoListController@accepter')->name('accepterShared');
 Route::post('/refuserShared', 'SharedtodoListController@refuser')->name('refuserShared');
 
+/* Ajax supprimer amis */
+Route::post('/Delete_friend', 'AmisController@delete_friend')->name('Delete_friend');
 
 /*Changer Nom de la todolist*/
 Route::post('/Changernametodolist', 'TodolistController@changer_nom')->name('Changernametodolist');
