@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Sharedtodolist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class SharedtodolistController extends Controller
 {
@@ -37,10 +38,11 @@ class SharedtodolistController extends Controller
     public function store(Request $request)
     {
         Sharedtodolist::create([
-            "permissions" => $request->input('permissions'),
             "user_id" => $request->input('id'),
-            "todolist"=> $request->input('id_todolist')
+            "todolist_id" =>$request->input('todolist_id'),
+            "permissions" => $request->input('permissions'),
         ]);
+        return Redirect::route('Todolist.index');
     }
 
     /**

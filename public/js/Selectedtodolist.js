@@ -51,7 +51,7 @@ $(document).ready(function () {
     });
 
     /* Bouton fermer la fenetre partager la todolist */
-    $('.card-header').click(function(){
+    $('#Close_Partage').click(function(){
         $("#partage").css('visibility', 'hidden')
     });
 

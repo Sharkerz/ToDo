@@ -10,7 +10,7 @@ class Sharedtodolist extends Model
         'shared_user' => 'array'
     ];
     protected $fillable = [
-        'id', 'user_id', 
+        'id', 'user_id','todolist_id','permissions' 
     ];
 
     public function user()
