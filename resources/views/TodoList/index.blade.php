@@ -49,7 +49,6 @@
         <div id="Changer_nom_user" >
             <form id="Changernametodolist"  class="Name_Todolist"  method = "post">
                 <input value="'+ id_todolist + '" name="id_todolist" type="hidden">
-                <label> Nom de la Todolist :</label>
                 <input  id="Changer_nom_todolist" name="name_todolist" >
             </form>
             <button id="Changer_nom" class="btn btn-success bouton-creation">Valider</button>
@@ -104,16 +103,6 @@
                 </div>
             </div>
         </div>
-
-    <div id="Taks_Todlist">
-            <!-- Ajout d'une tache -->
-    <form id="form-task">
-        <i class="material-icons" id="btn-task" id="icon_notif">add</i>
-
-        <input type="text" placeholder="Ajouter une tache">
-
-    </form>
-    </div>
 </div>
 
 @endsection
