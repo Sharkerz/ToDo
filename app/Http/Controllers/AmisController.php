@@ -186,4 +186,22 @@ class AmisController extends Controller
         }
         abort(404);
     }
+
+    public function delete_friend(Request $request)
+    {
+        if ($request->ajax()) {
+            $id_ami = $request->input('id_ami');
+
+            Amis::where('user1', $id_ami)
+                ->where('user2', Auth::id())
+                ->delete();
+
+            Amis::where('user2', $id_ami)
+                ->where('user1', Auth::id())
+                ->delete();
+
+            return response()->json(['supprimé'=>$id_ami], 200);
+        }
+        abort(404);
+    }
 }

@@ -59,7 +59,6 @@ Route::post('/accepterShared', 'SharedtodoListController@accepter')->name('accep
 Route::post('/refuserShared', 'SharedtodoListController@refuser')->name('refuserShared');
 
 
-
 /*Changer Nom de la todolist*/
 Route::post('/Changernametodolist', 'TodolistController@changer_nom')->name('Changernametodolist');
 /* Auth */

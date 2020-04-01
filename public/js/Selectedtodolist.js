@@ -67,7 +67,7 @@ $(document).ready(function () {
         $id.forEach(element =>
             doc.innerHTML +='<div class="item">'+
             '<form class="form-data" id="form-'+ element +'" method="post" data-route="'+ $route_formulaire+'">'+
-            '<p>'+ $name[element]+'</p>' + 
+            '<p>'+ $name[element]+'</p>' +
             '<input name="name_todolist" value="'+ $name[element]+' " type="text" hidden>'+
             '<input name="id_todolist" value="'+element+'" type="text" hidden>'+
             '</form>'+
@@ -99,7 +99,7 @@ $(document).ready(function () {
         $('.item').on('click','.form-data',(function (){
             id_form = $(this).attr('id');
             recu_permissions =  $(this).children('.permissions').attr('value');
-            document.getElementById('create_task').innerHTM = '';
+            document.getElementById('create_task').innerHTML= '';
             if(recu_permissions != 'read'){
                 id_todolist = $('#'+ id_form +' input[name=id_todolist]').val()
                 document.getElementById('create_task').innerHTML ='<form id="form_create">'+
@@ -110,7 +110,6 @@ $(document).ready(function () {
                 $('.create_task').on('click',function(e){
                     list_id = $('#id_todolist').val();
                     content = $('#content_task').val();
-                    console.log(list_id,content);
                     params ={'list_id' : list_id,'content' : content};
                     create_task(params);
                     e.preventDefault();
@@ -130,13 +129,11 @@ $(document).ready(function () {
                     url: '/selectedtodolist',
                     data: $('#' + id_form).serialize(),
                     success: function (answer) {
-                        console.log(recu_permissions);
                         id = answer.id_todolist;
                         name = answer.name_todolist;
                         tasks = answer.tasks;
                         contenu = answer.content;
                         finished = answer.finished;
-                        console.log(id,name,tasks,contenu,finished);
                         document.getElementById('tasks_inprogress').innerHTML='';
                         document.getElementById('tasks_finished').innerHTML='';
                         
@@ -231,7 +228,7 @@ $(document).ready(function () {
     }
 
     // Récupération de la liste d'amis pour pouvoir partager avec eux
-   $('#Partager_todo').click(function(){    
+   $('#Partager_todo').click(function(){
         load_amis();
        $("#partage").css('visibility', 'visible')
     });
@@ -307,7 +304,6 @@ $(document).ready(function () {
         $.get('/selectedtodolist', function (response) {
             id = response.id;
             name = response.name;
-            console.log(id,name);
             $route_formulaire = response.route_formulaire;
             $permissions = response.permissions;
     
