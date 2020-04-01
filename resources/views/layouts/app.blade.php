@@ -103,7 +103,7 @@ $current_user = Auth::user()
                 @else
 
                 <div id="theme" class="btn-group">
-                    <i id="sun" class="material-icons"></i>
+                    <i id="sun" class="material-icons icone_darktheme"></i>
                 </div>
 
                 <div class="btn-group">

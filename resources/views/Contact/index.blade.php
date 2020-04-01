@@ -2,10 +2,11 @@
 
 @section('content')
 
-<link href="{{ asset('css/Profil.css') }}" rel="stylesheet">
+<link href="{{ asset('css/contact.css') }}" rel="stylesheet">
 
-<div class="container">
-    <div class="row justify-content-center">
+<div id="divcontain_contact" class="container">
+    <div class="row justify-content-center"
+    id="test">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Contact</div>
