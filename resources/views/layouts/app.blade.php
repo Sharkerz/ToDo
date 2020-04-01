@@ -7,6 +7,7 @@
 
     <!-- Icone -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d3e519991d.js" crossorigin="anonymous"></script>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -150,7 +151,11 @@ $current_user = Auth::user()
                     <p class="titrefooter">Mon compte</p>
                 </div>
                 <div class="col col_foot">
-                    <p class="titrefooter">Localisation</p>
+                    <p class="titrefooter">Nous suivre</p>
+                    <i class="fab fa-facebook-square"></i>
+                </div>
+                <div class="col col_foot">
+                    <p class="titrefooter">Nous Contacter</p>
                     <div class="Adresse">
                         <i class="material-icons icone">place</i>
                         <span class="parafooter">5 Avenue des Champs-Elysées, 75008 Paris</span>
