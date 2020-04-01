@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Amis;
 use App\Sharedtodolist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -88,5 +89,37 @@ class SharedtodolistController extends Controller
     public function destroy(Sharedtodolist $sharedtodolist)
     {
         //
+    }
+
+    public function accepter(Request $request)
+    {
+        if ($request->ajax()) {
+            $id = $request->input('id_shared');
+
+            $this->validate($request, [
+                'id_shared' => 'required',
+            ]);
+            Sharedtodolist::where('id', $id)
+                ->update(['pending' => 1]);
+
+            return response()->json(['accepter_shared'=>$id], 200);
+        }
+        abort(404);
+    }
+
+    public function refuser(Request $request)
+    {
+        if ($request->ajax()) {
+            $id = $request->input('id_shared');
+
+            $this->validate($request, [
+                'id_shared' => 'required',
+            ]);
+            Amis::where('id', $id)
+                ->delete();
+
+            return response()->json(['refuser_shared'=>$id], 200);
+        }
+        abort(404);
     }
 }

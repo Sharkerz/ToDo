@@ -54,18 +54,17 @@ $(document).ready(function () {
                 doc.innerHTML += '<a class="dropdown-item" id="a_item_notif"> ' + $name_shared[element] +
                                     '<div class="item_notif">' +
                                         '<form method="post">' +
-                                            '<input value="' + element + '" name="id_ami" type="hidden">' +
+                                            '<input value="' + element + '" name="id_shared" type="hidden">' +
                                             '<i class="material-icons accepter-amis-btn">done</i> ' +
                                         '</form>' +
 
                                         '<form method="post">' +
-                                            '<input value="' + element + '" name="id_ami" type="hidden">' +
+                                            '<input value="' + element + '" name="id_shared" type="hidden">' +
                                             '<i class="material-icons refuser-amis-btn" >clear</i> ' +
                                         '</form>' +
                                     '</div>' +
                                     '</a>'
             )
-
 
         });
 
@@ -73,9 +72,7 @@ $(document).ready(function () {
     }
     reload_notif();
 
-
-
-    /* Bouton accepter */
+    /* Bouton accepter ami */
     $('#list_notif').on('click', '.accepter-amis-btn', function (e) {
         var form = $(this).parent();
         $.ajax({
@@ -89,12 +86,40 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-    /* Bouton refuser */
+    /* Bouton refuser ami */
     $('#list_notif').on('click', '.refuser-amis-btn', function (e) {
         var form = $(this).parent();
         $.ajax({
             type: 'POST',
             url: '/refuserAmi',
+            data: form.serialize(),
+            success: function (Response) {
+                reload_notif();
+            },
+        });
+        e.preventDefault();
+    });
+
+    /* Bouton accepter partage */
+    $('#list_notif').on('click', '.accepter-amis-btn', function (e) {
+        var form = $(this).parent();
+        $.ajax({
+            type: 'POST',
+            url: '/accepterShared',
+            data: form.serialize(),
+            success: function (Response) {
+                reload_notif();
+            },
+        });
+        e.preventDefault();
+    });
+
+    /* Bouton refuser partage */
+    $('#list_notif').on('click', '.refuser-amis-btn', function (e) {
+        var form = $(this).parent();
+        $.ajax({
+            type: 'POST',
+            url: '/refuserShare',
             data: form.serialize(),
             success: function (Response) {
                 reload_notif();
