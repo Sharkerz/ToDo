@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
+<link rel="stylesheet" type="text/css" href="{{ asset('/css/inscription.css') }}" >
+
+<div class="container" id="divcontain_inscription">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

@@ -2,6 +2,10 @@
     height: 74.6vh;
 }
 
+#div_add_friend {
+    display: inline;
+}
+
 .amis-avatar {
     overflow: hidden;
     -webkit-border-radius: 50px;

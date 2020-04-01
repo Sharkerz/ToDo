@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
+<link rel="stylesheet" type="text/css" href="{{ asset('/css/connexion.css') }}" >
+
+<div id="divcontain_connexion" class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
