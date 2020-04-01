@@ -23,8 +23,11 @@ Route::post('/selectedtodolist', 'SelectedlistController')->name('selectedtodoli
 /* Ajax indicateur Notifications */
 Route::get('/notifications-push', 'NotificationspushController@notifpush')->name('notifications-push');
 
-/* Ajax liste notifications */
+/* Ajax liste notifications demande d'amis */
 Route::get('/notifications', 'NotificationspushController@notifications')->name('notifications');
+
+/* Ajax liste notifications partage de todolist */
+Route::get('/notifications-todolist', 'NotificationspushController@notifications_todolist')->name('notifications-todolist');
 
 /* Ajax amis */
 Route::get('/list_amis', 'TodolistController@amis')->name('list_amis');

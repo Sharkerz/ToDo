@@ -1,9 +1,9 @@
-#demande-amis {
+.item_notif {
     float: right;
     cursor: pointer;
 }
 
-#demande-amis i{
+.item_notif i{
     font-size: 1.8rem;
     display: inline;
 }
@@ -28,15 +28,15 @@
     background-color: transparent;
 }
 
-#demande-amis form{
+.item_notif form{
     display: inline;
-}
-
-#header a:hover{
-    opacity: 0.6;
 }
 
 #list_notif {
     left: -4em;
+}
+
+.navtitle:hover {
+    opacity: 0.6;
 }
 

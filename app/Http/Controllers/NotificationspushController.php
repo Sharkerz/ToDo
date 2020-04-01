@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Amis;
+use App\Sharedtodolist;
+use App\Todolist;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -59,10 +61,35 @@ class NotificationspushController extends Controller
                 $name[$id_ami] = User::where('id', '=', $id_ami)->first()->name;
             }
 
-
                 return response()->json(['id'=>$id_amis, 'name'=>$name],200);
 
         }
         abort(404);
     }
+
+    public function notifications_todolist(Request $request)
+    {
+        if ($request->ajax()) {
+            $user_id = Auth::id();
+
+            /* Liste des demandes de partage de todolist */
+            $list = Sharedtodolist::where('user_id', '=', $user_id)
+                ->where('pending', '=', 0)
+                ->get();
+
+            /* Liste id todolist partagés */
+            $id_shared = [];
+            $name_todo = [];
+            for($i = 0; $i <= count($list)-1; $i++) {
+                array_push($id_shared, $list[$i]['id']);
+                $idshared = $list[$i]['id'];
+                $name_todo[$idshared] = Todolist::where('id', '=', $list[$i]['todolist_id'])->value('name');
+            }
+
+            return response()->json(['id'=>$id_shared, 'name'=>$name_todo],200);
+
+        }
+        abort(404);
+    }
+
 }

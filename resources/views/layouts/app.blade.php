@@ -42,17 +42,17 @@ $current_user = Auth::user()
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" id="header">
-                <a class="navbar-brand" href="{{ url('/home') }}">
+                <a class="navbar-brand navtitle" href="{{ url('/home') }}">
                     Todo List
                 </a>
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/home') }}">
+                <a class="navbar-brand navtitle" href="{{ url('/home') }}">
                     Accueil
                 </a>
-                <a class="navbar-brand" href="{{ url('/Todolist') }}">
+                <a class="navbar-brand navtitle" href="{{ url('/Todolist') }}">
                     My ToDo
                 </a>
-                <a class="navbar-brand" href="{{ url('/Amis') }}">
+                <a class="navbar-brand navtitle" href="{{ url('/Amis') }}">
                     Mes Amis
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -89,16 +89,16 @@ $current_user = Auth::user()
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('auth.Login') }}</a>
+                        <a class="nav-link navtitle" href="{{ route('login') }}">{{ __('auth.Login') }}</a>
                     </li>
                     @if (Route::has('register'))
-                        <li class="nav-item">
+                        <li class="nav-item navtitle">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('auth.Register') }}</a>
                         </li>
                     @endif
                 @else
                     <li class="nav-item dropdown">
-                        <a href="{{ url('/Profil') }}">
+                        <a class="navtitle" href="{{ url('/Profil') }}">
                             <img alt="profil-picture" src="/Images/Users/{{ $current_user->avatar }}" id="img-profile">
                         </a>
                     </li>
@@ -157,7 +157,7 @@ $current_user = Auth::user()
                 localStorage.input = $(this).is(':checked');
                 check();
             });
-            
+
 
             function check(){
                 if ($('#customSwitch1').prop('checked') == true && theme != 1) {
@@ -168,7 +168,7 @@ $current_user = Auth::user()
                     theme = 0;
                 }
             }
-            
+
             $('#customSwitch1').change(function(){
                 check();
             });

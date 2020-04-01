@@ -41,7 +41,7 @@ $(document).ready(function () {
             id.forEach(element =>
                 doc.innerHTML += '<a class="dropdown-item item_amis_share" id="' + element + '" href="#" name="' + element + '">' + name[element] + '</a>'
             );
-            });
+        });
     }
 
     // Récupération de la liste d'amis pour pouvoir partager avec eux
