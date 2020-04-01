@@ -1,6 +1,8 @@
 $(document).ready(function () {
-    $counter = 1;
     // Ajax Selection todolist à afficher
+    div =  document.getElementById('Changer_nom_user');
+    div.style.visibility = 'hidden';
+    div.style.display = 'none';
     $('.item').click(function (e) {
         id_form = $(this).children().attr('id');
            var route = $('#' + id_form).data('route');
@@ -74,34 +76,31 @@ $(document).ready(function () {
 
     $('#Rename_Todo').click(function(){
         id_todolist = $(this).parent().attr('value');
-        console.log($counter);
-        var doc = document.getElementById('Administration_Todolist');
-        if($counter == 1){
-            doc.innerHTML +='<form id="Changernametodolist"  class="Name_Todolist"  method"post">' +
-                                '<input value="'+ id_todolist + '" name="id_todolist" type="hidden">' +
-                                '<label> Nom de la Todolist :</label>'+
-                                '<input  id="Changer_nom_todolist" name="name_todolist" ></n>' +
-                                '</form>'+
-                                '<button id="Changer_nom" class="btn btn-success bouton-creation">Valider</button>';
-
+        div =  document.getElementById('Changer_nom_user');
+        if(div.style.visibility == 'hidden'){
+            div.style.visibility = 'visible';
+            div.style.display = 'inline';
                 document.getElementById('Changer_nom').addEventListener('click',function(){
                     var id_formulaire = document.getElementById('Changernametodolist').getAttribute('id');
-                    console.log(id_formulaire);
                     $.ajax({
                         type: 'POST',
                         url: '/Changernametodolist',
                         data: $('#' + id_formulaire).serialize(),
                         success: function (Response) {
-                            console.log(Response);
+                            name_todolist = Response.name;
+                            $('#Titre_todolist').text(name_todolist);
+                            $("#todolist").css('visibility', 'visible');
+                            var formulaire = document.getElementById('test');
+                            div.style.visibility = 'hidden';
+                            div.style.display ="none";
                         },
-            
                     });
                 });
-                $counter == 0;
-        }
-        if($counter == 0){
-            doc.innerHTML +='<>'; 
-        }
+            }
+            else{
+                div.style.visibility = 'hidden';
+                div.style.display ="none";
+            }
     });
 });
 
