@@ -85,8 +85,9 @@ thead{
     font-size: 2.5rem;
     font-weight: bold;
 }
+
+
 #Administration_Todolist i{
-    float:right;
     font-size: 2.5rem;
 }
 
@@ -94,12 +95,22 @@ thead{
     float:right;
     margin-top: 12px;
     margin-right: 5px;
+    font-size: 2.5rem;
 }
 
 #Delete_Todo{
     float:right;
     margin-top: 12px;
+    font-size: 2.5rem;
 }
+
+#Rename_Todo{
+    margin-top: 12px;
+    margin-left: 2px;
+    font-size: 2.5rem;
+    vertical-align: -12%;
+}
+
 
 /* Div partage todolist */
 #Valider_partage{
@@ -131,7 +142,6 @@ thead{
 
 #div_form_share>p, #div_form_share>input, #div_form_share>.div_radio{
     display: inline;
-    margin-top: 2.4em;
     position: relative;
 }
 
@@ -163,6 +173,8 @@ thead{
     font-size: 1.2em;
 }
 
+/*Changer nom de la Todolist*/
 
-
-
+#Changer_nom_todolist{
+    margin-right: 5px;
+}

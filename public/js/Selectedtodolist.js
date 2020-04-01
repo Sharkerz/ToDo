@@ -14,7 +14,8 @@ $(document).ready(function () {
                     id_list = Response.id_todolist;
                     name_todolist = Response.name_todolist
                     $('#Titre_todolist').text(name_todolist);
-                    $("#todolist").css('visibility', 'visible')
+                    $("#todolist").css('visibility', 'visible');
+                    $('#Administration_Todolist').attr('value', id_list);
                     return id_list;
                 },
 
@@ -70,6 +71,18 @@ $(document).ready(function () {
 
 
         e.preventDefault();
+    });
+
+    $('#Rename_Todo').click(function(){
+        id_form = $(this).parent().attr('value');
+        console.log(id_form);
+        var doc = document.getElementById('Administration_Todolist');
+        doc.innerHTML +='<form  class="Name_Todolist" action="{{ route(Todolist.update)}}  method="post">' +
+                            '<input value='+ id_form + 'name="id_todolist" type="hidden">' +
+                            '<label> Nom de la Todolist :</label>'+
+                            '<input  id="Changer_nom_todolist" name="name_todolist" ></n>' +
+                            '<input type="submit" value="Valider" class="btn btn-success bouton-creation"></input>'+
+                            '</form>';
     });
 
 });
