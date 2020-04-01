@@ -101,9 +101,11 @@ thead{
     margin-top: 12px;
 }
 
+/* Div partage todolist */
 #Valider_partage{
-    float:right;
-    margin-bottom:0;
+    text-align: center;
+    margin-top: 2.2em;
+    margin-bottom: 0.8em;
 }
 
 #Share_Todolist{
@@ -118,27 +120,49 @@ thead{
     font-size: 2rem;
 }
 
-/* Div partage todolist */
 #Close_Partage{
     float:right;
     float: top;
 }
 
-#div_form_share>p,>input,>button,>div{
-    display: inline;
+#div_form_share {
+    margin-top: 1.2em;
 }
 
-#div_form_share {
-    margin: 0 auto;
+#div_form_share>p, #div_form_share>input, #div_form_share>.div_radio{
+    display: inline;
+    margin-top: 2.4em;
+    position: relative;
+}
+
+#div_form_share button {
+    margin-right: 2em;
+    margin-left: 1em;
 }
 
 #div_form_share p {
     margin-right: 1em;
     font-size: 1.7rem;
+    height: 3em;
+}
+
+#div_form_share label {
+    margin-right: 1em;
+    font-size: 1rem;
 }
 
 #div_form_share input {
     margin-left: 1em;
 }
+
+.text-todolist_share_window {
+    margin-top: 0.7em;
+    text-align: center;
+    color: #1b4b72;
+    font-weight: lighter;
+    font-size: 1.2em;
+}
+
+
 
 

@@ -59,29 +59,30 @@
                                 <form id="Share_Todolist" action="{{ route('Sharedtodolist.store') }}" method="post">
                                     @csrf
                                     <div class="dropdown">
+                                        <p class="text-todolist_share_window">Selectionnez un ami et une permission à lui attribuer.</p>
 
                                             <input id="input_share_id" name="id" type="hidden">
+
                                             <input id="input_share_todolist_id" name="todolist_id" type="hidden">
+
                                         <div id="div_form_share">
 
                                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 Vos amis
                                             </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="menu_amis_list">
-                                            </div>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="menu_amis_list"> </div>
 
                                                 <p id="input_share_name" type="hidden"></p>
 
-                                            <div>
-                                                <input type="radio" id="read" name="permissions"
-                                                       checked>
-                                                <label for="read">Lecture</label>
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" id="customRadioInline1" name="permissions" value="read" class="custom-control-input">
+                                                <label class="custom-control-label" for="customRadioInline1">Lecture</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" id="customRadioInline2" name="permissions" value="write" class="custom-control-input">
+                                                <label class="custom-control-label" for="customRadioInline2">Ecriture</label>
                                             </div>
 
-                                            <div>
-                                                <input type="radio" id="write" name="permissions">
-                                                <label for="write">Ecriture</label>
-                                            </div>
                                         </div>
 
                                         <div id="Valider_partage" >
