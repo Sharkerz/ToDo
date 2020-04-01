@@ -29,8 +29,11 @@ Route::get('/notifications', 'NotificationspushController@notifications')->name(
 /* Ajax liste notifications partage de todolist */
 Route::get('/notifications-todolist', 'NotificationspushController@notifications_todolist')->name('notifications-todolist');
 
-/*Création liste todolists*/
+/*Création de la liste todolists*/
 Route::get('/todolist', 'TodolistController@todolist')->name('todolist');
+
+/*Création des sharedtodolists*/
+Route::get('/sharedtodolist', 'SharedtodolistController@sharedtodolist')->name('sharedtodolist');
 
 /* Ajax amis */
 Route::get('/list_amis', 'TodolistController@amis')->name('list_amis');

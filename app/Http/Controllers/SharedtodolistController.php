@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Amis;
 use App\Sharedtodolist;
+use App\Todolist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -121,5 +122,33 @@ class SharedtodolistController extends Controller
             return response()->json(['refuser_shared'=>$id], 200);
         }
         abort(404);
+    }
+
+    public function sharedtodolist(Request $request)
+    {
+          if ($request->ajax()) {
+            $user_id = Auth::id();
+            $list = Sharedtodolist::where('user_id', '=', $user_id)
+                ->where('pending', '=', 1)
+                ->get();
+
+            $id_todolists = [];
+
+            for($i = 0; $i <= count($list)-1; $i++) {
+                    array_push($id_todolists, $list[$i]['todolist_id']);
+            }
+
+            $name_todolist = [];
+            $permissions =[];
+            
+            foreach ($id_todolists as $id_todolist) {
+                $name_todolist[$id_todolist] = Todolist::where('id', '=', $id_todolist)->first()->name;
+                $permissions[$id_todolist] = SharedTodolist::where('todolist_id','=',$id_todolist)->first()->permissions;
+            }
+
+            $route_formulaire =   route('selectedtodolist');
+            return response()->json(['id'=>$id_todolists, 'name' => $name_todolist,'route_formulaire' => $route_formulaire, 'permissions' =>$permissions],200);
+            }
+            abort(404);
     }
 }
