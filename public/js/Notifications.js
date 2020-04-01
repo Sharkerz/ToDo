@@ -7,11 +7,14 @@ $(document).ready(function () {
     });
 
     /* Icone notification */
-    $.get('/notifications-push', function (response) {
-        if (response.notif === "yes") {
-            $('#icon_notif').text('notifications_active')
-        }
-    });
+    function reload_icon() {
+        $.get('/notifications-push', function (response) {
+            if (response.notif === "yes") {
+                $('#icon_notif').text('notifications_active')
+            }
+        });
+    }
+    reload_icon();
 
     /* Liste des demandes d'amis reçus */
     function reload_notif() {
@@ -81,6 +84,7 @@ $(document).ready(function () {
             data: form.serialize(),
             success: function (Response) {
                 reload_notif();
+                reload_icon();
             },
         });
         e.preventDefault();
@@ -95,6 +99,7 @@ $(document).ready(function () {
             data: form.serialize(),
             success: function (Response) {
                 reload_notif();
+                reload_icon();
             },
         });
         e.preventDefault();
@@ -109,6 +114,7 @@ $(document).ready(function () {
             data: form.serialize(),
             success: function (Response) {
                 reload_notif();
+                reload_icon();
             },
         });
         e.preventDefault();
@@ -123,6 +129,7 @@ $(document).ready(function () {
             data: form.serialize(),
             success: function (Response) {
                 reload_notif();
+                reload_icon();
             },
         });
         e.preventDefault();
