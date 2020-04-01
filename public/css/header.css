@@ -17,6 +17,7 @@
 
 #icon_notif:hover {
     cursor: pointer;
+    opacity: 0.6;
 }
 
 #navbarDropdown {
@@ -49,6 +50,7 @@
 
 #theme:hover {
     cursor: pointer;
+    opacity: 0.6;
 }
 .icone_darktheme {
     font-size: 2.6rem;

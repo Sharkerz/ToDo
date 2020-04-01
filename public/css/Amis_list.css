@@ -5,6 +5,10 @@
     background-color: white;
     border-radius: 12px;
     overflow-y: scroll;
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+    -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+    user-select: none; /* Propriété standard */
 }
 
 /*Ajouter un ami */
@@ -37,7 +41,22 @@
 /* Liste des amis */
 
 #name_friend {
+    margin-top: 0.2em;
+}
+
+#btn_delete_friend {
+    font-size: 3.5em;
     margin-top: 0.1em;
+}
+
+#btn_delete_friend {
+    font-size: 3.5em;
+    margin-top: 0.1em;
+}
+
+#btn_delete_friend:hover {
+    cursor: pointer;
+    opacity: 0.6;
 }
 
 .amis-avatar {
@@ -48,4 +67,13 @@
     width: 55px;
     height: 55px;
     float: left;
+}
+
+.amis-avatar:hover {
+    opacity: 0.6;
+}
+
+/* Suppression */
+#text_confirmation_delete_friend {
+    font-size: 1.2em;
 }

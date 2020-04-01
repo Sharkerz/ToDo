@@ -18,7 +18,7 @@ $(document).ready(function () {
         $id.forEach(element =>
             doc.innerHTML +='<div class="item">'+
             '<form class="form-data" id="form-'+ element +'" method="post" data-route="'+ $route_formulaire+'">'+
-            '<p>'+ $name[element]+'</p>' + 
+            '<p>'+ $name[element]+'</p>' +
             '<input name="name_todolist" value="'+ $name[element]+' " type="text" hidden>'+
             '<input name="id_todolist" value="'+element+'" type="text" hidden>'+
             '</form>'+
@@ -49,7 +49,7 @@ $(document).ready(function () {
                         $('#Administration_Todolist').attr('value', id_list);
                         return id_list;
                     },
-    
+
                 });
         }));
     })
@@ -66,7 +66,7 @@ $(document).ready(function () {
         $id.forEach(element =>
             doc.innerHTML +='<div class="item">'+
             '<form class="form-data" id="form-'+ element +'" method="post" data-route="'+$route_formulaire+'">'+
-            '<p>'+ $name[element]+'</p>' + 
+            '<p>'+ $name[element]+'</p>' +
             '<input  class="name" name="name_todolist" value="'+ $name[element]+' " type="text" hidden>'+
             '<input class="id" name="id_todolist" value="'+element+'" type="text" hidden>'+
             '<input class="permissions" value="' +$permissions[element] +'" type="text" hidden>'+
@@ -108,7 +108,6 @@ $(document).ready(function () {
                         list_todolist();
                         return id_list;
                     },
-    
                 });
         }));
     })
@@ -137,7 +136,7 @@ $(document).ready(function () {
     }
 
     // Récupération de la liste d'amis pour pouvoir partager avec eux
-   $('#Partager_todo').click(function(){    
+   $('#Partager_todo').click(function(){
         load_amis();
        $("#partage").css('visibility', 'visible')
     });

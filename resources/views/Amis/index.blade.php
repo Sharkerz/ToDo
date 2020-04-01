@@ -25,12 +25,42 @@
         <table class="table table-striped">
             <tbody>
             @foreach ($name ?? '' as $data)
-                <tr>
+                <tr id="friend-{{ User::where('name', $data)->first()->id }}">
                     <td>
                         <img alt="Amis-avatar" src="/Images/Users/{{ User::where('name', $data)->first()->avatar }}" class="amis-avatar">
                     </td>
                     <td>
                         <h1 id="name_friend"> {{$data}} </h1>
+                    </td>
+                    <td>
+                        <i id="btn_delete_friend" data-toggle="modal" data-target="#exampleModal" class="material-icons">delete</i>
+
+                        <!-- Modèle confirmer suppression de l'ami -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p id="text_confirmation_delete_friend">
+                                            Voulez-vous vraiment supprimer <strong>{{ $data }}</strong> de vos amis? cette action est irréversible.
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form method="post" id="form_delete_friend">
+                                            <input type="hidden" name="id_ami" value="{{ User::where('name', $data)->first()->id }}">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                        </form>
+                                            <button type="button" id="confirm_delete_friend" class="btn btn-primary">confirmer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </td>
                 </tr>
             @endforeach
@@ -39,3 +69,11 @@
     </div>
 
 @endsection
+
+<!-- JQuery et Ajax-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<!-- Scripts suppression amis -->
+<script type="text/javascript" src="{{ URL::asset('js/Amis.js') }}"></script>
+
