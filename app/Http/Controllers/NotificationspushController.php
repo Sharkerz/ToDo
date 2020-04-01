@@ -26,10 +26,17 @@ class NotificationspushController extends Controller
             $list = Amis::where('user2', '=', $user_id)
                 ->where('pending', '=', 0)
                 ->get();
-            $size = sizeof($list);
+            $size_ami = sizeof($list);
+
+            /* Liste des demandes de partage */
+            $list2 = Sharedtodolist::where('user_id', '=', $user_id)
+                ->where('pending', '=', 0)
+                ->get();
+
+            $size_shared = sizeof($list2);
 
             /* Renvoie notif:yes si il y a au moins une demande en attente. */
-            if($size == 0) {
+            if($size_ami == 0 && $size_shared == 0) {
                 return response()->json(['notif'=>'no'],200);
             }
             else {
