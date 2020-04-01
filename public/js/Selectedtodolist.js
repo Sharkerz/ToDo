@@ -1,8 +1,7 @@
 $(document).ready(function () {
-
+    $counter = 1;
     // Ajax Selection todolist à afficher
     $('.item').click(function (e) {
-
         id_form = $(this).children().attr('id');
            var route = $('#' + id_form).data('route');
 
@@ -74,17 +73,36 @@ $(document).ready(function () {
     });
 
     $('#Rename_Todo').click(function(){
-        id_form = $(this).parent().attr('value');
-        console.log(id_form);
+        id_todolist = $(this).parent().attr('value');
+        console.log($counter);
         var doc = document.getElementById('Administration_Todolist');
-        doc.innerHTML +='<form  class="Name_Todolist" action="{{ route(Todolist.update)}}  method="post">' +
-                            '<input value='+ id_form + 'name="id_todolist" type="hidden">' +
-                            '<label> Nom de la Todolist :</label>'+
-                            '<input  id="Changer_nom_todolist" name="name_todolist" ></n>' +
-                            '<input type="submit" value="Valider" class="btn btn-success bouton-creation"></input>'+
-                            '</form>';
-    });
+        if($counter == 1){
+            doc.innerHTML +='<form id="Changernametodolist"  class="Name_Todolist"  method"post">' +
+                                '<input value="'+ id_todolist + '" name="id_todolist" type="hidden">' +
+                                '<label> Nom de la Todolist :</label>'+
+                                '<input  id="Changer_nom_todolist" name="name_todolist" ></n>' +
+                                '</form>'+
+                                '<button id="Changer_nom" class="btn btn-success bouton-creation">Valider</button>';
 
+                document.getElementById('Changer_nom').addEventListener('click',function(){
+                    var id_formulaire = document.getElementById('Changernametodolist').getAttribute('id');
+                    console.log(id_formulaire);
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Changernametodolist',
+                        data: $('#' + id_formulaire).serialize(),
+                        success: function (Response) {
+                            console.log(Response);
+                        },
+            
+                    });
+                });
+                $counter == 0;
+        }
+        if($counter == 0){
+            doc.innerHTML +='<>'; 
+        }
+    });
 });
 
 

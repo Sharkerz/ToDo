@@ -127,4 +127,17 @@ class TodolistController extends Controller
         }
         abort(404);
     }
+    public function changer_nom(Request $request)
+    {
+        if ($request->ajax()) {
+            $name = $request->input('name_todolist');
+            $id = $request->input('id_todolist');
+
+            Todolist::where('id', $id)
+                ->update(['name' => $name]);
+
+            return response()->json(['id'=>$id, 'name' => $name],200);
+            }
+            abort(404);
+    }
 }
