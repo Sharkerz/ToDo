@@ -5,7 +5,7 @@ $(document).ready(function () {
     div.style.display = 'none';
 
     list_todolist();
-
+    changer_nom_todolist();
     function list_todolist(){
     $.get('/todolist', function (response) {
         $id = response.id;
@@ -27,7 +27,13 @@ $(document).ready(function () {
         $('.item').on("click",(function (){
             id_form = $(this).children().attr('id');
                var route = $('#' + id_form).data('route');
-    
+               div =  document.getElementById('Changer_nom_user');
+               if(div.style.visibility == 'visible'){
+                div.style.visibility = 'hidden';
+                div.style.display ='none';
+                document.getElementById('Titre_todolist').style.visibility = 'visible';
+                document.getElementById('Titre_todolist').style.display = 'inline';
+                }
                 $.ajax({
                     type: 'POST',
                     url: route,
@@ -96,6 +102,7 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
+    function changer_nom_todolist(){
     $('#Rename_Todo').click(function(){
         id_todolist = $(this).parent().attr('value');
         div =  document.getElementById('Changer_nom_user');
@@ -103,6 +110,7 @@ $(document).ready(function () {
         name_todolist = document.getElementById('Titre_todolist').textContent;
         if(div.style.visibility == 'hidden'){
             document.getElementById('Titre_todolist').style.visibility = 'hidden';
+            document.getElementById('Titre_todolist').style.display = 'none';
             div.style.visibility = 'visible';
             div.style.display = 'inline';
             $('#Changer_nom_todolist').attr('value', name_todolist);
@@ -121,6 +129,7 @@ $(document).ready(function () {
                             div.style.display ='none';
                             document.getElementById('Titre_todolist').style.visibility = 'visible';
                             list_todolist();
+                            document.getElementById('Titre_todolist').style.display = 'inline';
                         },
                     });
                 });
@@ -129,10 +138,10 @@ $(document).ready(function () {
                 div.style.visibility = 'hidden';
                 div.style.display ='none';
                 document.getElementById('Titre_todolist').style.visibility = 'visible';
+                document.getElementById('Titre_todolist').style.display = 'inline';
             }
     });
-
-
+    };
 });
 
 
