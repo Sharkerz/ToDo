@@ -32,7 +32,7 @@
                             <label for="texte" class="col-md-4 col-form-label text-md-right">Texte</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="texte" minlength="20">
+                                <textarea name="texte" class="form-control" minlength="20" rows="3"></textarea>
                             </div>
                         </div>
 

@@ -7,6 +7,7 @@
 
     <!-- Icone -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d3e519991d.js" crossorigin="anonymous"></script>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -151,6 +152,7 @@ $current_user = Auth::user()
                 </div>
                 <div class="col">
                     <p class="titrefooter">Nous suivre</p>
+                    <i class="fab fa-facebook-square"></i>
                 </div>
                 <div class="col">
                     <p class="titrefooter">Nous Contacter</p>
