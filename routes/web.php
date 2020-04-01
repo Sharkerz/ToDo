@@ -29,6 +29,9 @@ Route::get('/notifications', 'NotificationspushController@notifications')->name(
 /* Ajax liste notifications partage de todolist */
 Route::get('/notifications-todolist', 'NotificationspushController@notifications_todolist')->name('notifications-todolist');
 
+/*Création liste todolists*/
+Route::get('/todolist', 'TodolistController@todolist')->name('todolist');
+
 /* Ajax amis */
 Route::get('/list_amis', 'TodolistController@amis')->name('list_amis');
 
@@ -39,6 +42,8 @@ Route::post('/refuserAmi', 'AmisController@refuser')->name('refuserAmi');
 /* Accepter et refuser demandes de partage */
 Route::post('/accepterShared', 'SharedtodoListController@accepter')->name('accepterShared');
 Route::post('/refuserShared', 'SharedtodoListController@refuser')->name('refuserShared');
+
+
 
 /*Changer Nom de la todolist*/
 Route::post('/Changernametodolist', 'TodolistController@changer_nom')->name('Changernametodolist');

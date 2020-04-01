@@ -59,7 +59,7 @@
             });
 
         });
-        
+
     </script>
 
 </head>
@@ -104,9 +104,9 @@ $current_user = Auth::user()
                 @else
 
                 <div id="theme" class="btn-group">
-                    <i id="sun" class="material-icons"></i>
+                    <i id="sun" class="material-icons icone_darktheme"></i>
                 </div>
-                
+
                 <div class="btn-group">
                     <i class="material-icons nav-link" id="icon_notif" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">notifications_none</i>
                     <div class="dropdown-menu dropdown-menu-left" id="list_notif">
@@ -143,27 +143,37 @@ $current_user = Auth::user()
         <link rel="stylesheet" type="text/css" href="{{ asset('/css/footer.css') }}" >
 
         <div class="container-fluid" id="footer">
-            <div class="row">
-                <div class="col">
+            <div class="row" >
+                <div class="col col_foot" >
                     <p class="titrefooter">A propos</p>
                 </div>
-                <div class="col">
+                <div class="col col_foot">
                     <p class="titrefooter">Mon compte</p>
                 </div>
-                <div class="col">
+<<<<<<< HEAD
+                <div class="col col_foot">
                     <p class="titrefooter">Nous suivre</p>
                     <i class="fab fa-facebook-square"></i>
                 </div>
-                <div class="col">
+                <div class="col col_foot">
                     <p class="titrefooter">Nous Contacter</p>
+=======
+                <div class="col col_foot">
+                    <p class="titrefooter">Localisation</p>
+>>>>>>> 92dd47ebe37985d32243b7856a511911f6f2a28c
                     <div class="Adresse">
                         <i class="material-icons icone">place</i>
                         <span class="parafooter">5 Avenue des Champs-Elysées, 75008 Paris</span>
                     </div>
+                </div>
+                <div class="col col_foot">
+                    <p class="titrefooter">Nous Contacter</p>
+
                     <div class="Contact_Formulaire">
                         <i class="material-icons icone">email</i>
                         <a href="{{ url('/Contact') }}" class="Formulaire_contact">Formulaire de contact</a>
                     </div>
+
                 </div>
             </div>
         </div>

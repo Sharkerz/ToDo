@@ -17,7 +17,7 @@
         <input type="submit" placeholder="Envoyer demande" class="btn btn-success bouton-creation">
     </form>
 
-    <div>
+    <div id="div_amis" class="container">
         <h3> Liste d'amis: </h3>
             @foreach ($name ?? '' as $data)
                 <div class="item_ami">

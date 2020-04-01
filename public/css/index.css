@@ -12,13 +12,11 @@ thead{
 }
 
 #left_menu{
-    width: 300px;
-    height: calc(100vh - 100px);
+    width: 16%;
+    height: 92.5vh;
+    position: absolute;
     padding-left: 0;
     margin-left: 0px;
-    position: absolute;
-    overflow-x: hidden;
-    overflow-y: hidden;
     border-right: 1px solid #f1f1f1;
     background-color: #F2F2F2;
 }
@@ -53,9 +51,10 @@ thead{
 }
 
 #todolist {
-    margin-left: 30%;
-    margin-bottom: 50%;
+    margin-left: 16%;
+    height: 92.5vh;
     visibility: hidden;
+    background-color: #761b18;
 }
 
 .selected {
@@ -86,10 +85,23 @@ thead{
     font-weight: bold;
 }
 
-
 #Administration_Todolist i{
     font-size: 2.5rem;
+    margin-top: 0.2em;
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+    -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+    user-select: none; /* Propriété standard */
 }
+
+#Administration_Todolist{
+    height: 8vh;
+    background-color: #1d643b;
+    padding-right: 1em;
+    padding-left: 1em;
+    padding-top: 0.1em;
+}
+
 
 #Partager_todo{
     float:right;
@@ -110,7 +122,6 @@ thead{
     font-size: 2.5rem;
     vertical-align: -12%;
 }
-
 
 /* Div partage todolist */
 #Valider_partage{
@@ -166,7 +177,7 @@ thead{
 }
 
 .text-todolist_share_window {
-    margin-top: 0.7em;
+    margin-top: 0.8em;
     text-align: center;
     color: #1b4b72;
     font-weight: lighter;
@@ -174,7 +185,15 @@ thead{
 }
 
 /*Changer nom de la Todolist*/
-
-#Changer_nom_todolist{
-    margin-right: 5px;
+#Changer_nom_user{
+    float: left;
+    margin-top: 1.4em;
 }
+
+#Changer_nom {
+    float: left;
+    position: absolute;
+    margin-top: -3em;
+    margin-left: 15em;
+}
+

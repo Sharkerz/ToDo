@@ -1,10 +1,11 @@
 #footer {
     background-color: #385d7a;
     width: 100%;
-    height: 10%;
+    height: 10vh;
     text-align: center;
     bottom: 0;
-    position: absolute;
+    overflow-x: hidden;
+    overflow-y: hidden ;
 }
 
 #footer p {
@@ -18,19 +19,17 @@
 
 .Adresse {
     display: inline-block;
-    
 }
 
 .parafooter{
     margin: 0px;
     font-size: x-small;
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: white;
     vertical-align: 22%;
 }
 .Formulaire_contact{
-    font-size: 1rem;
-   
+    font-size: 0.8rem;
     text-align: center;
     vertical-align: 28%;
 }
@@ -38,4 +37,9 @@
 .titrefooter{
     margin: 2px;
     font-size: 1rem;
+}
+
+.col_foot {
+    height: 10px;
+    position: relative;
 }
