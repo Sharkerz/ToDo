@@ -140,4 +140,29 @@ class TodolistController extends Controller
             }
             abort(404);
     }
+
+    public function todolist(Request $request)
+    {
+          if ($request->ajax()) {
+            $user_id = Auth::id();
+            $list = Todolist::where('user_id', '=', $user_id)
+                ->get();
+
+            $id_todolists = [];
+
+            for($i = 0; $i <= count($list)-1; $i++) {
+                    array_push($id_todolists, $list[$i]['id']);
+            }
+
+            $name_todolist = [];
+
+            foreach ($id_todolists as $id_todolist) {
+                $name_todolist[$id_todolist] = Todolist::where('id', '=', $id_todolist)->first()->name;
+            }
+
+            $route_formulaire =   route('selectedtodolist');
+            return response()->json(['id'=>$id_todolists, 'name' => $name_todolist,'route_formulaire' => $route_formulaire],200);
+            }
+            abort(404);
+    }
 }

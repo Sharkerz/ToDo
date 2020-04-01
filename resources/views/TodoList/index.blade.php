@@ -13,17 +13,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/index.css') }}" >
     <h2> Liste de vos Todolist: </h2>
     <tbody>
-        @foreach($Todos as $Todo)
-            <div class="item">
-                <form class="form-data" id="form-{{$Todo->id}}" method="post" data-route='{{ route('selectedtodolist') }}'>
-                    {{ csrf_field() }}
-                    <p>{{$Todo->name}}</p>
-                    <input name="name_todolist" value="{{$Todo->name}}" type="text" hidden>
-                    <input name="id_todolist" value="{{$Todo->id}}" type="text" hidden>
-                </form>
+            <div id="list_todolist">
             </div>
-        @endforeach
-
     <div id="bouton_create">
         <i class="material-icons" id="btn-create" onclick="window.location.href='/Todolist/create'" id="icon_notif">add</i>
     </div></br></br>
@@ -53,7 +44,7 @@
                 <input  id="Changer_nom_todolist" name="name_todolist" >
             </form>
             <button id="Changer_nom" class="btn btn-success bouton-creation">Valider</button>
-        </div>'
+        </div>
     </div>
 
     <div id="partage">
