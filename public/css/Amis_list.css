@@ -1,3 +1,7 @@
+#div_amis {
+    height: 74.6vh;
+}
+
 .amis-avatar {
     overflow: hidden;
     -webkit-border-radius: 50px;
@@ -7,4 +11,3 @@
     height: 55px;
     float: left;
 }
-

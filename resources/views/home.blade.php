@@ -15,7 +15,7 @@
                         <tbody >
                             @foreach($Todos as $Todo)
                                 <div id=item >
-                                    <p>{{$Todo->name}}<p></br>
+                                    <p>{{$Todo->name}}</p></br>
                                     <p id="id_todolist" hidden>{{$Todo->id}}<p>
                                 </div>
                             @endforeach
@@ -24,5 +24,6 @@
                 </div>
             </div>
         </div>
+    </div>
 </div>
 @endsection

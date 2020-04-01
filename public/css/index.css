@@ -13,7 +13,7 @@ thead{
 
 #left_menu{
     width: 16%;
-    height: 85vh;
+    height: 92.5vh;
     position: absolute;
     padding-left: 0;
     margin-left: 0px;
@@ -52,7 +52,7 @@ thead{
 
 #todolist {
     margin-left: 16%;
-    height: 83vh;
+    height: 92.5vh;
     visibility: hidden;
     background-color: #761b18;
 }
@@ -85,9 +85,9 @@ thead{
     font-weight: bold;
 }
 
-
 #Administration_Todolist i{
     font-size: 2.5rem;
+    margin-top: 0.2em;
     -moz-user-select: none; /* Firefox */
     -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
     -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
@@ -100,8 +100,8 @@ thead{
     padding-right: 1em;
     padding-left: 1em;
     padding-top: 0.1em;
-
 }
+
 
 #Partager_todo{
     float:right;
@@ -122,7 +122,6 @@ thead{
     font-size: 2.5rem;
     vertical-align: -12%;
 }
-
 
 /* Div partage todolist */
 #Valider_partage{
