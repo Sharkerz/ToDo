@@ -16,6 +16,14 @@
     color: red;
 }
 
+.accepter-shared-btn {
+    color: green;
+}
+
+.refuser-shared-btn {
+    color: red;
+}
+
 #list_notif a{
     font-size: 1.2em;
 }

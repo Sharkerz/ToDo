@@ -115,7 +115,7 @@ class SharedtodolistController extends Controller
             $this->validate($request, [
                 'id_shared' => 'required',
             ]);
-            Amis::where('id', $id)
+            Sharedtodolist::where('id', $id)
                 ->delete();
 
             return response()->json(['refuser_shared'=>$id], 200);

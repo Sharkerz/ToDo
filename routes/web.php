@@ -36,6 +36,10 @@ Route::get('/list_amis', 'TodolistController@amis')->name('list_amis');
 Route::post('/accepterAmi', 'AmisController@accepter')->name('accepterAmi');
 Route::post('/refuserAmi', 'AmisController@refuser')->name('refuserAmi');
 
+/* Accepter et refuser demandes de partage */
+Route::post('/accepterShared', 'SharedtodoListController@accepter')->name('accepterShared');
+Route::post('/refuserShared', 'SharedtodoListController@refuser')->name('refuserShared');
+
 /*Changer Nom de la todolist*/
 Route::post('/Changernametodolist', 'TodolistController@changer_nom')->name('Changernametodolist');
 /* Auth */

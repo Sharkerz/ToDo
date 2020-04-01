@@ -55,12 +55,12 @@ $(document).ready(function () {
                                     '<div class="item_notif">' +
                                         '<form method="post">' +
                                             '<input value="' + element + '" name="id_shared" type="hidden">' +
-                                            '<i class="material-icons accepter-amis-btn">done</i> ' +
+                                            '<i class="material-icons accepter-shared-btn">done</i> ' +
                                         '</form>' +
 
                                         '<form method="post">' +
                                             '<input value="' + element + '" name="id_shared" type="hidden">' +
-                                            '<i class="material-icons refuser-amis-btn" >clear</i> ' +
+                                            '<i class="material-icons refuser-shared-btn" >clear</i> ' +
                                         '</form>' +
                                     '</div>' +
                                     '</a>'
@@ -101,7 +101,7 @@ $(document).ready(function () {
     });
 
     /* Bouton accepter partage */
-    $('#list_notif').on('click', '.accepter-amis-btn', function (e) {
+    $('#list_notif').on('click', '.accepter-shared-btn', function (e) {
         var form = $(this).parent();
         $.ajax({
             type: 'POST',
@@ -115,11 +115,11 @@ $(document).ready(function () {
     });
 
     /* Bouton refuser partage */
-    $('#list_notif').on('click', '.refuser-amis-btn', function (e) {
+    $('#list_notif').on('click', '.refuser-shared-btn', function (e) {
         var form = $(this).parent();
         $.ajax({
             type: 'POST',
-            url: '/refuserShare',
+            url: '/refuserShared',
             data: form.serialize(),
             success: function (Response) {
                 reload_notif();
