@@ -20,6 +20,12 @@
                 <input id="input_friend_invite" class="form-control" type="text" name="name" placeholder="Pseudo ou Email" required>
                 <input type="submit" placeholder="Envoyer demande" class="btn btn-success bouton-creation">
             </form>
+
+            <!-- Alert ami success demande ami -->
+            <div class="alert alert-success" id="alert_success_friend" role="alert">
+                Votre demande à bien été envoyé, vous devez attendre que la personne accepte votre demande d'ami.
+            </div>
+
         </div>
         <br>
         <table class="table table-striped">

@@ -38,6 +38,15 @@
     font-size: 1.8em;
 }
 
+#alert_success_friend {
+    margin-top: -16em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2em;
+}
+
 /* Liste des amis */
 
 #name_friend {
@@ -77,3 +86,4 @@
 #text_confirmation_delete_friend {
     font-size: 1.2em;
 }
+
