@@ -21,7 +21,6 @@ $(document).ready(function () {
             data: $('#form_delete_friend').serialize(),
             success: function (Response) {
                 document.getElementById('friend-1').innerHTML = '';
-                alert();
             },
         });
     })
