@@ -1,47 +1,114 @@
 #divcontain_home {
-    height: 82.2vh;
+    height: 81.4vh;
     background-color: white;
-    width: 60%;
+    width: 70%;
     border-radius: 12px;
     margin-top: 0.5em;
+    text-align: center;
 }
 
 #home_liste_todo {
     width: 30em;
     margin-top: 3em;
+    text-align: left;
+    height: 50vh;
+    overflow-y: scroll;
+    margin-left: 1.8em;
+}
+
+#home_liste_todo::-webkit-scrollbar {
+    display: none;
 }
 
 #bonjour_txt {
-    font-size: 2em;
+    font-size: 2.2em;
+    text-align: left;
+    margin-left: 2.7em;
+    margin-top: 0.2em;
 }
 
 
 #titre_todolist_acceuil{
-    font-size: 2rem;
+    font-size: 1.6rem;
+    color: white;
 }
 #header_todo_acceuil{
-    background-color: gray;
+    background-color: #1b4b72;
 }
 
 .Text_todo_acceuil{
-    font-size: 2rem;
+    font-size: 1.4rem;
     margin: auto;
 }
 
 .ajout_todo{
     float: right;
-    margin-top: 10px;
+    color: white;
+    font-size: 3em;
+    margin-top: 0.19em;
+}
+
+#btn-task:hover {
+    cursor: pointer;
+    opacity: 0.6;
 }
 
 .item_todolist_acceuil{
     display: inline-block;
+}
+
+.item {
     border-bottom: 0.5px solid #EAE5E5;
 }
+
 .item:hover {
     background-color: #F3F3F2;
     cursor: pointer;
 }
 .Delete_todolist{
     float:right;
-    margin-top:5px;
+    margin-top:12px;
+}
+
+#dashboard {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#dash_amis {
+    width: 30vh;
+    height: 14vh;
+    display: inline-block;
+    background-image: url("/Images/dashboard/dash_ami.png");
+}
+
+#dash_todo {
+    width: 30vh;
+    height: 14vh;
+    background-color: #1b4b72;
+    display: inline-block;
+    margin-left: 1.1em;
+    background-image: url("/Images/dashboard/dash_todo.png");
+}
+
+#dash_notif {
+    width: 30vh;
+    height: 14vh;
+    background-color: #1b4b72;
+    display: inline-block;
+    margin-left: 1.1em;
+    background-image: url("/Images/dashboard/dash_bell.png");
+}
+
+.text_dashboard {
+    color: white;
+    margin-left: 0.85em;
+    position: absolute;
+    margin-top: 1.2em;
+}
+
+.dash:hover {
+    cursor: pointer;
+    opacity: 0.69;
 }
