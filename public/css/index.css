@@ -23,6 +23,11 @@ thead{
     -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
     user-select: none; /* Propriété standard */
     overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#left_menu::-webkit-scrollbar {
+    display: none;
 }
 
 .item{
@@ -290,4 +295,4 @@ thead{
 .validate_tasks{
     margin-left: 5px;
     margin-right: 5px;
-} 
+}

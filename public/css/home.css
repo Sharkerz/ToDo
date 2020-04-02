@@ -17,8 +17,8 @@
 }
 
 #home_liste_todo::-webkit-scrollbar {
-    display: none;
-}
+     display: none;
+ }
 
 #bonjour_txt {
     font-size: 2.2em;
