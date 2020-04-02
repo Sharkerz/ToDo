@@ -134,9 +134,8 @@ $(document).ready(function () {
                         tasks = answer.tasks;
                         contenu = answer.content;
                         finished = answer.finished;
-                        document.getElementById('tasks_inprogress').innerHTML='';
-                        document.getElementById('tasks_finished').innerHTML='';
-                        
+                        document.getElementById('tasks_inprogress').innerHTML='<span class="task_title">Taches en cours : </span>';
+                        document.getElementById('tasks_finished').innerHTML='<span class="task_title">Taches terminées : </span>';
                         tasks.forEach(function (element)
                         {
                             additional_content = '';
@@ -144,30 +143,32 @@ $(document).ready(function () {
                             if(recu_permissions != 'read'){
                                 if(finished[element] =='0'  ){
                                     container = document.getElementById('tasks_inprogress')
+                                    Task_progres = "Taches en Cours";
                                     additional_content = '<button class="update_task" data-id="'+element+'")>Valider la tache</button>'
                                     
                                 }
                                 else{
                                     container =  document.getElementById('tasks_finished');
                                     additional_content = '<button class="delete_task" data-id="'+element+'")>Supprimer la tache</button>'
+                                    Task_progres = "Taches terminées";
                                 }
                             }
                             else
                             {
                                 if(finished[element] =='0'  ){
-                                    container = document.getElementById('tasks_inprogress')
-                                    
+                                    container = document.getElementById('tasks_inprogress');
+                                    Task_progres = "Taches en Cours";
                                 }
                                 else{
                                     container =  document.getElementById('tasks_finished');
+                                    Task_progres = "Taches terminées";
                                 }
                             }
                             container.innerHTML +='<div class="tasks">'+
                                 '<form class="form-data" id="tasks-'+ element +'" method="post" >'+
-                                '<p>'+ contenu[element]+'</p>' + 
+                                '<p class="todolist_element">'+ contenu[element]+'</p>'+additional_content+  
                                 '<input class="id" name="id_task" value="'+element+'" type="text" hidden>'+
                                 '<input class="etat_task" value="' +finished[element] +'" type="text" hidden>'+
-                                additional_content+
                                 '</form>'+
                                 '</div>'
 

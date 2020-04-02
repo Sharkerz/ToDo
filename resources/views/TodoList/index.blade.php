@@ -92,6 +92,7 @@
             <div id="create_task">
             </div>
             <div id="tasks_inprogress">
+            <span id="task_title">Taches en cours  </span>
             </div>
             <div id="tasks_finished">
             </div>

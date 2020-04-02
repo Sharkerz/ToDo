@@ -94,10 +94,10 @@ class TodolistController extends Controller
     public function destroy(Request $request)
     {
         if ($request->ajax()) {
-          
+            $id_form = $request->input('form_id');
             $id = $request->input('todolist_id');
             $delete = Todolist::where('id', $id)->delete();
-                return response()->json([],200);
+                return response()->json(['id_form' =>$id_form],200);
         }
         abort(404); 
     }
