@@ -131,11 +131,13 @@ $(document).ready(function () {
                 document.getElementById('create_task').innerHTML ='<form id="form_create">'+
                     '<input  class="name form-control" id="content_task" placeholder="Ajouter une tâche." type="text">'+
                     '<input class="id" id="id_todolist" value="'+id_todolist+'" type="text" hidden>'+
-                    '<button class="create_task btn btn-primary btn")>Créer une tache</button>'+
-                    '<button class="validate_tasks btn btn-primary btn")>Valider toutes les taches</button>'+
-                    '<button class="delete_tasks btn btn-primary btn")>Supprimer toutes les taches</button>'+
+                    '<div class="Bouton_todolist">'+
+                    '<button class="create_button btn btn-primary btn")>Créer une tache</button>'+
+                    '<button class="validate_tasks btn btn-success btn")>Valider toutes les taches</button>'+
+                    '<button class="delete_tasks btn btn-danger btn")>Supprimer toutes les taches</button>'+
+                    '</div>'+
                     '</form>';
-               $('.create_task').on('click',function(e){
+               $('.create_button').on('click',function(e){
                     list_id = $('#id_todolist').val();
                     content = $('#content_task').val();
                     params ={'list_id' : list_id,'content' : content};
