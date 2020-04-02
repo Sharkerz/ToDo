@@ -38,6 +38,18 @@ Route::get('/sharedtodolist', 'SharedtodolistController@sharedtodolist')->name('
 /* Ajax amis */
 Route::get('/list_amis', 'TodolistController@amis')->name('list_amis');
 
+/* Update tasks */
+Route::post('/update_tasks', 'TaskController@update')->name('update_tasks');
+
+/* Delete tasks */
+Route::post('/delete_task', 'TaskController@delete')->name('delete_tasks');
+
+/* Create tasks */
+Route::post('/create_task', 'TaskController@create')->name('create_tasks');
+
+/* Delete todolist */
+Route::post('/delete_todo', 'TodolistController@destroy')->name('delete_tasks');
+
 /* Accepter et refuser demandes d'amis */
 Route::post('/accepterAmi', 'AmisController@accepter')->name('accepterAmi');
 Route::post('/refuserAmi', 'AmisController@refuser')->name('refuserAmi');
@@ -46,7 +58,8 @@ Route::post('/refuserAmi', 'AmisController@refuser')->name('refuserAmi');
 Route::post('/accepterShared', 'SharedtodoListController@accepter')->name('accepterShared');
 Route::post('/refuserShared', 'SharedtodoListController@refuser')->name('refuserShared');
 
-
+/* Ajax supprimer amis */
+Route::post('/Delete_friend', 'AmisController@delete_friend')->name('Delete_friend');
 
 /*Changer Nom de la todolist*/
 Route::post('/Changernametodolist', 'TodolistController@changer_nom')->name('Changernametodolist');

@@ -146,8 +146,7 @@ class SharedtodolistController extends Controller
                 $permissions[$id_todolist] = SharedTodolist::where('todolist_id','=',$id_todolist)->first()->permissions;
             }
 
-            $route_formulaire =   route('selectedtodolist');
-            return response()->json(['id'=>$id_todolists, 'name' => $name_todolist,'route_formulaire' => $route_formulaire, 'permissions' =>$permissions],200);
+            return response()->json(['id'=>$id_todolists, 'name' => $name_todolist, 'permissions' =>$permissions],200);
             }
             abort(404);
     }

@@ -184,6 +184,15 @@ thead{
     font-size: 1.2em;
 }
 
+#partage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2em;
+    margin-bottom: -5em;
+}
+
 /*Changer nom de la Todolist*/
 #Changer_nom_user{
     float: left;

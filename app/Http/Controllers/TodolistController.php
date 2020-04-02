@@ -91,9 +91,15 @@ class TodolistController extends Controller
      * @param  \App\Todolist  $todolist
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Todolist $todolist)
+    public function destroy(Request $request)
     {
-        //
+        if ($request->ajax()) {
+          
+            $id = $request->input('todolist_id');
+            $delete = Todolist::where('id', $id)->delete();
+                return response()->json([],200);
+        }
+        abort(404); 
     }
 
     public function amis(Request $request)

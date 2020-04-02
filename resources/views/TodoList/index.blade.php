@@ -87,6 +87,15 @@
                 </div>
             </div>
         </div>
+
+        <div id="todo_container">
+            <div id="create_task">
+            </div>
+            <div id="tasks_inprogress">
+            </div>
+            <div id="tasks_finished">
+            </div>
+        </div>
 </div>
 
 @endsection

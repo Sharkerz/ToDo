@@ -148,16 +148,13 @@ $current_user = Auth::user()
                     <p class="titrefooter">A propos</p>
                 </div>
                 <div class="col col_foot">
-                    <p class="titrefooter">Mon compte</p>
-                </div>
-                <div class="col col_foot">
                     <p class="titrefooter">Nous suivre</p>
                     <i class="fab fa-facebook-square"></i>
                     <i class="fab fa-instagram"></i>
                     <i class="fab fa-linkedin"></i>
                 </div>
                 <div class="col col_foot">
-                    <p class="titrefooter">Nous Contacter</p>
+                    <p class="titrefooter">Localisation</p>
                     <div class="Adresse">
                         <i class="material-icons icone">place</i>
                         <span class="parafooter">5 Avenue des Champs-Elysées, 75008 Paris</span>
