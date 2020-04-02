@@ -146,12 +146,19 @@ $current_user = Auth::user()
             <div class="row" >
                 <div class="col col_foot" >
                     <p class="titrefooter">A propos</p>
+                    <a class="a_propos" href="{{ url('/') }}">Retour à la présentation du site</a>
+                    <a class="a_propos" href="{{ url('/') }}">Mentions légales</a>
+                    <a class="a_propos" href="{{ url('/') }}">Protection des données</a>
+                    <a class="a_propos" href="{{ url('/') }}">CGU</a>
                 </div>
                 <div class="col col_foot">
                     <p class="titrefooter">Nous suivre</p>
-                    <i class="fab fa-facebook-square"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-linkedin"></i>
+                    <div class="reseaux">
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square fa-3x icone_reseau"></i></a>
+                        <a href="https://www.instagram.com/?hl=fr" target="_blank"><i class="fab fa-instagram fa-3x icone_reseau"></i></a>
+                        <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-3x icone_reseau"></i></a>
+                        <a href="https://twitter.com/home?lang=fr" target="_blank"><i class="fab fa-twitter-square fa-3x icone_reseau"></i></a>
+                    </div>
                 </div>
                 <div class="col col_foot">
                     <p class="titrefooter">Localisation</p>

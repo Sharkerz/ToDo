@@ -17,6 +17,15 @@
     justify-content: space-between
 }
 
+.reseaux {
+    margin: auto;
+}
+
+.icone_reseau {
+    margin: 5px;
+    color: #212529;
+}
+
 .Adresse {
     display: inline-block;
 }
@@ -29,16 +38,39 @@
     vertical-align: 22%;
 }
 .Formulaire_contact{
+    margin: 0px;
+    font-size: x-small;
     font-size: 0.95rem;
-    text-align: center;
-    vertical-align: 28%;
     color: white;
-    font-weight: bold;
-    text-decoration: underline;
+    vertical-align: 22%;
+    text-decoration: none;
+}
+
+.Formulaire_contact:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.a_propos {
+    margin: 0px;
+    margin-right: 7px;
+    margin-left: 7px;
+    font-size: x-small;
+    font-size: 0.90rem;
+    color: white;
+    vertical-align: 22%;
+    text-decoration: none;
+    white-space:nowrap;
+}
+
+.a_propos:hover {
+    text-decoration: none;
+    color: white;
 }
 
 .titrefooter{
-    margin: 2px;
+    margin-top: 5px;
+    margin-bottom: 3px;
     font-size: 1rem;
 }
 
