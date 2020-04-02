@@ -153,6 +153,8 @@ $current_user = Auth::user()
                 <div class="col col_foot">
                     <p class="titrefooter">Nous suivre</p>
                     <i class="fab fa-facebook-square"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin"></i>
                 </div>
                 <div class="col col_foot">
                     <p class="titrefooter">Nous Contacter</p>
