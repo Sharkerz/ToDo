@@ -90,7 +90,7 @@
 
 
         <div id="todo_container">
-            <div id="create_task">
+            <div id="create_task" class="task_todo">
             </div>
             <div id="tasks_inprogress">
             <span id="task_title">Taches en cours  </span>

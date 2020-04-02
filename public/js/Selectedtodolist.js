@@ -149,7 +149,7 @@ $(document).ready(function () {
                                 }
                                 else{
                                     container =  document.getElementById('tasks_finished');
-                                    additional_content = '<button class="delete_task" data-id="'+element+'")>Supprimer la tache</button>'
+                                    additional_content = '<div class="delete_task" data-id="'+element+'")><i class="material-icons btn_delete_task">close</i></div>'
                                     Task_progres = "Taches terminées";
                                 }
                             }
