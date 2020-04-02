@@ -22,6 +22,7 @@ thead{
     -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
     -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
     user-select: none; /* Propriété standard */
+    overflow-x: hidden;
 }
 
 .item{
@@ -33,6 +34,7 @@ thead{
     height: 15px;
     font-size: 20px;
     margin:auto;
+    white-space: nowrap;
 }
 
 #btn-create{
@@ -214,6 +216,7 @@ thead{
     -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
     -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
     user-select: none; /* Propriété standard */
+    margin-left: 1.5%;
 }
 
 .delete_task{
@@ -243,8 +246,9 @@ thead{
 }
 
 .task_todo {
+    margin-left: 1.5%;
     height: 4em;
-    width: 100%;
+    width: 98.5%;
     border-bottom: 0.5px solid #EAE5E5;
     padding-top: 10px;
     -moz-user-select: none; /* Firefox */

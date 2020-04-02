@@ -9,8 +9,8 @@
 }
 
 #footer p {
-    color: white;
-}
+     color: white;
+ }
 
 .flex {
     display: flex;
@@ -24,6 +24,12 @@
 .icone_reseau {
     margin: 5px;
     color: #212529;
+}
+
+.icone_reseau:hover {
+    color: #434343;
+    opacity: 0.7;
+
 }
 
 .Adresse {
@@ -49,6 +55,7 @@
 .Formulaire_contact:hover {
     text-decoration: none;
     color: white;
+    opacity: 0.5;
 }
 
 .a_propos {
@@ -66,6 +73,7 @@
 .a_propos:hover {
     text-decoration: none;
     color: white;
+    opacity: 0.5;
 }
 
 .titrefooter{
