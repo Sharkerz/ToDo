@@ -18,7 +18,6 @@ thead{
     padding-left: 0;
     margin-left: 0px;
     border-right: 1px solid #f1f1f1;
-    background-color: #F2F2F2;
 }
 
 .item{
@@ -54,7 +53,6 @@ thead{
     margin-left: 16%;
     height: 92.5vh;
     visibility: hidden;
-    background-color: #761b18;
 }
 
 .selected {
@@ -96,7 +94,6 @@ thead{
 
 #Administration_Todolist{
     height: 8vh;
-    background-color: #1d643b;
     padding-right: 1em;
     padding-left: 1em;
     padding-top: 0.1em;
@@ -202,8 +199,8 @@ thead{
 #Changer_nom {
     float: left;
     position: absolute;
-    margin-top: -3em;
-    margin-left: 15em;
+    margin-top: -3.59em;
+    margin-left: 13em;
 }
 
 .task_title{
@@ -211,16 +208,33 @@ thead{
     font-size: 2.5rem;
 }
 
-.update_task{
-    margin-top: -3em;
-    margin-left: 15em;
-}
-
 .delete_task{
-    margin-top: -3em;
     margin-left: 15em;
+    margin-top: -3.3em;
 }
 
 .todolist_element{
     font-size: 1.5rem;
+}
+
+#todo_container {
+    background-color: white;
+    overflow-y: scroll;
+    height: 84.5vh;
+}
+
+.task_todo {
+    height: 4em;
+    display: inline-flex;
+    width: 100%;
+    border-bottom: 0.5px solid #EAE5E5;
+}
+
+.task_todo:hover {
+
+}
+
+.task_todo p{
+    margin-top: 8px;
+    margin-left: 1.5em;
 }

@@ -37,7 +37,7 @@ class TaskController extends Controller
 
                 return response()->json([],200);
             }
-            abort(404); 
+            abort(404);
     }
 
     /**
@@ -85,18 +85,29 @@ class TaskController extends Controller
         if ($request->ajax()) {
             $id = $request->input('id_task');
 
-            Task::where('id', $id)
-                ->update(['finish' => true]);
+            $rep = Task::where('id', $id)
+                ->first()->finish;
 
+            if($rep == true) {
+                Task::where('id', $id)
+                    ->update(['finish' => false]);
                 return response()->json(['task' =>Task::where('id', $id)->first()],200);
             }
-            abort(404); 
+            else {
+                Task::where('id', $id)
+                    ->update(['finish' => true]);
+                return response()->json(['task' =>Task::where('id', $id)->first()],200);
+            }
+
+
+            }
+            abort(404);
     }
- 
+
     public function delete(Request $request)
     {
         if ($request->ajax()) {
-          
+
             $id = $request->input('id_task');
             $delete = Task::where('id', $id)->first();
 
@@ -105,6 +116,6 @@ class TaskController extends Controller
 
                 return response()->json(['task' =>$delete],200);
         }
-        abort(404); 
+        abort(404);
     }
 }

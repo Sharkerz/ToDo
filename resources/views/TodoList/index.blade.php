@@ -33,7 +33,7 @@
         <div id="Changer_nom_user" >
             <form id="Changernametodolist"  class="Name_Todolist"  method = "post">
                 <input id ="Id_todolist_changer" name="id_todolist" type="hidden">
-                <input  id="Changer_nom_todolist" name="name_todolist" >
+                <input  id="Changer_nom_todolist" class="form-control" name="name_todolist" >
             </form>
             <button id="Changer_nom" class="btn btn-success bouton-creation">Valider</button>
         </div>
@@ -87,6 +87,7 @@
                 </div>
             </div>
         </div>
+
 
         <div id="todo_container">
             <div id="create_task">
