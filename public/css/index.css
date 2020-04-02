@@ -206,3 +206,21 @@ thead{
     margin-left: 15em;
 }
 
+.task_title{
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+.update_task{
+    margin-top: -3em;
+    margin-left: 15em;
+}
+
+.delete_task{
+    margin-top: -3em;
+    margin-left: 15em;
+}
+
+.todolist_element{
+    font-size: 1.5rem;
+}
