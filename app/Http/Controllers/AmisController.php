@@ -200,7 +200,7 @@ class AmisController extends Controller
                 ->where('user1', Auth::id())
                 ->delete();
 
-            return response()->json(['supprimé'=>$id_ami], 200);
+            return response()->json(['supprime'=>$id_ami], 200);
         }
         abort(404);
     }

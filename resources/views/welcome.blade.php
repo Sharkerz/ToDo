@@ -81,7 +81,7 @@
             }
 
             .desc p {
-                font-size: 30px;
+                font-size: 33px;
                 line-height: 200%;
                 margin: 0 0 0 0;
                 padding: 0;
@@ -201,7 +201,7 @@
                 </div>
 
                 <div class="desc">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br/> In a justo ultrices, dignissim leo vitae, placerat augue.</p>
+                    <p> Avec Todo List, vous savez que tout est organisé et planifié. <br> Vous pouvez enfin avancer sur ce qui compte. </p>
                 </div>
 
             </div>
