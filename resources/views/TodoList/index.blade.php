@@ -18,6 +18,7 @@
     <div id="bouton_create">
         <i class="material-icons" id="btn-create" onclick="window.location.href='/Todolist/create'" id="icon_notif">add</i>
     </div></br></br>
+            <hr>
     <h2> Liste des Todolists Partagées avec vous : </h2>
     <div id="list_sharedtodolist">
             </div>
