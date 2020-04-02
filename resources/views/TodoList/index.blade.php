@@ -108,4 +108,7 @@
 
 
 <!-- Scripts ajax -->
+<script>
+    var id_todolist_selected_acceuil = '{{$id_todolist_select_acceuil}}' ;
+</script>
 <script type="text/javascript" src="{{ URL::asset('js/Selectedtodolist.js') }}"></script>

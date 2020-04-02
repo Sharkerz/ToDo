@@ -14,3 +14,29 @@
 #bonjour_txt {
     font-size: 2em;
 }
+
+
+#titre_todolist_acceuil{
+    font-size: 2rem;
+}
+#header_todo_acceuil{
+    background-color: gray;
+}
+
+.Text_todo_acceuil{
+    font-size: 20px;
+    margin: auto;
+}
+
+.ajout_todo{
+    float: right;
+    margin-top: 10px;
+}
+
+.item{
+    border-bottom: 0.5px solid #EAE5E5;
+}
+.item:hover {
+    background-color: #F3F3F2;
+    cursor: pointer;
+}

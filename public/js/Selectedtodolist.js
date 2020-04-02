@@ -1,9 +1,9 @@
 $(document).ready(function () {
     // Ajax Selection todolist à afficher
+    console.log(id_todolist_selected_acceuil);
     div =  document.getElementById('Changer_nom_user');
     div.style.visibility = 'hidden';
     div.style.display = 'none';
-
 
     function update_tasks(id){
         $.ajax({
@@ -134,7 +134,7 @@ $(document).ready(function () {
                         tasks = answer.tasks;
                         contenu = answer.content;
                         finished = answer.finished;
-                        document.getElementById('tasks_inprogress').innerHTML='<span class="task_title">Taches en cours : </span>';
+                        document.getElementById('tasks_inprogress').innerHTML='<span class="task_title">Taches en cours : </span> ';
                         document.getElementById('tasks_finished').innerHTML='<span class="task_title">Taches terminées : </span>';
                         tasks.forEach(function (element)
                         {
@@ -144,7 +144,7 @@ $(document).ready(function () {
                                 if(finished[element] =='0'  ){
                                     container = document.getElementById('tasks_inprogress')
                                     Task_progres = "Taches en Cours";
-                                    // additional_content = '<button class="" data-id="'+element+'")>Valider la tache</button>'
+                                    additional_content = '<div class="delete_task" data-id="'+element+'")><i class="material-icons btn_delete_task">close</i></div>'
 
                                 }
                                 else{
@@ -205,6 +205,9 @@ $(document).ready(function () {
                 })
                ;;
         }));
+        if(id_todolist_selected_acceuil !=''){
+            $('#form-'+id_todolist_selected_acceuil).trigger('click');
+        }
     })
 
     $('div .item').click(function () {

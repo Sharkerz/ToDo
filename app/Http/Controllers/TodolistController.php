@@ -18,12 +18,13 @@ class TodolistController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $user_id = Auth::user()->id;
         $Todos = Todolist::all() -> where('user_id', $user_id);
         $sharedTodos = Sharedtodolist::all()->where('user_id',$user_id);
-        return view('Todolist.index', compact('Todos','sharedTodos'));
+        $id_todolist_select_acceuil = $request->get('id',null);
+        return view('Todolist.index', compact('Todos','sharedTodos','id_todolist_select_acceuil'));
     }
 
     /**
