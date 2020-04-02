@@ -295,4 +295,8 @@ thead{
 .validate_tasks{
     margin-left: 5px;
     margin-right: 5px;
+} 
+
+#tasks_finished .todolist_element {
+    text-decoration: line-through;
 }
