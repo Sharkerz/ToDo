@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Sharedtodolist;
+use App\Task;
 use App\Todolist;
 use App\User;
 use Illuminate\Http\Request;
@@ -97,10 +98,11 @@ class TodolistController extends Controller
         if ($request->ajax()) {
             $id_form = $request->input('form_id');
             $id = $request->input('todolist_id');
+            Task::where('todolist_id', $id)->delete();
             $delete = Todolist::where('id', $id)->delete();
                 return response()->json(['id_form' =>$id_form],200);
         }
-        abort(404); 
+        abort(404);
     }
 
     public function amis(Request $request)

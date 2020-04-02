@@ -279,5 +279,6 @@ thead{
 
 .create_task {
     float: right;
-    margin-top: -2.2em;
+    margin-top: -2.3em;
+    margin-right: 19em;
 }

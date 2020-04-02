@@ -105,7 +105,7 @@ $(document).ready(function () {
                 document.getElementById('create_task').innerHTML ='<form id="form_create">'+
                     '<input  class="name form-control" id="content_task" placeholder="Ajouter une tâche." type="text">'+
                     '<input class="id" id="id_todolist" value="'+id_todolist+'" type="text" hidden>'+
-                    '<button class="create_task")>Créer une tache</button>'
+                    '<button class="create_task btn btn-primary btn-lg")>Créer une tache</button>'
                     '</form>';
                 $('.create_task').on('click',function(e){
                     list_id = $('#id_todolist').val();

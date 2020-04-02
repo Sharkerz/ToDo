@@ -14,7 +14,7 @@
                     <form action="{{ route('Todolist.store') }}" method="post">
                         @csrf
                         <label for="NomTodolist">Nom de la Todolist:</label>
-                        <input label="Nom de la Todolist:" type="text" name="name" required></br>
+                        <input label="Nom de la Todolist:" type="text" name="name" maxlength="37" required></br>
                         <input type="submit" class="btn btn-success bouton-creation">
                     </form>
 
