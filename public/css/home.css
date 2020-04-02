@@ -24,7 +24,7 @@
 }
 
 .Text_todo_acceuil{
-    font-size: 20px;
+    font-size: 2rem;
     margin: auto;
 }
 
@@ -33,10 +33,15 @@
     margin-top: 10px;
 }
 
-.item{
+.item_todolist_acceuil{
+    display: inline-block;
     border-bottom: 0.5px solid #EAE5E5;
 }
 .item:hover {
     background-color: #F3F3F2;
     cursor: pointer;
+}
+.Delete_todolist{
+    float:right;
+    margin-top:5px;
 }

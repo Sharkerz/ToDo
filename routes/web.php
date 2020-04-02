@@ -42,7 +42,13 @@ Route::get('/list_amis', 'TodolistController@amis')->name('list_amis');
 Route::post('/update_tasks', 'TaskController@update')->name('update_tasks');
 
 /* Delete tasks */
-Route::post('/delete_task', 'TaskController@delete')->name('delete_tasks');
+Route::post('/delete_task', 'TaskController@delete')->name('delete_task');
+
+/* Delete toute les taches */
+Route::post('/delete_tasks', 'TaskController@delete_tasks')->name('delete_tasks');
+
+/* Accepter toute les taches */
+Route::post('/validate_tasks', 'TaskController@validate_tasks')->name('validate_tasks');
 
 /* Create tasks */
 Route::post('/create_task', 'TaskController@create')->name('create_tasks');

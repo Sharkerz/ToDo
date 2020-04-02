@@ -51,6 +51,31 @@ $(document).ready(function () {
         })
     }
 
+    function delete_tasks(id){
+        console.log(id);
+        $.ajax({
+            type: 'post',
+            url: '/delete_tasks',
+            data: {'id' : id},
+            success: function (answer) {
+                console.log(id);
+                $('#form-'+answer.todolist_id).trigger('click');
+            }
+        })
+    }
+
+    function validate_tasks(id){
+        console.log(id);
+        $.ajax({
+            type: 'post',
+            url: '/validate_tasks',
+            data: {'id' : id},
+            success: function (answer) {
+                console.log(id);
+                $('#form-'+answer.todolist_id).trigger('click');
+            }
+        })
+    }
 
 
     list_todolist();
@@ -97,6 +122,7 @@ $(document).ready(function () {
             '</div>',
         )
         $('.item').on('click','.form-data',(function (){
+            console.log('tetet');
             id_form = $(this).attr('id');
             recu_permissions =  $(this).children('.permissions').attr('value');
             document.getElementById('create_task').innerHTML= '';
@@ -105,13 +131,27 @@ $(document).ready(function () {
                 document.getElementById('create_task').innerHTML ='<form id="form_create">'+
                     '<input  class="name form-control" id="content_task" placeholder="Ajouter une tâche." type="text">'+
                     '<input class="id" id="id_todolist" value="'+id_todolist+'" type="text" hidden>'+
-                    '<button class="create_task btn btn-primary btn-lg")>Créer une tache</button>'
+                    '<button class="create_task btn btn-primary btn")>Créer une tache</button>'+
+                    '<button class="validate_tasks btn btn-primary btn")>Valider toutes les taches</button>'+
+                    '<button class="delete_tasks btn btn-primary btn")>Supprimer toutes les taches</button>'+
                     '</form>';
-                $('.create_task').on('click',function(e){
+               $('.create_task').on('click',function(e){
                     list_id = $('#id_todolist').val();
                     content = $('#content_task').val();
                     params ={'list_id' : list_id,'content' : content};
                     create_task(params);
+                    e.preventDefault();
+
+                });
+                $('.delete_tasks').on('click',function(e){
+                    id_todolist = $('#id_todolist').val();
+                    delete_tasks(id_todolist);
+                    e.preventDefault();
+
+                });
+                $('.validate_tasks').on('click',function(e){
+                    id_todolist = $('#id_todolist').val();
+                    validate_tasks(id_todolist);
                     e.preventDefault();
 
                 });

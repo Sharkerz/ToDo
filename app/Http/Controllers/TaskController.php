@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Task;
 use Dotenv\Result\Success;
 use Illuminate\Http\Request;
@@ -117,5 +118,31 @@ class TaskController extends Controller
                 return response()->json(['task' =>$delete],200);
         }
         abort(404);
+    }
+
+    public function delete_tasks(Request $request)
+    {
+        if ($request->ajax()) {
+
+            $id = $request->get('id');
+            Task::where('todolist_id', $id)
+                ->delete();
+
+                return response()->json(['todolist_id' =>$id],200);
+        }
+        abort(404);
+    }
+
+    public function validate_tasks(Request $request)
+    {
+        if ($request->ajax()) {
+
+            $id = $request->get('id');
+            Task::where('todolist_id', $id)
+                ->update(['finish' => true]);
+
+                return response()->json(['todolist_id' =>$id],200);
+        }
+        abort(404);   
     }
 }

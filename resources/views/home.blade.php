@@ -14,14 +14,14 @@
                         </div>
                             @foreach($Todos as $Todo)
                                 <div class="item">
-                                    <div  id="form-{{$Todo->id}}" onclick="window.location.href='/Todolist?id={{$Todo->id}}'">
-                                    <form>
-                                        <p class="Text_todo_acceuil">{{$Todo->name}}</p>
-                                        <input id="id_todolist"  value="{{$Todo->id}}" hidden>
-                                    </form>
+                                    <div  class="item_todolist_acceuil" id="form-{{$Todo->id}}" onclick="window.location.href='/Todolist?id={{$Todo->id}}'">
+                                        <form>
+                                            <p class="Text_todo_acceuil">{{$Todo->name}}</p>
+                                            <input id="id_todolist"  value="{{$Todo->id}}" hidden>
+                                        </form>
                                     </div>
-                                    <div>
-                                    <i class="delete_todo"><i class="material-icons"  id="btn-task" id="icon_notif" onclick="delete_todo('{{$Todo->id}}')">delete</i></i>
+                                    <div class ="Delete_todolist">
+                                        <i class="delete_todo"><i class="material-icons"  id="btn-task" id="icon_notif" onclick="delete_todo('{{$Todo->id}}')">delete</i></i>
                                     </div>
                                 </div>
                                
