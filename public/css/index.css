@@ -217,13 +217,13 @@ thead{
 }
 
 .delete_task{
-    margin-top: -4.3em;
+    margin-top: -4.4em;
     float: right;
     height: 4em;
 }
 
 .delete_task:hover{
-    background-color: #393939;
+    background-color: #6C6C6C;
     color: white;
 }
 
@@ -265,10 +265,15 @@ thead{
 #content_task {
     margin-left: 1em;
     margin-right: 2em;
-    width: 45%;
+    width: 65%;
 }
 
 #form_create {
     margin-bottom: auto;
     vertical-align: center;
+}
+
+.create_task {
+    float: right;
+    margin-top: -2.2em;
 }
