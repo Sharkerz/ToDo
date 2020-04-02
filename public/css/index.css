@@ -265,6 +265,7 @@ thead{
 #content_task {
     margin-left: 1em;
     margin-right: 2em;
+    width: 45%;
 }
 
 #form_create {

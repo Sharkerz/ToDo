@@ -103,7 +103,7 @@ $(document).ready(function () {
             if(recu_permissions != 'read'){
                 id_todolist = $('#'+ id_form +' input[name=id_todolist]').val()
                 document.getElementById('create_task').innerHTML ='<form id="form_create">'+
-                    '<input  class="name" id="content_task" type="text">'+
+                    '<input  class="name form-control" id="content_task" placeholder="Ajouter une tâche." type="text">'+
                     '<input class="id" id="id_todolist" value="'+id_todolist+'" type="text" hidden>'+
                     '<button class="create_task")>Créer une tache</button>'
                     '</form>';
