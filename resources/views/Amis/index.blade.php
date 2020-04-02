@@ -33,6 +33,7 @@
             @if(@isset($name))
                 <!-- Si l'utilisateur n'a pas d'amis -->
                 @unless($name)
+                    <hr>
                     <h1 id="no_friend_msg">Vous n'avez pas d'amis pour le moment🙁</h1>
                 @else
                     <!-- Sinon, on les affiche -->
