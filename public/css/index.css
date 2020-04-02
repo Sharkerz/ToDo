@@ -23,6 +23,11 @@ thead{
     -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
     user-select: none; /* Propriété standard */
     overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#left_menu::-webkit-scrollbar {
+    display: none;
 }
 
 .item{
@@ -284,7 +289,7 @@ thead{
 .Bouton_todolist{
     float: right;
     margin-top: -2.6em;
-    margin-right: 8px;
+    margin-right: 8px
 }
 
 .validate_tasks{

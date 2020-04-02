@@ -4,9 +4,27 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/home.css') }}" >
 
 <div class="container" id="divcontain_home">
-        <div class="row justify-content-center">
-            <p id="bonjour_txt">Bonjour {{Auth::user()->name}},</p>
-            <div class="col-md-8">
+    <p id="bonjour_txt">Bonjour {{Auth::user()->name}},</p>
+    <div id="dashboard">
+        <div class="row">
+            <div class="col">
+                <div class="card dash" id="dash_amis" onclick="window.location.href='/Amis'">
+                    <h3 id="text_dashboard" class="text_dashboard"> Vous avez <br> {{ $nbr_Amis }} Amis </h3>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card dash" id="dash_todo" onclick="window.location.href='/Todolist'">
+                    <h3 id="text_dashboard" class="text_dashboard">Vous avez créé <br> {{ $nbr_Todos }} Todolists </h3>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card dash" id="dash_notif">
+                    <h3 id="text_dashboard" class="text_dashboard">{{ $nbr_notif }} notifications <br> en attente </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
                 <div class="card" id="home_liste_todo">
                         <div id="header_todo_acceuil">
                             <span id="titre_todolist_acceuil"> Liste de tes Todolist: </span>
@@ -21,21 +39,18 @@
                                         </form>
                                     </div>
                                     <div class ="Delete_todolist">
-                                        <i class="delete_todo"><i class="material-icons"  id="btn-task" id="icon_notif" onclick="delete_todo('{{$Todo->id}}')">delete</i></i>
+                                        <i class="delete_todo" id="trash_btn"><i class="material-icons"  id="btn-task" id="icon_notif" onclick="delete_todo('{{$Todo->id}}')">delete</i></i>
                                     </div>
                                 </div>
-                               
                             @endforeach
                 </div>
-            </div>
-        </div>
-    </div>
+</div>
 
 @endsection
 
 <script >
    function delete_todo(id){
-    
+
     $.ajax({
             type: 'post',
             url: '/delete_todo',

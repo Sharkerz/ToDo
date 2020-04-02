@@ -11,6 +11,10 @@
     user-select: none; /* Propriété standard */
 }
 
+#div_amis::-webkit-scrollbar {
+    display: none;
+}
+
 /*Ajouter un ami */
 #div_add_friend form{
     display: flex;
