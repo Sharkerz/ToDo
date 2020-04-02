@@ -45,7 +45,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 1.2em;
-    visibility: hidden;
 }
 
 /* Liste des amis */

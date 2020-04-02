@@ -22,7 +22,7 @@
             </form>
 
             <!-- Alert ami success demande ami -->
-            <div class="alert alert-success" id="alert_success_friend" role="alert">
+            <div class="alert alert-success collapse" id="alert_success_friend" role="alert">
                 Votre demande à bien été envoyé, vous devez attendre que la personne accepte votre demande d'ami.
             </div>
 
