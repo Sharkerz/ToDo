@@ -122,7 +122,6 @@ $(document).ready(function () {
             '</div>',
         )
         $('.item').on('click','.form-data',(function (){
-            console.log('tetet');
             id_form = $(this).attr('id');
             recu_permissions =  $(this).children('.permissions').attr('value');
             document.getElementById('create_task').innerHTML= '';
