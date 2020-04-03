@@ -182,6 +182,7 @@ $(document).ready(function () {
                             additional_content = '';
 
                             if(recu_permissions != 'read'){
+                                classDiv = "update_task task_todo";
                                 if(finished[element] =='0'  ){
                                     container = document.getElementById('tasks_inprogress')
                                     Task_progres = "Taches en Cours";
@@ -196,6 +197,7 @@ $(document).ready(function () {
                             }
                             else
                             {
+                                classDiv = "task_todo";
                                 if(finished[element] =='0'  ){
                                     container = document.getElementById('tasks_inprogress');
                                     Task_progres = "Taches en Cours";
@@ -205,7 +207,7 @@ $(document).ready(function () {
                                     Task_progres = "Taches terminées";
                                 }
                             }
-                            container.innerHTML +='<div class="update_task task_todo" data-id="'+element+'">'+
+                            container.innerHTML +='<div class="'+classDiv+'" data-id="'+element+'">'+
                                 '<form class="form-data" id="tasks-'+ element +'" method="post" >'+
                                 '<p class="todolist_element">'+ contenu[element]+'</p>'+additional_content+
                                 '<input class="id" name="id_task" value="'+element+'" type="text" hidden>'+
